@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>発注方法 | heal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:"Noto Sans JP",sans-serif;
+  background:#f2f2f2;
+  color:#333;
+  line-height:1.7;
+}
+
+header{
+  background:#3a3a3a;
+  color:#fff;
+  padding:20px;
+  text-align:center;
+}
+
+.container{
+  max-width:1000px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:15px;
+  text-decoration:none;
+  color:#555;
+  font-size:14px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+.tab{
+  padding:10px 18px;
+  background:#ddd;
+  border-radius:8px 8px 0 0;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.tab:hover{
+  background:#cfcfcf;
+}
+
+.tab.active{
+  background:#3a3a3a;
+  color:#fff;
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+.block{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.block h2{
+  margin-top:0;
+  font-size:20px;
+  border-left:4px solid #3a3a3a;
+  padding-left:10px;
+}
+
+.step{
+  margin-top:25px;
+}
+
+.step-title{
+  font-weight:600;
+  margin-bottom:10px;
+  font-size:15px;
+}
+
+.image-box{
+  margin-top:10px;
+  text-align:center;
+}
+
+.image-box img{
+  width:100%;
+  max-width:900px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.note{
+  margin-top:10px;
+  padding:12px;
+  background:#fff3cd;
+  border-left:4px solid #ffcc00;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.danger{
+  margin-top:10px;
+  padding:12px;
+  background:#ffe5e5;
+  border-left:4px solid #ff4d4d;
+  border-radius:6px;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  font-size:12px;
+  color:#888;
+  margin:40px 0 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>発注方法マニュアル</h1>
+</header>
+
+<div class="container">
+
+  <a href="index.html" class="back">← 戻る</a>
+
+  <!-- タブ -->
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0)">発注前確認</div>
+    <div class="tab" onclick="showTab(1)">発注方法</div>
+    <div class="tab" onclick="showTab(2)">納品確認</div>
+    <div class="tab" onclick="showTab(3)">在庫管理</div>
+  </div>
+
+  <!-- タブ① -->
+  <div class="tab-content active">
+
+    <div class="block">
+      <h2>発注前確認</h2>
+
+      <div class="step">
+        <div class="step-title">
+          ① 在庫数を確認
+        </div>
+
+        <p>
+          在庫状況を確認し、必要数を把握してください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order01.png" alt="発注前確認1">
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">
+          ② 発注基準を確認
+        </div>
+
+        <p>
+          発注タイミング・最低在庫数を確認してください。
+        </p>
+
+        <div class="note">
+          商品によって発注基準が異なるため注意してください。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- タブ② -->
+  <div class="tab-content">
+
+    <div class="block">
+      <h2>発注方法</h2>
+
+      <div class="step">
+        <div class="step-title">
+          ① 発注サイトを開く
+        </div>
+
+        <p>
+          指定の発注サイトへログインしてください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order02.png" alt="発注方法1">
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">
+          ② 商品・数量を入力
+        </div>
+
+        <p>
+          必要商品と数量を確認し入力してください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order03.png" alt="発注方法2">
+        </div>
+      </div>
+
+      <div class="danger">
+        発注確定前に数量間違いが無いか必ず確認してください。
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- タブ③ -->
+  <div class="tab-content">
+
+    <div class="block">
+      <h2>納品確認</h2>
+
+      <div class="step">
+        <div class="step-title">
+          ① 納品内容を確認
+        </div>
+
+        <p>
+          納品書と商品数が一致しているか確認してください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order04.png" alt="納品確認1">
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">
+          ② 所定位置へ格納
+        </div>
+
+        <p>
+          商品ごとに指定場所へ保管してください。
+        </p>
+
+        <div class="note">
+          使用期限・ロット番号確認も忘れずにお願いします。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- タブ④ -->
+  <div class="tab-content">
+
+    <div class="block">
+      <h2>在庫管理</h2>
+
+      <div class="step">
+        <div class="step-title">
+          ① Excelへ入力
+        </div>
+
+        <p>
+          発注・納品後は在庫管理表へ入力してください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order05.png" alt="在庫管理1">
+        </div>
+      </div>
+
+      <div class="danger">
+        入力漏れに注意してください。
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © heal Manual
+</footer>
+
+<script>
+function showTab(index){
+
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach((tab, i)=>{
+    tab.classList.toggle("active", i === index);
+  });
+
+  contents.forEach((content, i)=>{
+    content.classList.toggle("active", i === index);
+  });
+
+}
+</script>
+
+</body>
+</html>

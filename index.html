@@ -1,0 +1,204 @@
+<!-- test -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>作業マニュアル | heal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background: #3a3a3a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .section-title {
+      margin: 25px 0 10px;
+      font-size: 16px;
+      color: #555;
+      border-left: 4px solid #3a3a3a;
+      padding-left: 10px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+      gap: 15px;
+      justify-content: start;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      display: block;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #666;
+      margin: 0;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #999;
+      color: white;
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 5px;
+    }
+
+    .new {
+      background: #6c8ef5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>作業マニュアル</h1>
+</header>
+
+<div class="container">
+
+  <!-- 基本業務 -->
+  <div class="section-title">基本業務</div>
+  <div class="grid">
+
+    <a href="reception.html" class="card">
+      <h2>受付対応</h2>
+      <p>新規・既存の来店フローTEST123</p>
+    </a>
+
+    <a href="machine.html" class="card">
+      <h2>機械操作</h2>
+      <p>レプトン / ゴッドクリーナー / ラドン</p>
+    </a>
+
+    <a href="trouble.html" class="card">
+      <h2>トラブル対応</h2>
+      <p>過去クレームと対応例</p>
+    </a>
+
+  </div>
+
+  <!-- 説明・接客 -->
+  <div class="section-title">説明・接客</div>
+  <div class="grid">
+
+    <a href="service.html" class="card">
+      <h2>サービス説明</h2>
+      <p>水素・ゴッドクリーナー・ラドン</p>
+    </a>
+
+  </div>
+
+  <!-- システム・操作 -->
+  <div class="section-title">システム・操作</div>
+  <div class="grid">
+
+    <a href="comingsoon.html" class="card">
+      <span class="badge new">NEW</span>
+      <h2>カミングスーン</h2>
+      <p>使用方法</p>
+    </a>
+
+    <a href="salonboard.html" class="card">
+      <h2>サロンボード</h2>
+      <p>予約管理の操作方法</p>
+    </a>
+
+    <a href="cashier.html" class="card">
+      <h2>レジ締め</h2>
+      <p>締め作業の手順</p>
+    </a>
+
+    <a href="order.html" class="card">
+      <h2>発注方法</h2>
+      <p>仕入れ・注文手順</p>
+    </a>
+
+  </div>
+
+  <!-- データ管理 -->
+  <div class="section-title">データ管理</div>
+  <div class="grid">
+
+    <a href="excel.html" class="card">
+      <h2>Excel入力</h2>
+      <p>チケット・顧客・売上管理</p>
+    </a>
+
+  </div>
+
+  <!-- その他 -->
+  <div class="section-title">その他</div>
+  <div class="grid">
+
+    <a href="other.html" class="card">
+      <h2>その他</h2>
+      <p>イレギュラー・補足事項</p>
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  © heal Manual
+</footer>
+
+</body>
+</html>

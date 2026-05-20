@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>機械操作 | heal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3a3a3a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      background: #ddd;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .tab.active {
+      background: #3a3a3a;
+      color: white;
+    }
+
+    .content {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .step {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 4px solid #3a3a3a;
+      background: #fafafa;
+      border-radius: 5px;
+    }
+
+    .step h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    .step p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 10px;
+      padding: 10px;
+      background: #fff3cd;
+      border-left: 4px solid #ffcc00;
+      font-size: 13px;
+    }
+
+    .danger {
+      margin-top: 10px;
+      padding: 10px;
+      background: #ffe5e5;
+      border-left: 4px solid #ff4d4d;
+      font-size: 13px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>機械操作</h1>
+</header>
+
+<div class="container">
+
+  <a href="index.html" class="back">← 戻る</a>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('lepton')">レプトン</div>
+    <div class="tab" onclick="showTab('god')">ゴッドクリーナー</div>
+    <div class="tab" onclick="showTab('radon')">ラドン</div>
+  </div>
+
+  <!-- レプトン -->
+  <div id="lepton" class="content active">
+
+    <div class="step">
+      <h3>① 使用前準備</h3>
+      <p>・側面のカギで扉を開ける</p>
+      <p>・左上の電源レバーをON</p>
+    </div>
+
+    <div class="step">
+      <h3>② 操作手順</h3>
+      <p>・緑ボタンでスタート</p>
+      <p>・赤ボタンで停止</p>
+    </div>
+
+    <div class="step">
+      <h3>③ 時間設定</h3>
+      <p>・右から「1分 / 10分 / 1時間 / 10時間」単位で設定</p>
+      <p>・各桁は1〜9で設定</p>
+
+      <div class="note">
+        ・水素発生まで2〜3分かかるため<br>
+        → 1時間の場合「1:03」など少し長めに設定
+      </div>
+    </div>
+
+    <div class="danger">
+      ・スタートボタン押し忘れ
+    </div>
+
+  </div>
+
+  <!-- ゴッドクリーナー -->
+  <div id="god" class="content">
+
+    <div class="step">
+      <h3>① 使用前準備</h3>
+      <p>・液晶側左下あたりに電源ボタンがあるので電源を付ける</p>
+      <p>・水を入れる（少し熱いお風呂くらい）</p>
+    </div>
+
+    <div class="step">
+      <h3>② 操作手順</h3>
+      <p>・📶ボタンを押して塩分濃度を確認（0.5〜0.7%）</p>
+      <p>・停止ボタン（ll）→ スタート（▷）で開始</p>
+
+      <div class="note">
+        ・30分後に音が鳴るため再度▷を押す
+      </div>
+    </div>
+
+    <div class="danger">
+      ・スタートボタン押し忘れ<br>
+      ・糖尿病の方はヒーターOFF
+    </div>
+
+  </div>
+
+  <!-- ラドン -->
+  <div id="radon" class="content">
+
+    <div class="step">
+      <h3>① 使用前準備</h3>
+      <p>・背面の電源ボタンをON（オープン時）</p>
+      <p>・クローズ時にOFF</p>
+    </div>
+
+    <div class="step">
+      <h3>② 注意点</h3>
+      <p>・施術希望がある場合は電源確認を必ず行う</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showTab(type) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+
+  if(type === 'lepton'){
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('lepton').classList.add('active');
+  } else if(type === 'god'){
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.getElementById('god').classList.add('active');
+  } else {
+    document.querySelectorAll('.tab')[2].classList.add('active');
+    document.getElementById('radon').classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>
