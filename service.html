@@ -1,299 +1,72 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- タブ削除 -->
+<!-- レプトン・ゴッド・ラドンの専門説明を削除 -->
 
-  <title>サービス説明 | heal</title>
+<div class="block">
+  <h3>① 初回来店時の説明の流れ</h3>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Noto Sans JP", sans-serif;
-      background: #f2f2f2;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #3a3a3a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-
-    .back {
-      display: inline-block;
-      margin-bottom: 15px;
-      text-decoration: none;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .tabs {
-      display: flex;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .tab {
-      flex: 1;
-      padding: 12px;
-      text-align: center;
-      background: #ddd;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .tab.active {
-      background: #3a3a3a;
-      color: white;
-    }
-
-    .content {
-      display: none;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .content.active {
-      display: block;
-    }
-
-    .block {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #fafafa;
-      border-left: 4px solid #3a3a3a;
-      border-radius: 5px;
-    }
-
-    .block h3 {
-      margin: 0 0 8px;
-      font-size: 15px;
-    }
-
-    .block p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    .note {
-      margin-top: 10px;
-      padding: 10px;
-      background: #fff3cd;
-      border-left: 4px solid #ffcc00;
-      font-size: 13px;
-    }
-
-  </style>
-</head>
-
-<body>
-
-<header>
-  <h1>サービス説明</h1>
-</header>
-
-<div class="container">
-
-  <a href="index.html" class="back">← 戻る</a>
-
-  <div class="tabs">
-    <div class="tab active" onclick="showTab('hydrogen')">レプトンガス</div>
-    <div class="tab" onclick="showTab('god')">ゴッドクリーナー</div>
-    <div class="tab" onclick="showTab('radon')">ラドン</div>
-  </div>
-
-  <!-- レプトンガス -->
-  <div id="hydrogen" class="content active">
-
-    <div class="block">
-      <h3>① レプトンガスとは？</h3>
-      <p>・水素と酸素を同時に吸入し、体内環境を整えるケア</p>
-      <p>・レプトンジェネレーターから発生する高濃度水素ガス</p>
-    </div>
-
-    <div class="block">
-      <h3>② 特徴</h3>
-      <p>・水素約65％ / 酸素約35％の黄金比(OH-が発生する)</p>
-      <p>・水素発生量：約1000ml / 分</p>
-      <p>・体を弱アルカリ性へ導く</p>
-    </div>
-
-    <div class="block">
-      <h3>③ 他との違い</h3>
-      <p>・一般の水素：精製水</p>
-      <p>・レプトン：レプトンウォーター使用</p>
-      <p>・電荷エネルギーを持つ特殊な水を使用</p>
-    </div>
-
-    <div class="block">
-      <h3>④ 体への働き</h3>
-      <p>・悪玉活性酸素の除去</p>
-      <p>・自律神経の調整</p>
-      <p>・血流・疲労・睡眠の質改善</p>
-      <div class="note">
-      ・1時間の吸入で約3万Lの水素水相当
-    </div>
-    </div>
-
-    <div class="block">
-      <h3>⑤ 説明トーク例（重要）</h3>
-      <p>「OH-の働きで、体をアルカリ性に整える特徴があり、さらに腸内の善玉菌を増やすことが研究結果で分かっている。」</p>
-      <p>「一般的な水素と違って専用の水を使っているのが大きな違いです。」</p>
-      <p>「疲れやすさや睡眠の質が気になる方におすすめです。」</p>
-    </div>
-
-    <div class="block">
-      <h3>⑥ よくある質問</h3>
-      <p>Q : </p>
-      <p>A : </p><br>
-      <P>Q : </P> 
-      <p>A : </p>
-    </div>
-
-    <div class="block">
-      <h3>琉球大学での比較実験</h3>
-      <p>試験では3つの企業が提供する装置を使用し、水素が善玉菌の増殖にどのような影響を与えるかが調査されました。
-        その結果、レプトンガスを照射したケースにおいて、他の装置と比較して圧倒的に高い数値で善玉菌が増加したことが報告されています。
-        この内容は、特定の水素発生技術が持つ生物学的な優位性を強調するものです。</p>
-    </div>
-
-  </div>
-
-  <!-- ゴッドクリーナー -->
-  <div id="god" class="content">
-
-    <div class="block">
-      <h3>① ゴッドクリーナーとは？</h3>
-      <p>・足湯型のデトックス機器</p>
-      <P>仕組みは生体電流（体内電流）を電極棒で促進し、足裏の汗腺から汗として老廃物を排出、電極棒で電気分解を行い、出ているものによって見え方が変わって浮き出てくる</P>
-    </div>
-
-    <div class="block">
-      <h3>② 期待できること</h3>
-      <p>・老廃物排出サポート</p>
-      <p>・むくみ改善</p>
-      <p>・血流促進</p>
-    </div>
-
-    <div class="block">
-      <h3>③ 特徴</h3>
-      <p>・水の色が変化する</p>
-      <p>・視覚的に変化が分かる</p>
-    </div>
-
-    <div class="block">
-      <h3>④ 説明トーク例</h3>
-      <p>「日頃、排出が追い付いていない老廃物を追加でデトックスします」</p>
-      <p>「老廃物の排出をサポートする機械です」</p>
-      <p>「高濃度水素フットバスなので、足から経皮吸収で水素を体内に取り込んでいます」</p>
-    </div>
-
-    <div class="block">
-      <h3>⑤ よくある質問</h3>
-      <p>Q : 透明になることはあるんですか？</p>
-      <p>A : ないです。透明＝デトックス出来ていない。</p><br>
-      <P>Q : どれくらいの頻度でやった方がいいですか？</P> 
-      <p>A : もちろん毎日できれば、それに越したことはありませんが、そうもいかないので、2週間～1ヵ月に1回。溜まったら出すイメージで良いかなと思います。</p>
-    </div>
-
-    <div class="block">
-      <h3>排出された老廃物</h3>
-      <p>泡 : 添加物 / 石油系</p>
-
-      <p>黒い塊 : 重金属</p>
-      <p>茶色いもや : 小麦 / 菌類</p>
-      <p>深緑 : 古い老廃物 / 胆汁</p>
-</div>
-    
-      <div class="block">
-      <h3>その他</h3>
-      <p>出にくい人の特徴</p>
-      <p>内臓が冷えている / 自律神経が乱れている</p>
-      <p>・内臓の冷えは冷たい飲み物をよく飲む、エアコンの効いた部屋に長時間いるなど</p>
-      <P>・自律神経の乱れは、特に季節の変わり目の寒暖差やストレスが原因となる</P>
-    </div>
-
-  </div>
-
-  <!-- ラドン -->
-  <div id="radon" class="content">
-
-    <div class="block">
-      <h3>① ラドンとは？</h3>
-      <p>・ラジウム鉱石から発生する無色、無臭の自然放射性貴ガス</p>
-      <p>・ラドン温泉は「吸う温泉」「奇跡の湯」「万病の湯」とも呼ばれる</p>
-    </div>
-
-    <div class="block">
-      <h3>② 特徴</h3>
-      <p>・呼吸により吸収され全身へ巡る</p>
-      <p>・細胞に刺激を与える = ホルミシス効果</p>
-      <P>・衣類や紙、皮膚すら通さないので呼吸で取り込むしかない</p>
-    </div>
-
-    <div class="block">
-      <h3>③ 体への働き</h3>
-      <p>・細胞活性化</p>
-      <p>・免疫・自律神経の調整</p>
-      <p>・抗酸化機能の向上</p>
-    </div>
-
-    <div class="block">
-      <h3>④ ホルミシス効果</h3>
-      <p>・微量の刺激で体の防御・修復機能が高まる反応</p>
-      <p>・「適度な刺激」がポイント</p>
-    </div>
-
-    <div class="block">
-      <h3>⑤ 注意点</h3>
-      <p>・だるさを感じる場合あり（好転反応）</p>
-      <div class="note">
-      ・ラドン後に水素吸入が効果的（活性酸素ケア）
-    </div>
-    </div>
-
-    <div class="block">
-      <h3>⑥ 説明トーク例（重要）</h3>
-      <p>「ラドン吸引後は活性酸素が発生するため、レプトンガス吸引をすることでバランスを整えていきます」</p>
-      <p>「個人差はあるが、一度に1時間程度の吸引が限界」</p>
-      <p>「放射線を発しているが、医療で使われている機械より濃度は低いので問題ありません」</p>
-    </div>
-
-  </div>
-
+  <p>1. カウンセリング</p>
+  <p>2. お悩み確認</p>
+  <p>3. サービス提案</p>
+  <p>4. 注意事項説明</p>
+  <p>5. ご案内</p>
 </div>
 
-<script>
-function showTab(type) {
-  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+<div class="block">
+  <h3>② 接客時の基本</h3>
 
-  if(type === 'hydrogen'){
-    document.querySelectorAll('.tab')[0].classList.add('active');
-    document.getElementById('hydrogen').classList.add('active');
-  } else if(type === 'god'){
-    document.querySelectorAll('.tab')[1].classList.add('active');
-    document.getElementById('god').classList.add('active');
-  } else {
-    document.querySelectorAll('.tab')[2].classList.add('active');
-    document.getElementById('radon').classList.add('active');
-  }
-}
-</script>
+  <p>・否定しない</p>
+  <p>・医療断定をしない</p>
+  <p>・不安を煽らない</p>
+  <p>・お客様の悩みに寄り添う</p>
+</div>
 
-</body>
-</html>
+<div class="block">
+  <h3>③ NGワード</h3>
+
+  <p>× 治る</p>
+  <p>× 必ず改善する</p>
+  <p>× 癌に効く</p>
+  <p>× 絶対デトックスできる</p>
+
+  <div class="note">
+    医療行為・治療と誤認される表現は禁止
+  </div>
+</div>
+
+<div class="block">
+  <h3>④ 推奨表現</h3>
+
+  <p>○ 健康維持目的</p>
+  <p>○ リラックス目的</p>
+  <p>○ 体感には個人差があります</p>
+  <p>○ 健康習慣として利用される方が多いです</p>
+</div>
+
+<div class="block">
+  <h3>⑤ よくある質問</h3>
+
+  <p>Q : どれくらい通えばいい？</p>
+  <p>A : お身体の状態や目的によって異なります。</p>
+
+  <br>
+
+  <p>Q : 薬を飲んでいても利用できますか？</p>
+  <p>A : ご不安な場合は主治医へご相談ください。</p>
+</div>
+
+<div class="block">
+  <h3>⑥ 提案の考え方</h3>
+
+  <p>・疲労感 → レプトン</p>
+  <p>・むくみ → ゴッドクリーナー</p>
+  <p>・睡眠 / 自律神経 → ラドン</p>
+</div>
+
+<div class="block">
+  <h3>⑦ 次回提案・クロージング</h3>
+
+  <p>・無理な営業はしない</p>
+  <p>・体感確認を行う</p>
+  <p>・次回来店目安を伝える</p>
+  <p>・LINE登録や予約方法を案内</p>
+</div>
