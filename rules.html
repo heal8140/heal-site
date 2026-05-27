@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>ルール | heal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:"Noto Sans JP",sans-serif;
+      background:#f2f2f2;
+      color:#333;
+      line-height:1.8;
+    }
+
+    header{
+      background:#3a3a3a;
+      color:#fff;
+      padding:20px;
+      text-align:center;
+    }
+
+    header h1{
+      margin:0;
+      font-size:20px;
+      font-weight:600;
+    }
+
+    .container{
+      max-width:900px;
+      margin:20px auto;
+      padding:0 15px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-bottom:15px;
+      text-decoration:none;
+      color:#555;
+      font-size:14px;
+    }
+
+    .block{
+      background:#fff;
+      padding:22px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom:20px;
+    }
+
+    .block h2{
+      margin-top:0;
+      margin-bottom:18px;
+      font-size:20px;
+      border-left:4px solid #3a3a3a;
+      padding-left:10px;
+    }
+
+    .rule{
+      margin-bottom:22px;
+      padding-bottom:18px;
+      border-bottom:1px solid #e5e5e5;
+    }
+
+    .rule:last-child{
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+
+    .rule h3{
+      margin:0 0 10px;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .rule p{
+      margin:5px 0;
+      font-size:14px;
+    }
+
+    .note{
+      margin-top:10px;
+      background:#fff3cd;
+      border-left:4px solid #ffcc00;
+      padding:12px;
+      border-radius:6px;
+      font-size:13px;
+    }
+
+    .danger{
+      margin-top:10px;
+      background:#ffe5e5;
+      border-left:4px solid #ff4d4d;
+      padding:12px;
+      border-radius:6px;
+      font-size:13px;
+    }
+
+    @media(max-width:768px){
+
+      .block{
+        padding:18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>店内ルール</h1>
+</header>
+
+<div class="container">
+
+  <a href="index.html" class="back">
+    ← 戻る
+  </a>
+
+  <!-- 基本 -->
+  <div class="block">
+
+    <h2>基本ルール</h2>
+
+    <div class="rule">
+
+      <h3>① 挨拶・接客</h3>
+
+      <p>
+        ・お客様来店時は必ず挨拶を行う
+      </p>
+
+      <p>
+        ・施術中でも気付いた場合は必ず反応する
+      </p>
+
+      <p>
+        ・無愛想な対応にならないよう注意する
+      </p>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 店内美化</h3>
+
+      <p>
+        ・ゴミや髪の毛を見つけた場合はすぐに清掃する
+      </p>
+
+      <p>
+        ・使用後の席は必ず整える
+      </p>
+
+      <p>
+        ・タオルや備品は乱雑に置かない
+      </p>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>③ 私語について</h3>
+
+      <p>
+        ・スタッフ同士の私語は最小限にする
+      </p>
+
+      <p>
+        ・お客様が不快に感じる内容は避ける
+      </p>
+
+      <div class="danger">
+        ・大声で笑う、騒ぐなど店内の雰囲気を壊す行為は禁止
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 予約 -->
+  <div class="block">
+
+    <h2>予約・受付ルール</h2>
+
+    <div class="rule">
+
+      <h3>① 予約確認</h3>
+
+      <p>
+        ・施術前に必ず予約内容を確認する
+      </p>
+
+      <p>
+        ・コース、時間、追加メニュー確認を徹底する
+      </p>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② イレギュラー対応</h3>
+
+      <p>
+        ・判断が難しい場合は必ず確認を取る
+      </p>
+
+      <p>
+        ・独断での対応変更は禁止
+      </p>
+
+      <div class="note">
+        ・過去対応ではなく、現在のルールを優先する
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 機械 -->
+  <div class="block">
+
+    <h2>機械・施術ルール</h2>
+
+    <div class="rule">
+
+      <h3>① 機械確認</h3>
+
+      <p>
+        ・施術前に電源・動作確認を行う
+      </p>
+
+      <p>
+        ・スタートボタン押し忘れに注意
+      </p>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 水素機械</h3>
+
+      <p>
+        ・水交換日を必ず守る
+      </p>
+
+      <p>
+        ・異常音やエラーがある場合は報告する
+      </p>
+
+      <div class="danger">
+        ・水が無い状態で使用しない
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>③ ゴッドクリーナー</h3>
+
+      <p>
+        ・糖尿病の方はヒーターOFF
+      </p>
+
+      <p>
+        ・塩分濃度確認を行う
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- SNS -->
+  <div class="block">
+
+    <h2>SNS・情報管理</h2>
+
+    <div class="rule">
+
+      <h3>① 個人情報</h3>
+
+      <p>
+        ・顧客情報を外部へ漏らさない
+      </p>
+
+      <p>
+        ・予約画面や顧客情報の写真撮影は禁止
+      </p>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② SNS投稿</h3>
+
+      <p>
+        ・店内写真投稿時は写り込みに注意する
+      </p>
+
+      <p>
+        ・許可無しでお客様を掲載しない
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
