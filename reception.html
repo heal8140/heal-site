@@ -19,7 +19,7 @@
       font-family:"Noto Sans JP",sans-serif;
       background:#f2f2f2;
       color:#333;
-      line-height:1.7;
+      line-height:1.8;
     }
 
     header{
@@ -37,14 +37,14 @@
     }
 
     .container{
-      max-width:1000px;
+      max-width:900px;
       margin:25px auto;
       padding:0 15px;
     }
 
     .back{
       display:inline-block;
-      margin-bottom:15px;
+      margin-bottom:18px;
       text-decoration:none;
       color:#555;
       font-size:14px;
@@ -62,17 +62,13 @@
     .tab{
       flex:1;
       min-width:120px;
-      padding:13px;
+      padding:12px;
       text-align:center;
       background:#ddd;
       border-radius:10px;
       cursor:pointer;
       font-weight:600;
       transition:0.2s;
-    }
-
-    .tab:hover{
-      opacity:0.9;
     }
 
     .tab.active{
@@ -84,46 +80,36 @@
 
     .content{
       display:none;
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
 
     .content.active{
       display:block;
     }
 
-    /* ブロック */
-
-    .block{
-      background:#fff;
-      padding:22px;
-      border-radius:14px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom:18px;
-    }
-
-    .block h2{
-      margin:0 0 20px;
-      font-size:22px;
-      border-left:4px solid #3a3a3a;
-      padding-left:10px;
-    }
-
     /* ステップ */
 
     .step{
+      margin-top:28px;
       padding-bottom:22px;
-      margin-bottom:22px;
-      border-bottom:1px solid #ececec;
+      border-bottom:1px solid #e5e5e5;
+    }
+
+    .step:first-child{
+      margin-top:0;
     }
 
     .step:last-child{
-      margin-bottom:0;
-      padding-bottom:0;
       border-bottom:none;
+      padding-bottom:0;
     }
 
     .step h3{
-      margin:0 0 12px;
-      font-size:17px;
+      margin:0 0 14px;
+      font-size:18px;
       font-weight:600;
       color:#222;
     }
@@ -136,7 +122,7 @@
     }
 
     .step p{
-      margin:5px 0;
+      margin:6px 0;
       font-size:14px;
       color:#444;
     }
@@ -144,7 +130,7 @@
     /* ノート */
 
     .note{
-      margin-top:12px;
+      margin-top:14px;
       padding:14px;
       background:#fff3cd;
       border-left:4px solid #ffcc00;
@@ -153,7 +139,7 @@
     }
 
     .danger{
-      margin-top:12px;
+      margin-top:14px;
       padding:14px;
       background:#ffe5e5;
       border-left:4px solid #ff4d4d;
@@ -171,8 +157,8 @@
         width:100%;
       }
 
-      .block{
-        padding:18px;
+      .content{
+        padding:20px;
       }
 
     }
@@ -199,95 +185,98 @@
   <!-- 新規 -->
   <div id="new" class="content active">
 
-    <div class="block">
+    <div class="step">
+      <h3>① 予約者本人確認・予約内容確認</h3>
 
-      <div class="step">
-        <h3>① 予約者本人確認・予約内容確認</h3>
-        <p>・口頭でお名前を確認</p>
-        <p>・当日の予約内容を確認</p>
+      <p>・口頭でお名前を確認</p>
+      <p>・当日の予約内容を確認</p>
+    </div>
+
+    <div class="step">
+      <h3>② カウンセリングシート記入</h3>
+
+      <div class="danger">
+        ※同意事項は必ず確認させる<br>
+        ・レプリコンワクチン接種者は入店不可<br>
+        ・ペースメーカー利用者はG使用不可<br>
+        ・妊娠・授乳中はG使用不可
       </div>
 
-      <div class="step">
-        <h3>② カウンセリングシート記入</h3>
+      <div class="note">
+        ・記入中にL・Gの準備を進める<br>
+        ・男性スタッフNG（足洗い）の場合 → カミングスーンの顧客特性に記載
+      </div>
+    </div>
 
-        <div class="danger">
-          ※同意事項は必ず確認させる<br>
-          ・レプリコンワクチン接種者は入店不可<br>
-          ・ペースメーカー利用者はG使用不可<br>
-          ・妊娠・授乳中はG使用不可
-        </div>
+    <div class="step">
+      <h3>③ 席への案内・準備</h3>
 
-        <div class="note">
-          ・記入中にL・Gの準備を進める<br>
-          ・男性スタッフNG（足洗い）の場合 → カミングスーンの顧客特性に記載
-        </div>
+      <p>・お手洗いの確認</p>
+      <p>・カミングスーンで指定された席へ案内</p>
+
+      <h4>◆レプトンガス</h4>
+
+      <p>・水素発生確認後にカニューラ接続</p>
+      <p>└ビーカーにオレンジ管 → 視覚確認（ブクブク）</p>
+
+      <div class="danger">
+        ・時間設定ミス注意
       </div>
 
-      <div class="step">
-        <h3>③ 席への案内・準備</h3>
+      <h4>◆ゴッドクリーナー</h4>
 
-        <p>・お手洗いの確認</p>
-        <p>・カミングスーンで指定された席へ案内</p>
+      <p>・ひざ掛け＋月型クッションを渡す</p>
+      <p>└ひざ掛けは保温、クッションは腹部保温</p>
 
-        <h4>◆レプトンガス</h4>
-        <p>・水素発生確認後にカニューラ接続</p>
-        <p>└ビーカーにオレンジ管 → 視覚確認（ブクブク）</p>
-
-        <div class="danger">
-          ・時間設定ミス注意
-        </div>
-
-        <h4>◆ゴッドクリーナー</h4>
-        <p>・ひざ掛け＋月型クッションを渡す</p>
-        <p>└ひざ掛けは保温、クッションは腹部保温</p>
-
-        <div class="danger">
-          ・Gのボタン押し忘れ注意
-        </div>
-
-        <div class="note">
-          ・飲み物を確認（無料 / 有料）<br>
-          ・別スタッフが提供しダブルチェック<br>
-          ・名前ではなく席番号で呼ぶ
-        </div>
-
+      <div class="danger">
+        ・Gのボタン押し忘れ注意
       </div>
 
-      <div class="step">
-        <h3>④ L&Gの説明</h3>
-        <p>・施術内容 / 注意点の説明</p>
-        <p>・短い説明 or 長い説明か確認</p>
-        <p>・長い説明の場合は資料を使用</p>
+      <div class="note">
+        ・飲み物を確認（無料 / 有料）<br>
+        ・別スタッフが提供しダブルチェック<br>
+        ・名前ではなく席番号で呼ぶ
       </div>
 
-      <div class="step">
-        <h3>⑤ 結果の説明と片付け</h3>
-        <p>・排出物の説明</p>
-        <p>・足を洗い / 拭く</p>
-        <p>・席の片付け / 清掃</p>
+    </div>
 
-        <div class="note">
-          ※アルコール消毒・頭シート交換を必ず実施
-        </div>
+    <div class="step">
+      <h3>④ L&Gの説明</h3>
+
+      <p>・施術内容 / 注意点の説明</p>
+      <p>・短い説明 or 長い説明か確認</p>
+      <p>・長い説明の場合は資料を使用</p>
+    </div>
+
+    <div class="step">
+      <h3>⑤ 結果の説明と片付け</h3>
+
+      <p>・排出物の説明</p>
+      <p>・足を洗い / 拭く</p>
+      <p>・席の片付け / 清掃</p>
+
+      <div class="note">
+        ※アルコール消毒・頭シート交換を必ず実施
       </div>
+    </div>
 
-      <div class="step">
-        <h3>⑤ お会計</h3>
-        <p>・現金</p>
-        <p>・クレジットカード（Airペイ）</p>
-        <p>└タッチ決済は金額によりサインが必要な場合あり</p>
-        <p>・iD</p>
-        <p>・交通系IC（PASMO / Suica）</p>
-        <p>・QUICPay</p>
-        <p>・QR決済（PayPayなど）</p>
-      </div>
+    <div class="step">
+      <h3>⑥ お会計</h3>
 
-      <div class="step">
-        <h3>⑥ プラン案内</h3>
-        <p>・現在のプラン案内を行う</p>
-        <p>・説明タイミング：施術説明時 or 会計時（おまかせ）</p>
-      </div>
+      <p>・現金</p>
+      <p>・クレジットカード（Airペイ）</p>
+      <p>└タッチ決済は金額によりサインが必要な場合あり</p>
+      <p>・iD</p>
+      <p>・交通系IC（PASMO / Suica）</p>
+      <p>・QUICPay</p>
+      <p>・QR決済（PayPayなど）</p>
+    </div>
 
+    <div class="step">
+      <h3>⑦ プラン案内</h3>
+
+      <p>・現在のプラン案内を行う</p>
+      <p>・説明タイミング：施術説明時 or 会計時（おまかせ）</p>
     </div>
 
   </div>
@@ -295,51 +284,53 @@
   <!-- 既存 -->
   <div id="repeat" class="content">
 
-    <div class="block">
+    <div class="step">
+      <h3>① 来店対応</h3>
 
-      <div class="step">
-        <h3>① 来店対応</h3>
-        <p>・挨拶 / 名前確認</p>
+      <p>・挨拶 / 名前確認</p>
+    </div>
+
+    <div class="step">
+      <h3>② 予約確認</h3>
+
+      <p>・メニュー / 時間確認</p>
+    </div>
+
+    <div class="step">
+      <h3>③ 席案内</h3>
+
+      <p>・スムーズに案内</p>
+      <p>・飲み物の確認（席に案内をしてから聞いてください）</p>
+    </div>
+
+    <div class="step">
+      <h3>④ 結果の説明と片付け</h3>
+
+      <p>・排出物の説明（必要に応じて）</p>
+      <p>・足を洗い / 拭く</p>
+      <p>・席の片付け・清掃</p>
+
+      <div class="note">
+        ※アルコール消毒・頭シート交換を必ず実施
       </div>
+    </div>
 
-      <div class="step">
-        <h3>② 予約確認</h3>
-        <p>・メニュー / 時間確認</p>
-      </div>
+    <div class="step">
+      <h3>⑤ お会計</h3>
 
-      <div class="step">
-        <h3>③ 席案内</h3>
-        <p>・スムーズに案内</p>
-        <p>・飲み物の確認（席に案内をしてから聞いてください）</p>
-      </div>
+      <p>・現金</p>
+      <p>・クレジットカード（Airペイ）</p>
+      <p>└タッチ決済は金額によりサインが必要な場合あり</p>
+      <p>・iD</p>
+      <p>・交通系IC（PASMO / Suica）</p>
+      <p>・QUICPay</p>
+      <p>・QR決済（PayPayなど）</p>
+    </div>
 
-      <div class="step">
-        <h3>④ 結果の説明と片付け</h3>
-        <p>・排出物の説明（必要に応じて）</p>
-        <p>・足を洗い / 拭く</p>
-        <p>・席の片付け・清掃</p>
+    <div class="step">
+      <h3>⑥ プラン案内</h3>
 
-        <div class="note">
-          ※アルコール消毒・頭シート交換を必ず実施
-        </div>
-      </div>
-
-      <div class="step">
-        <h3>⑥ お会計</h3>
-        <p>・現金</p>
-        <p>・クレジットカード（Airペイ）</p>
-        <p>└タッチ決済は金額によりサインが必要な場合あり</p>
-        <p>・iD</p>
-        <p>・交通系IC（PASMO / Suica）</p>
-        <p>・QUICPay</p>
-        <p>・QR決済（PayPayなど）</p>
-      </div>
-
-      <div class="step">
-        <h3>⑦ プラン案内</h3>
-        <p>・現在のプラン案内を行う（プラン案内が終わっていない方に限る）</p>
-      </div>
-
+      <p>・現在のプラン案内を行う（プラン案内が終わっていない方に限る）</p>
     </div>
 
   </div>
@@ -347,16 +338,13 @@
   <!-- 予約受付時 -->
   <div id="booking" class="content">
 
-    <div class="block">
+    <div class="step">
+      <h3>① 次回来店日を確認</h3>
 
-      <div class="step">
-        <h3>① 次回来店日を確認</h3>
-        <p>・予約受付シートに記入する。</p>
-        <p>・復唱し、確認する。</p>
-        <p>・予約カードに記入する。</p>
-        <p>・予約カードを渡す。</p>
-      </div>
-
+      <p>・予約受付シートに記入する。</p>
+      <p>・復唱し、確認する。</p>
+      <p>・予約カードに記入する。</p>
+      <p>・予約カードを渡す。</p>
     </div>
 
   </div>
