@@ -31,26 +31,23 @@
 
     header h1{
       margin:0;
-      font-size:22px;
+      font-size:20px;
       font-weight:600;
-      letter-spacing:1px;
     }
 
     .container{
       max-width:900px;
-      margin:25px auto;
+      margin:20px auto;
       padding:0 15px;
     }
 
     .back{
       display:inline-block;
-      margin-bottom:18px;
+      margin-bottom:15px;
       text-decoration:none;
       color:#555;
       font-size:14px;
     }
-
-    /* タブ */
 
     .tabs{
       display:flex;
@@ -60,13 +57,11 @@
     }
 
     .tab{
-      flex:1;
-      min-width:120px;
-      padding:12px;
-      text-align:center;
+      padding:10px 18px;
       background:#ddd;
-      border-radius:10px;
+      border-radius:8px;
       cursor:pointer;
+      font-size:14px;
       font-weight:600;
       transition:0.2s;
     }
@@ -76,89 +71,90 @@
       color:#fff;
     }
 
-    /* コンテンツ */
-
     .content{
       display:none;
-      background:#fff;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
 
     .content.active{
       display:block;
     }
 
-    /* ステップ */
+    .block{
+      background:#fff;
+      padding:22px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom:20px;
+    }
 
-    .step{
-      margin-top:28px;
-      padding-bottom:22px;
+    .block h2{
+      margin-top:0;
+      margin-bottom:18px;
+      font-size:20px;
+      border-left:4px solid #3a3a3a;
+      padding-left:10px;
+    }
+
+    .rule{
+      margin-bottom:22px;
+      padding-bottom:18px;
       border-bottom:1px solid #e5e5e5;
     }
 
-    .step:first-child{
-      margin-top:0;
-    }
-
-    .step:last-child{
-      border-bottom:none;
+    .rule:last-child{
+      margin-bottom:0;
       padding-bottom:0;
+      border-bottom:none;
     }
 
-    .step h3{
-      margin:0 0 14px;
-      font-size:18px;
+    .rule h3{
+      margin:0 0 10px;
+      font-size:16px;
       font-weight:600;
-      color:#222;
     }
 
-    .step h4{
-      margin:18px 0 8px;
-      font-size:15px;
-      font-weight:600;
-      color:#444;
-    }
-
-    .step p{
-      margin:6px 0;
+    .rule h4{
+      margin:15px 0 8px;
       font-size:14px;
-      color:#444;
+      font-weight:600;
     }
 
-    /* ノート */
+    .rule p{
+      margin:5px 0;
+      font-size:14px;
+    }
 
     .note{
-      margin-top:14px;
-      padding:14px;
+      margin-top:10px;
       background:#fff3cd;
       border-left:4px solid #ffcc00;
-      border-radius:8px;
+      padding:12px;
+      border-radius:6px;
       font-size:13px;
     }
 
     .danger{
-      margin-top:14px;
-      padding:14px;
+      margin-top:10px;
       background:#ffe5e5;
       border-left:4px solid #ff4d4d;
-      border-radius:8px;
+      padding:12px;
+      border-radius:6px;
       font-size:13px;
     }
 
     @media(max-width:768px){
 
+      .block{
+        padding:18px;
+      }
+
       .tabs{
-        flex-direction:column;
+        gap:8px;
       }
 
       .tab{
-        width:100%;
-      }
-
-      .content{
-        padding:20px;
+        flex:1;
+        text-align:center;
       }
 
     }
@@ -174,109 +170,149 @@
 
 <div class="container">
 
-  <a href="index.html" class="back">← 戻る</a>
+  <a href="index.html" class="back">
+    ← 戻る
+  </a>
 
   <div class="tabs">
-    <div class="tab active" onclick="showTab('new')">新規</div>
-    <div class="tab" onclick="showTab('repeat')">既存</div>
-    <div class="tab" onclick="showTab('booking')">予約受付時</div>
+
+    <div
+      class="tab active"
+      onclick="showTab('new')"
+    >
+      新規
+    </div>
+
+    <div
+      class="tab"
+      onclick="showTab('repeat')"
+    >
+      既存
+    </div>
+
+    <div
+      class="tab"
+      onclick="showTab('booking')"
+    >
+      予約受付時
+    </div>
+
   </div>
 
   <!-- 新規 -->
   <div id="new" class="content active">
 
-    <div class="step">
-      <h3>① 予約者本人確認・予約内容確認</h3>
+    <div class="block">
 
-      <p>・口頭でお名前を確認</p>
-      <p>・当日の予約内容を確認</p>
-    </div>
+      <h2>新規受付</h2>
 
-    <div class="step">
-      <h3>② カウンセリングシート記入</h3>
+      <div class="rule">
 
-      <div class="danger">
-        ※同意事項は必ず確認させる<br>
-        ・レプリコンワクチン接種者は入店不可<br>
-        ・ペースメーカー利用者はG使用不可<br>
-        ・妊娠・授乳中はG使用不可
+        <h3>① 予約者本人確認・予約内容確認</h3>
+
+        <p>・口頭でお名前を確認</p>
+        <p>・当日の予約内容を確認</p>
+
       </div>
 
-      <div class="note">
-        ・記入中にL・Gの準備を進める<br>
-        ・男性スタッフNG（足洗い）の場合 → カミングスーンの顧客特性に記載
-      </div>
-    </div>
+      <div class="rule">
 
-    <div class="step">
-      <h3>③ 席への案内・準備</h3>
+        <h3>② カウンセリングシート記入</h3>
 
-      <p>・お手洗いの確認</p>
-      <p>・カミングスーンで指定された席へ案内</p>
+        <div class="danger">
+          ※同意事項は必ず確認させる<br>
+          ・レプリコンワクチン接種者は入店不可<br>
+          ・ペースメーカー利用者はG使用不可<br>
+          ・妊娠・授乳中はG使用不可
+        </div>
 
-      <h4>◆レプトンガス</h4>
+        <div class="note">
+          ・記入中にL・Gの準備を進める<br>
+          ・男性スタッフNG（足洗い）の場合 → カミングスーンの顧客特性に記載
+        </div>
 
-      <p>・水素発生確認後にカニューラ接続</p>
-      <p>└ビーカーにオレンジ管 → 視覚確認（ブクブク）</p>
-
-      <div class="danger">
-        ・時間設定ミス注意
       </div>
 
-      <h4>◆ゴッドクリーナー</h4>
+      <div class="rule">
 
-      <p>・ひざ掛け＋月型クッションを渡す</p>
-      <p>└ひざ掛けは保温、クッションは腹部保温</p>
+        <h3>③ 席への案内・準備</h3>
 
-      <div class="danger">
-        ・Gのボタン押し忘れ注意
+        <p>・お手洗いの確認</p>
+        <p>・カミングスーンで指定された席へ案内</p>
+
+        <h4>◆レプトンガス</h4>
+
+        <p>・水素発生確認後にカニューラ接続</p>
+        <p>└ビーカーにオレンジ管 → 視覚確認（ブクブク）</p>
+
+        <div class="danger">
+          ・時間設定ミス注意
+        </div>
+
+        <h4>◆ゴッドクリーナー</h4>
+
+        <p>・ひざ掛け＋月型クッションを渡す</p>
+        <p>└ひざ掛けは保温、クッションは腹部保温</p>
+
+        <div class="danger">
+          ・Gのボタン押し忘れ注意
+        </div>
+
+        <div class="note">
+          ・飲み物を確認（無料 / 有料）<br>
+          ・別スタッフが提供しダブルチェック<br>
+          ・名前ではなく席番号で呼ぶ
+        </div>
+
       </div>
 
-      <div class="note">
-        ・飲み物を確認（無料 / 有料）<br>
-        ・別スタッフが提供しダブルチェック<br>
-        ・名前ではなく席番号で呼ぶ
+      <div class="rule">
+
+        <h3>④ L&Gの説明</h3>
+
+        <p>・施術内容 / 注意点の説明</p>
+        <p>・短い説明 or 長い説明か確認</p>
+        <p>・長い説明の場合は資料を使用</p>
+
       </div>
 
-    </div>
+      <div class="rule">
 
-    <div class="step">
-      <h3>④ L&Gの説明</h3>
+        <h3>⑤ 結果の説明と片付け</h3>
 
-      <p>・施術内容 / 注意点の説明</p>
-      <p>・短い説明 or 長い説明か確認</p>
-      <p>・長い説明の場合は資料を使用</p>
-    </div>
+        <p>・排出物の説明</p>
+        <p>・足を洗い / 拭く</p>
+        <p>・席の片付け / 清掃</p>
 
-    <div class="step">
-      <h3>⑤ 結果の説明と片付け</h3>
+        <div class="note">
+          ※アルコール消毒・頭シート交換を必ず実施
+        </div>
 
-      <p>・排出物の説明</p>
-      <p>・足を洗い / 拭く</p>
-      <p>・席の片付け / 清掃</p>
-
-      <div class="note">
-        ※アルコール消毒・頭シート交換を必ず実施
       </div>
-    </div>
 
-    <div class="step">
-      <h3>⑥ お会計</h3>
+      <div class="rule">
 
-      <p>・現金</p>
-      <p>・クレジットカード（Airペイ）</p>
-      <p>└タッチ決済は金額によりサインが必要な場合あり</p>
-      <p>・iD</p>
-      <p>・交通系IC（PASMO / Suica）</p>
-      <p>・QUICPay</p>
-      <p>・QR決済（PayPayなど）</p>
-    </div>
+        <h3>⑥ お会計</h3>
 
-    <div class="step">
-      <h3>⑦ プラン案内</h3>
+        <p>・現金</p>
+        <p>・クレジットカード（Airペイ）</p>
+        <p>└タッチ決済は金額によりサインが必要な場合あり</p>
+        <p>・iD</p>
+        <p>・交通系IC（PASMO / Suica）</p>
+        <p>・QUICPay</p>
+        <p>・QR決済（PayPayなど）</p>
 
-      <p>・現在のプラン案内を行う</p>
-      <p>・説明タイミング：施術説明時 or 会計時（おまかせ）</p>
+      </div>
+
+      <div class="rule">
+
+        <h3>⑦ プラン案内</h3>
+
+        <p>・現在のプラン案内を行う</p>
+        <p>・説明タイミング：施術説明時 or 会計時（おまかせ）</p>
+
+      </div>
+
     </div>
 
   </div>
@@ -284,67 +320,95 @@
   <!-- 既存 -->
   <div id="repeat" class="content">
 
-    <div class="step">
-      <h3>① 来店対応</h3>
+    <div class="block">
 
-      <p>・挨拶 / 名前確認</p>
-    </div>
+      <h2>既存受付</h2>
 
-    <div class="step">
-      <h3>② 予約確認</h3>
+      <div class="rule">
 
-      <p>・メニュー / 時間確認</p>
-    </div>
+        <h3>① 来店対応</h3>
 
-    <div class="step">
-      <h3>③ 席案内</h3>
+        <p>・挨拶 / 名前確認</p>
 
-      <p>・スムーズに案内</p>
-      <p>・飲み物の確認（席に案内をしてから聞いてください）</p>
-    </div>
-
-    <div class="step">
-      <h3>④ 結果の説明と片付け</h3>
-
-      <p>・排出物の説明（必要に応じて）</p>
-      <p>・足を洗い / 拭く</p>
-      <p>・席の片付け・清掃</p>
-
-      <div class="note">
-        ※アルコール消毒・頭シート交換を必ず実施
       </div>
-    </div>
 
-    <div class="step">
-      <h3>⑤ お会計</h3>
+      <div class="rule">
 
-      <p>・現金</p>
-      <p>・クレジットカード（Airペイ）</p>
-      <p>└タッチ決済は金額によりサインが必要な場合あり</p>
-      <p>・iD</p>
-      <p>・交通系IC（PASMO / Suica）</p>
-      <p>・QUICPay</p>
-      <p>・QR決済（PayPayなど）</p>
-    </div>
+        <h3>② 予約確認</h3>
 
-    <div class="step">
-      <h3>⑥ プラン案内</h3>
+        <p>・メニュー / 時間確認</p>
 
-      <p>・現在のプラン案内を行う（プラン案内が終わっていない方に限る）</p>
+      </div>
+
+      <div class="rule">
+
+        <h3>③ 席案内</h3>
+
+        <p>・スムーズに案内</p>
+        <p>・飲み物の確認（席に案内をしてから聞いてください）</p>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>④ 結果の説明と片付け</h3>
+
+        <p>・排出物の説明（必要に応じて）</p>
+        <p>・足を洗い / 拭く</p>
+        <p>・席の片付け・清掃</p>
+
+        <div class="note">
+          ※アルコール消毒・頭シート交換を必ず実施
+        </div>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>⑤ お会計</h3>
+
+        <p>・現金</p>
+        <p>・クレジットカード（Airペイ）</p>
+        <p>└タッチ決済は金額によりサインが必要な場合あり</p>
+        <p>・iD</p>
+        <p>・交通系IC（PASMO / Suica）</p>
+        <p>・QUICPay</p>
+        <p>・QR決済（PayPayなど）</p>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>⑥ プラン案内</h3>
+
+        <p>
+          ・現在のプラン案内を行う（プラン案内が終わっていない方に限る）
+        </p>
+
+      </div>
+
     </div>
 
   </div>
 
-  <!-- 予約受付時 -->
+  <!-- 予約受付 -->
   <div id="booking" class="content">
 
-    <div class="step">
-      <h3>① 次回来店日を確認</h3>
+    <div class="block">
 
-      <p>・予約受付シートに記入する。</p>
-      <p>・復唱し、確認する。</p>
-      <p>・予約カードに記入する。</p>
-      <p>・予約カードを渡す。</p>
+      <h2>予約受付時</h2>
+
+      <div class="rule">
+
+        <h3>① 次回来店日を確認</h3>
+
+        <p>・予約受付シートに記入する</p>
+        <p>・復唱し、確認する</p>
+        <p>・予約カードに記入する</p>
+        <p>・予約カードを渡す</p>
+
+      </div>
+
     </div>
 
   </div>
@@ -355,21 +419,31 @@
 
 function showTab(type){
 
-  document.querySelectorAll('.tab').forEach(tab=>{
-    tab.classList.remove('active');
-  });
+  document
+    .querySelectorAll(".tab")
+    .forEach(tab=>{
 
-  document.querySelectorAll('.content').forEach(content=>{
-    content.classList.remove('active');
-  });
+      tab.classList.remove("active");
+
+    });
 
   document
-    .querySelector(`.tab[onclick="showTab('${type}')"]`)
-    .classList.add('active');
+    .querySelectorAll(".content")
+    .forEach(content=>{
+
+      content.classList.remove("active");
+
+    });
+
+  document
+    .querySelector(
+      `.tab[onclick="showTab('${type}')"]`
+    )
+    .classList.add("active");
 
   document
     .getElementById(type)
-    .classList.add('active');
+    .classList.add("active");
 
 }
 
