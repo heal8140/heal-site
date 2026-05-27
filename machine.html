@@ -9,106 +9,149 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Noto Sans JP", sans-serif;
-      background: #f2f2f2;
-      color: #333;
-      line-height: 1.6;
+
+    *{
+      box-sizing:border-box;
     }
 
-    header {
-      background: #3a3a3a;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    body{
+      margin:0;
+      font-family:"Noto Sans JP",sans-serif;
+      background:#f2f2f2;
+      color:#333;
+      line-height:1.8;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
+    header{
+      background:#3a3a3a;
+      color:#fff;
+      padding:20px;
+      text-align:center;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 15px;
+    header h1{
+      margin:0;
+      font-size:20px;
+      font-weight:600;
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 15px;
-      text-decoration: none;
-      color: #555;
-      font-size: 14px;
+    .container{
+      max-width:900px;
+      margin:20px auto;
+      padding:0 15px;
     }
 
-    .tabs {
-      display: flex;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      overflow: hidden;
+    .back{
+      display:inline-block;
+      margin-bottom:15px;
+      text-decoration:none;
+      color:#555;
+      font-size:14px;
     }
 
-    .tab {
-      flex: 1;
-      padding: 12px;
-      text-align: center;
-      background: #ddd;
-      cursor: pointer;
-      font-weight: 600;
+    .tabs{
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
     }
 
-    .tab.active {
-      background: #3a3a3a;
-      color: white;
+    .tab{
+      flex:1;
+      padding:12px 10px;
+      text-align:center;
+      background:#ddd;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      transition:0.2s;
     }
 
-    .content {
-      display: none;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    .tab.active{
+      background:#3a3a3a;
+      color:#fff;
     }
 
-    .content.active {
-      display: block;
+    .content{
+      display:none;
     }
 
-    .step {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-left: 4px solid #3a3a3a;
-      background: #fafafa;
-      border-radius: 5px;
+    .content.active{
+      display:block;
     }
 
-    .step h3 {
-      margin: 0 0 10px;
-      font-size: 15px;
+    .block{
+      background:#fff;
+      padding:22px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom:20px;
     }
 
-    .step p {
-      margin: 5px 0;
-      font-size: 14px;
+    .block h2{
+      margin-top:0;
+      margin-bottom:18px;
+      font-size:20px;
+      border-left:4px solid #3a3a3a;
+      padding-left:10px;
     }
 
-    .note {
-      margin-top: 10px;
-      padding: 10px;
-      background: #fff3cd;
-      border-left: 4px solid #ffcc00;
-      font-size: 13px;
+    .rule{
+      margin-bottom:22px;
+      padding-bottom:18px;
+      border-bottom:1px solid #e5e5e5;
     }
 
-    .danger {
-      margin-top: 10px;
-      padding: 10px;
-      background: #ffe5e5;
-      border-left: 4px solid #ff4d4d;
-      font-size: 13px;
+    .rule:last-child{
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+
+    .rule h3{
+      margin:0 0 10px;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .rule p{
+      margin:5px 0;
+      font-size:14px;
+    }
+
+    .note{
+      margin-top:10px;
+      background:#fff3cd;
+      border-left:4px solid #ffcc00;
+      padding:12px;
+      border-radius:6px;
+      font-size:13px;
+    }
+
+    .danger{
+      margin-top:10px;
+      background:#ffe5e5;
+      border-left:4px solid #ff4d4d;
+      padding:12px;
+      border-radius:6px;
+      font-size:13px;
+    }
+
+    @media(max-width:768px){
+
+      .tabs{
+        gap:8px;
+      }
+
+      .tab{
+        font-size:13px;
+        padding:11px 6px;
+      }
+
+      .block{
+        padding:18px;
+      }
+
     }
 
   </style>
@@ -122,42 +165,84 @@
 
 <div class="container">
 
-  <a href="index.html" class="back">← 戻る</a>
+  <a href="index.html" class="back">
+    ← 戻る
+  </a>
 
   <div class="tabs">
-    <div class="tab active" onclick="showTab('lepton')">レプトン</div>
-    <div class="tab" onclick="showTab('god')">ゴッドクリーナー</div>
-    <div class="tab" onclick="showTab('radon')">ラドン</div>
+
+    <div
+      class="tab active"
+      onclick="showTab('lepton')"
+    >
+      レプトン
+    </div>
+
+    <div
+      class="tab"
+      onclick="showTab('god')"
+    >
+      ゴッドクリーナー
+    </div>
+
+    <div
+      class="tab"
+      onclick="showTab('radon')"
+    >
+      ラドン
+    </div>
+
   </div>
 
   <!-- レプトン -->
   <div id="lepton" class="content active">
 
-    <div class="step">
-      <h3>① 使用前準備</h3>
-      <p>・側面のカギで扉を開ける</p>
-      <p>・左上の電源レバーをON</p>
-    </div>
+    <div class="block">
 
-    <div class="step">
-      <h3>② 操作手順</h3>
-      <p>・緑ボタンでスタート</p>
-      <p>・赤ボタンで停止</p>
-    </div>
+      <h2>レプトン</h2>
 
-    <div class="step">
-      <h3>③ 時間設定</h3>
-      <p>・右から「1分 / 10分 / 1時間 / 10時間」単位で設定</p>
-      <p>・各桁は1〜9で設定</p>
+      <div class="rule">
 
-      <div class="note">
-        ・水素発生まで2〜3分かかるため<br>
-        → 1時間の場合「1:03」など少し長めに設定
+        <h3>① 使用前準備</h3>
+
+        <p>・側面のカギで扉を開ける</p>
+        <p>・左上の電源レバーをON</p>
+
       </div>
-    </div>
 
-    <div class="danger">
-      ・スタートボタン押し忘れ
+      <div class="rule">
+
+        <h3>② 操作手順</h3>
+
+        <p>・緑ボタンでスタート</p>
+        <p>・赤ボタンで停止</p>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>③ 時間設定</h3>
+
+        <p>・右から「1分 / 10分 / 1時間 / 10時間」単位で設定</p>
+        <p>・各桁は1〜9で設定</p>
+
+        <div class="note">
+          ・水素発生まで2〜3分かかるため<br>
+          → 1時間の場合「1:03」など少し長めに設定
+        </div>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>④ 注意点</h3>
+
+        <div class="danger">
+          ・スタートボタン押し忘れ
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -165,25 +250,43 @@
   <!-- ゴッドクリーナー -->
   <div id="god" class="content">
 
-    <div class="step">
-      <h3>① 使用前準備</h3>
-      <p>・液晶側左下あたりに電源ボタンがあるので電源を付ける</p>
-      <p>・水を入れる（少し熱いお風呂くらい）</p>
-    </div>
+    <div class="block">
 
-    <div class="step">
-      <h3>② 操作手順</h3>
-      <p>・📶ボタンを押して塩分濃度を確認（0.5〜0.7%）</p>
-      <p>・停止ボタン（ll）→ スタート（▷）で開始</p>
+      <h2>ゴッドクリーナー</h2>
 
-      <div class="note">
-        ・30分後に音が鳴るため再度▷を押す
+      <div class="rule">
+
+        <h3>① 使用前準備</h3>
+
+        <p>・液晶側左下あたりに電源ボタンがあるので電源を付ける</p>
+        <p>・水を入れる（少し熱いお風呂くらい）</p>
+
       </div>
-    </div>
 
-    <div class="danger">
-      ・スタートボタン押し忘れ<br>
-      ・糖尿病の方はヒーターOFF
+      <div class="rule">
+
+        <h3>② 操作手順</h3>
+
+        <p>・📶ボタンを押して塩分濃度を確認（0.5〜0.7%）</p>
+        <p>・停止ボタン（ll）→ スタート（▷）で開始</p>
+
+        <div class="note">
+          ・30分後に音が鳴るため再度▷を押す
+        </div>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>③ 注意点</h3>
+
+        <div class="danger">
+          ・スタートボタン押し忘れ<br>
+          ・糖尿病の方はヒーターOFF
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -191,15 +294,27 @@
   <!-- ラドン -->
   <div id="radon" class="content">
 
-    <div class="step">
-      <h3>① 使用前準備</h3>
-      <p>・背面の電源ボタンをON（オープン時）</p>
-      <p>・クローズ時にOFF</p>
-    </div>
+    <div class="block">
 
-    <div class="step">
-      <h3>② 注意点</h3>
-      <p>・施術希望がある場合は電源確認を必ず行う</p>
+      <h2>ラドン</h2>
+
+      <div class="rule">
+
+        <h3>① 使用前準備</h3>
+
+        <p>・背面の電源ボタンをON（オープン時）</p>
+        <p>・クローズ時にOFF</p>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>② 注意点</h3>
+
+        <p>・施術希望がある場合は電源確認を必ず行う</p>
+
+      </div>
+
     </div>
 
   </div>
@@ -207,21 +322,37 @@
 </div>
 
 <script>
-function showTab(type) {
-  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
 
-  if(type === 'lepton'){
-    document.querySelectorAll('.tab')[0].classList.add('active');
-    document.getElementById('lepton').classList.add('active');
-  } else if(type === 'god'){
-    document.querySelectorAll('.tab')[1].classList.add('active');
-    document.getElementById('god').classList.add('active');
-  } else {
-    document.querySelectorAll('.tab')[2].classList.add('active');
-    document.getElementById('radon').classList.add('active');
-  }
+function showTab(type){
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(tab=>{
+
+      tab.classList.remove("active");
+
+    });
+
+  document
+    .querySelectorAll(".content")
+    .forEach(content=>{
+
+      content.classList.remove("active");
+
+    });
+
+  document
+    .querySelector(
+      `.tab[onclick="showTab('${type}')"]`
+    )
+    .classList.add("active");
+
+  document
+    .getElementById(type)
+    .classList.add("active");
+
 }
+
 </script>
 
 </body>
