@@ -162,14 +162,16 @@
     }
 
     .manual-image{
-  width:100%;
-  max-width:500px;
-  border-radius:10px;
-  margin-top:15px;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-}
+      width:100%;
+      max-width:500px;
+      border-radius:10px;
+      margin-top:15px;
+      margin-bottom:15px;
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
 
     @media(max-width:768px){
 
@@ -224,55 +226,65 @@
   <!-- マニュアル -->
   <div id="manual" class="tab-content active">
 
+    <!-- 基本操作 -->
     <div class="block">
 
       <h2>基本操作</h2>
 
       <div class="rule">
 
-        <h3>①操作箇所</h3>
+        <h3>① 操作箇所</h3>
 
         <p>・予約管理 / 顧客管理を主に使う</p>
 
         <p>・お客様情報 / 席 / メニューを紐付けて管理</p>
-        
-        <h3>②見方</h3>
 
-        <p>【アイコンの意味】<br>
+        <h3>② 見方</h3>
+
+        <p>
+          【アイコンの意味】<br>
           指：店舗受付<br>
           N：お客様自身でLINE予約<br>
-          N指：席指定のお客様自身でLINE予約</p>
-          <div class="danger">
-            ※N指のお客様の席は絶対に移動しないでください。
-          </div>
+          N指：席指定のお客様自身でLINE予約
+        </p>
+
+        <div class="danger">
+          ※N指のお客様の席は絶対に移動しないでください。
+        </div>
 
         <img
-  src="img/manual.jpg"
-  alt="説明画像"
-  class="manual-image"
->
-　　　　　<p>【顧客情報の見方】<br>
-           ①顧客番号：初回来店時に割り当てられる番号になります。<br>
+          src="img/manual.jpg"
+          alt="説明画像"
+          class="manual-image"
+        >
+
+        <p>
+          【顧客情報の見方】<br>
+          ①顧客番号：初回来店時に割り当てられる番号になります。<br>
           ②顧客名：お客様の名前になります。<br>
-            ③顧客属性：現在お客様が加入されているプランになります。<br>
-              ④顧客特性：お客様の固定の情報になります。<br>
-              　注意点として、「①」「㍉」「㈱」などの特殊文字を入れると保存できません。</p>
+          ③顧客属性：現在お客様が加入されているプランになります。<br>
+          ④顧客特性：お客様の固定の情報になります。<br>
+          注意点として、「①」「㍉」「㈱」などの特殊文字を入れると保存できません。
+        </p>
 
-              <img
-  src="img/manual2.png"
-  alt="説明画像"
-  class="manual-image"
-  style="max-width:700px;"
->
->
+        <img
+          src="img/manual2.png"
+          alt="説明画像"
+          class="manual-image"
+          style="max-width:700px;"
+        >
 
-　　　　</div>
       </div>
 
-      
-　　　　　<div class="block">
-        <h2>来店時の対応 / 予約の取り方</h2>
-        <div class="rule">
+    </div>
+
+    <!-- 来店時の対応 -->
+    <div class="block">
+
+      <h2>来店時の対応 / 予約の取り方</h2>
+
+      <div class="rule">
+
         <h3>① 来店時の対応</h3>
 
         <p>・来店したお客様の予約を開く</p>
@@ -282,7 +294,7 @@
         <p>・割り当てられた席の確認</p>
 
         <div class="note">
-          ・受付時点で「席番号」を必ず確定させる
+          受付時点で「席番号」を必ず確定させる
         </div>
 
         <p>・受付日時で左クリック</p>
@@ -291,30 +303,43 @@
           ・メニュー選択 / キーワード検索で顧客紐付け
         </p>
 
-        </div>
       </div>
+
+    </div>
+
+    <!-- 席管理 -->
+    <div class="block">
+
+      <h2>席管理</h2>
 
       <div class="rule">
 
-        <h3>③ 席管理</h3>
+        <h3>① 席の紐ずけ方法</h3>
 
         <p>
           ・カミングスーン上の席番号に従って案内
         </p>
 
         <p>
-          ・スタッフ間の会話も席番号で統一
+          ・スタッフ間の会話も要注意
         </p>
 
         <div class="danger">
-          ・名前での呼び合いは禁止（クレーム防止）
+          お客様の名前、席番号での呼び合いは禁止（クレーム防止）
         </div>
 
       </div>
 
+    </div>
+
+    <!-- 接客メモ -->
+    <div class="block">
+
+      <h2>接客メモ / 顧客特性</h2>
+
       <div class="rule">
 
-        <h3>④ 接客メモ / 顧客特性の入力（重要）</h3>
+        <h3>① 接客メモ / 顧客特性の入力（重要）</h3>
 
         <h4>◆ 接客メモ</h4>
 
@@ -342,9 +367,16 @@
 
       </div>
 
+    </div>
+
+    <!-- よくあるミス -->
+    <div class="block">
+
+      <h2>よくあるミス</h2>
+
       <div class="rule">
 
-        <h3>⑤ よくあるミス</h3>
+        <h3>① 注意事項</h3>
 
         <p>・引継ぎ事項の未入力</p>
 
@@ -354,9 +386,16 @@
 
       </div>
 
+    </div>
+
+    <!-- 運用ルール -->
+    <div class="block">
+
+      <h2>運用ルール</h2>
+
       <div class="rule">
 
-        <h3>⑥ 運用ルール（重要）</h3>
+        <h3>① 運用ルール（重要）</h3>
 
         <p>・席番号ベースで全スタッフ共有</p>
 
