@@ -163,9 +163,12 @@
 
     .manual-image{
   width:100%;
-  max-width:700px;
+  max-width:500px;
   border-radius:10px;
   margin-top:15px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
     @media(max-width:768px){
@@ -227,20 +230,36 @@
 
       <div class="rule">
 
-        <h3>①操作箇所 / 見方 </h3>
+        <h3>①操作箇所</h3>
 
         <p>・予約管理 / 顧客管理を主に使う</p>
 
         <p>・お客様情報 / 席 / メニューを紐付けて管理</p>
+        
+        <h3>②見方</h3>
+
         <p>【アイコンの意味】<br>
           指：店舗受付<br>
           N：お客様自身でLINE予約<br>
           N指：席指定のお客様自身でLINE予約</p>
           <div class="danger">
-  ※N指のお客様の席は絶対に移動しないでください。
-</div>
+            ※N指のお客様の席は絶対に移動しないでください。
+          </div>
+
         <img
   src="img/manual.jpg"
+  alt="説明画像"
+  class="manual-image"
+>
+　　　　　<p>顧客情報の見方<br>
+           ①顧客番号：初回来店時に割り当てられる番号になります。<br>
+          　②顧客名：お客様の名前になります。<br>
+            　③顧客属性：現在お客様が加入されているプランになります。<br>
+              　④顧客特性：お客様の固定の情報になります。<br>
+              　　注意点として、「①」「㍉」「㈱」などの特殊文字を入れると保存できません。</p>
+
+              <img
+  src="img/manual2.jpg"
   alt="説明画像"
   class="manual-image"
 >
@@ -250,8 +269,9 @@
 
       
 　　　　　<div class="block">
-        <h3>来店時 / 予約の取り方</h3>
+        <h2>来店時の対応 / 予約の取り方</h2>
         <div class="rule">
+        <h3>① 来店時の対応</h3>
 
         <p>・来店したお客様の予約を開く</p>
 
