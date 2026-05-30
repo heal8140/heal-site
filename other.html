@@ -1,213 +1,213 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>その他 | heal</title>
+    <title>その他 | heal</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    *{
-      box-sizing:border-box;
-    }
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            background: #f2f2f2;
+            color: #333;
+            line-height: 1.8;
+        }
 
-    body{
-      margin:0;
-      font-family:"Noto Sans JP",sans-serif;
-      background:#f2f2f2;
-      color:#333;
-      line-height:1.8;
-    }
+        header {
+            background: #3a3a3a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
 
-    header{
-      background:#3a3a3a;
-      color:#fff;
-      padding:20px;
-      text-align:center;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
 
-    header h1{
-      margin:0;
-      font-size:20px;
-      font-weight:600;
-    }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
 
-    .container{
-      max-width:900px;
-      margin:20px auto;
-      padding:0 15px;
-    }
+        .back {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
 
-    .back{
-      display:inline-block;
-      margin-bottom:15px;
-      text-decoration:none;
-      color:#555;
-      font-size:14px;
-    }
+        .block {
+            background: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
 
-    .block{
-      background:#fff;
-      padding:22px;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.05);
-      margin-bottom:20px;
-    }
+        .block h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 20px;
+            border-left: 4px solid #3a3a3a;
+            padding-left: 10px;
+        }
 
-    .block h2{
-      margin-top:0;
-      margin-bottom:18px;
-      font-size:20px;
-      border-left:4px solid #3a3a3a;
-      padding-left:10px;
-    }
+        .rule {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-    .rule{
-      margin-bottom:22px;
-      padding-bottom:18px;
-      border-bottom:1px solid #e5e5e5;
-    }
+        .rule:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
 
-    .rule:last-child{
-      margin-bottom:0;
-      padding-bottom:0;
-      border-bottom:none;
-    }
+        .rule h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
 
-    .rule h3{
-      margin:0 0 10px;
-      font-size:16px;
-      font-weight:600;
-    }
+        .rule p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
 
-    .rule p{
-      margin:5px 0;
-      font-size:14px;
-    }
+        .note {
+            margin-top: 10px;
+            background: #fff3cd;
+            border-left: 4px solid #ffcc00;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
 
-    .note{
-      margin-top:10px;
-      background:#fff3cd;
-      border-left:4px solid #ffcc00;
-      padding:12px;
-      border-radius:6px;
-      font-size:13px;
-    }
+        .danger {
+            margin-top: 10px;
+            background: #ffe5e5;
+            border-left: 4px solid #ff4d4d;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
 
-    .danger{
-      margin-top:10px;
-      background:#ffe5e5;
-      border-left:4px solid #ff4d4d;
-      padding:12px;
-      border-radius:6px;
-      font-size:13px;
-    }
+        .tight {
+            margin: 3px 0;
+        }
 
-    .tight{
-      margin:3px 0;
-    }
+        @media(max-width:768px) {
 
-    @media(max-width:768px){
+            .block {
+                padding: 18px;
+            }
 
-      .block{
-        padding:18px;
-      }
-
-    }
-
-  </style>
+        }
+    </style>
 
 </head>
 
 <body>
 
-<header>
-  <h1>その他</h1>
-</header>
+    <header>
+        <h1>その他</h1>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-  <a href="index.html" class="back">
-    ← 戻る
-  </a>
+        <a href="index.html" class="back">
+            ← 戻る
+        </a>
 
-  <div class="block">
+        <div class="block">
 
-    <h2>店舗共有事項</h2>
+            <h2>店舗共有事項</h2>
 
-    <div class="rule">
+            <div class="rule">
 
-      <h3>① 各種特典 / Lチケットについて</h3>
+                <h3>① 各種特典 / Lチケットについて</h3>
 
-      <p class="tight">【お友達特典】</p>
-      <p>・いつでも初回料金(L&G6,500円)</p>
-      <P>・ラドンマット、ゴーグル無料</P>
-      <p>・空き状況によりダブル可能</p>
-      <p>・来店時空き状況により無料L30追加可能(ただし、事前確保は不可)</p>
+                <p class="tight">【お友達特典】</p>
+                <p>・いつでも初回料金(L&G6,500円)</p>
+                <P>・ラドンマット、ゴーグル無料</P>
+                <p>・空き状況によりダブル可能</p>
+                <p>・来店時空き状況により無料L30追加可能(ただし、事前確保は不可)</p>
+                <br>
+                <p class="tight">【誕生月特典】</p>
+                <p>・お誕生月であれば一度だけL30を無料追加可能</p>
+                <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
+                <br>
+                <p class="tight">【紹介特典】</p>
+                <p>・紹介者が一度でも来店したことがあるのが条件です。</p>
+                <P>・紹介した人、された人どちらにもL30を無料追加可能</P>
+                <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
+                <br>
+                <p class="tight">【Lチケットについて】</p>
+                <p>・初回L3,60チケットやL30×6,10,24チケットでラドンガス吸引はできません。</p>
 
-      <p class="tight">【誕生月特典】</p>
-      <p>・お誕生月であれば一度だけL30を無料追加可能</p>
-      <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
-      
-      <p class="tight">【紹介特典】</p>
-      <p>・紹介者が一度でも来店したことがあるのが条件です。</p>
-      <P>・紹介した人、された人どちらにもL30を無料追加可能</P>
-      <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
+                <div class="note">
+                    例外として、オーナーが許可した場合はそのお客様に限り使用可能となります。
+                </div>
 
-      <p class="tight">【Lチケットについて】</p>
-      <p>・初回L3,60チケットやL30×6,10,24チケットでラドンガス吸引はできません。</p>
+            </div>
 
-      <div class="note">
-        例外として、オーナーが許可した場合はそのお客様に限り使用可能となります。
-      </div>     
+            <div class="rule">
+
+                <h3>② 小泉さんのチケットについて</h3>
+
+                <p>・ここに内容を記載現在所持しているL30×10回のチケットについては、ポイントの付与は無しでお願いします。</p>
+
+            </div>
+
+            <div class="rule">
+
+                <h3>③ レプトン水入れ替え作業日程</h3>
+
+                <p>・毎月15日と月の最終日の計2回</p>
+                <p>例：5月15日、5月31日の朝に入れ替え作業を行うため、前日の夜に準備をおねがいします。</p>
+
+            </div>
+
+            <div class="rule">
+
+                <h3>④ 一時的な運用ルール</h3>
+
+                <p>・ここに内容を記載</p>
+                <p>・ここに内容を記載</p>
+
+                <div class="danger">
+                    期間限定の運用がある場合は記載
+                </div>
+
+            </div>
+
+            <div class="rule">
+
+                <h3>⑤ その他</h3>
+
+                <p>・ここに内容を記載</p>
+                <p>・ここに内容を記載</p>
+
+            </div>
+
+        </div>
 
     </div>
-
-    <div class="rule">
-
-      <h3>② 小泉さんのチケットについて</h3>
-
-      <p>・ここに内容を記載現在所持しているL30×10回のチケットについては、ポイントの付与は無しでお願いします。</p>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>③ レプトン水入れ替え作業日程</h3>
-
-      <p>・毎月15日と月の最終日の計2回</p>
-      <p>例：5月15日、5月31日の朝に入れ替え作業を行うため、前日の夜に準備をおねがいします。</p>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>④ 一時的な運用ルール</h3>
-
-      <p>・ここに内容を記載</p>
-      <p>・ここに内容を記載</p>
-
-      <div class="danger">
-        期間限定の運用がある場合は記載
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>⑤ その他</h3>
-
-      <p>・ここに内容を記載</p>
-      <p>・ここに内容を記載</p>
-
-    </div>
-
-  </div>
-
-</div>
 
 </body>
+
 </html>
