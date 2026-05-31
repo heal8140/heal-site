@@ -1,399 +1,367 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>サロンボード | heal</title>
+  <title>サロンボード | heal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-
-  *{
-    box-sizing:border-box;
-  }
-
-  body{
-    margin:0;
-    font-family:"Noto Sans JP",sans-serif;
-    background:#f2f2f2;
-    color:#333;
-    line-height:1.8;
-  }
-
-  header{
-    background:#3a3a3a;
-    color:#fff;
-    padding:20px;
-    text-align:center;
-  }
-
-  header h1{
-    margin:0;
-    font-size:20px;
-    font-weight:600;
-  }
-
-  .container{
-    max-width:900px;
-    margin:20px auto;
-    padding:0 15px;
-  }
-
-  .back{
-    display:inline-block;
-    margin-bottom:15px;
-    text-decoration:none;
-    color:#555;
-    font-size:14px;
-  }
-
-  .tabs{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-  }
-
-  .tab{
-    flex:1;
-    padding:14px 10px;
-    text-align:center;
-    background:#ddd;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:600;
-    transition:0.2s;
-  }
-
-  .tab:hover{
-    background:#d0d0d0;
-  }
-
-  .tab.active{
-    background:#3a3a3a;
-    color:#fff;
-  }
-
-  .content{
-    display:none;
-  }
-
-  .content.active{
-    display:block;
-  }
-
-  .block{
-    background:#fff;
-    padding:22px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom:20px;
-  }
-
-  .block h2{
-    margin-top:0;
-    margin-bottom:18px;
-    font-size:20px;
-    border-left:4px solid #3a3a3a;
-    padding-left:10px;
-  }
-
-  .rule{
-    margin-bottom:22px;
-    padding-bottom:18px;
-    border-bottom:1px solid #e5e5e5;
-  }
-
-  .rule:last-child{
-    margin-bottom:0;
-    padding-bottom:0;
-    border-bottom:none;
-  }
-
-  .rule h3{
-    margin:0 0 10px;
-    font-size:16px;
-    font-weight:600;
-  }
-
-  .rule p{
-    margin:5px 0;
-    font-size:14px;
-  }
-
-  .note{
-    margin-top:10px;
-    background:#fff3cd;
-    border-left:4px solid #ffcc00;
-    padding:12px;
-    border-radius:6px;
-    font-size:13px;
-  }
-
-  .support-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:10px;
-  }
-
-  .support-table th,
-  .support-table td{
-    border:1px solid #ddd;
-    padding:10px;
-    font-size:14px;
-  }
-
-  .support-table th{
-    background:#f5f5f5;
-  }
-
-  @media(max-width:768px){
-
-    .block{
-      padding:18px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .tabs{
-      gap:8px;
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.8;
     }
 
-    .tab{
-      flex:1;
-      text-align:center;
+    header {
+      background: #3a3a3a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
 
-  }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-</style>
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 14px 10px;
+      text-align: center;
+      background: #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .tab:hover {
+      background: #d0d0d0;
+    }
+
+    .tab.active {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .block {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .block h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 20px;
+      border-left: 4px solid #3a3a3a;
+      padding-left: 10px;
+    }
+
+    .rule {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .rule:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .rule h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .rule p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 10px;
+      background: #fff3cd;
+      border-left: 4px solid #ffcc00;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .support-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .support-table th,
+    .support-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .support-table th {
+      background: #f5f5f5;
+    }
+
+    @media(max-width:768px) {
+
+      .block {
+        padding: 18px;
+      }
+
+      .tabs {
+        gap: 8px;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>サロンボード操作マニュアル</h1>
-</header>
+  <header>
+    <h1>サロンボード操作マニュアル</h1>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <a href="index.html" class="back">
-    ← 戻る
-  </a>
+    <a href="index.html" class="back">
+      ← 戻る
+    </a>
 
-  <div class="tabs">
+    <div class="tabs">
 
-    <div
-      class="tab active"
-      onclick="showTab('manual')"
-    >
-      マニュアル
-    </div>
-
-    <div
-      class="tab"
-      onclick="showTab('support')"
-    >
-      サポート情報
-    </div>
-
-  </div>
-
-  <!-- マニュアル -->
-  <div id="manual" class="content active">
-
-    <div class="block">
-
-      <h2>マニュアル</h2>
-
-      <div class="rule">
-
-        <h3>① 基本</h3>
-
-        <p>・HPB（ホットペッパービューティー）からの予約確認を行う</p>
-        <p>・予約が入った場合はサロンボードで処理を行う</p>
-
+      <div class="tab active" onclick="showTab('manual')">
+        マニュアル
       </div>
 
-      <div class="rule">
+      <div class="tab" onclick="showTab('support')">
+        サポート情報
+      </div>
 
-        <h3>② 来店処理（重要）</h3>
+    </div>
 
-        <p>・HPB予約が入った場合は来店処理を行う</p>
+    <!-- マニュアル -->
+    <div id="manual" class="content active">
 
-        <div class="note">
-          来店処理漏れは売上・来店データのズレに繋がる
+      <div class="block">
+
+        <h2>マニュアル</h2>
+
+        <div class="rule">
+
+          <h3>① 基本</h3>
+
+          <p>・HPB（ホットペッパービューティー）からの予約確認を行う</p>
+          <p>・予約が入った場合はサロンボードで処理を行う</p>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>② 来店処理（重要）</h3>
+
+          <p>・HPB予約が入った場合は来店処理を行う</p>
+
+          <div class="note">
+            来店処理漏れは売上・来店データのズレに繋がる
+          </div>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>③ 処理方法</h3>
+
+          <p>① TOPページ右側のアラートをクリック</p>
+          <p>② 該当予約を開く</p>
+          <p>③ 来店時の施術内容と相違がないか確認</p>
+          <p>④ 問題なければ来店処理を行う</p>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>④ 確認事項</h3>
+
+          <p>・メニュー内容</p>
+          <p>・予約日時</p>
+          <p>・担当スタッフ</p>
+          <p>・クーポン内容</p>
+
         </div>
 
       </div>
 
-      <div class="rule">
-
-        <h3>③ 処理方法</h3>
-
-        <p>① TOPページ右側のアラートをクリック</p>
-        <p>② 該当予約を開く</p>
-        <p>③ 来店時の施術内容と相違がないか確認</p>
-        <p>④ 問題なければ来店処理を行う</p>
-
-      </div>
-
-      <div class="rule">
-
-        <h3>④ 確認事項</h3>
-
-        <p>・メニュー内容</p>
-        <p>・予約日時</p>
-        <p>・担当スタッフ</p>
-        <p>・クーポン内容</p>
-
-      </div>
-
     </div>
 
-  </div>
+    <!-- サポート情報 -->
+    <div id="support" class="content">
 
-  <!-- サポート情報 -->
-<div id="support" class="content">
+      <div class="block">
 
-  <div class="block">
+        <h2>サポート情報</h2>
 
-    <h2>サポート情報</h2>
+        <div class="rule">
 
-    <div class="rule">
+          <h3>① お問い合わせ前に</h3>
 
-      <h3>① お問い合わせ前に</h3>
+          <p>
+            ・お問い合わせの多いご質問をFAQページにまとめています
+          </p>
+          <p>
+            ・お問い合わせ前に一度ご確認ください
+          </p>
 
-      <p>
-        ・お問い合わせの多いご質問をFAQページにまとめています
-      </p>
-      <p>
-        ・お問い合わせ前に一度ご確認ください
-      </p>
+          <p>
+            <a href="https://sbhd-kirei.salonboard.com/hc/ja" target="_blank">
+              FAQページを見る
+            </a>
+          </p>
 
-      <p>
-        <a href="https://sbhd-kirei.salonboard.com/hc/ja" target="_blank">
-          FAQページを見る
-        </a>
-      </p>
+        </div>
 
-    </div>
+        <div class="rule">
 
-    <div class="rule">
+          <h3>② SALON BOARD お問い合わせ</h3>
 
-      <h3>② SALON BOARD お問い合わせ</h3>
+          <table class="support-table">
 
-      <table class="support-table">
+            <tr>
+              <th>サポート</th>
+              <th>受付時間</th>
+            </tr>
 
-        <tr>
-          <th>サポート</th>
-          <th>受付時間</th>
-        </tr>
+            <tr>
+              <td>電話</td>
+              <td>年中無休 10:00〜21:00</td>
+            </tr>
 
-        <tr>
-          <td>電話</td>
-          <td>年中無休 10:00〜21:00</td>
-        </tr>
+            <tr>
+              <td>チャット</td>
+              <td>平日のみ 10:00〜19:00</td>
+            </tr>
 
-        <tr>
-          <td>チャット</td>
-          <td>平日のみ 10:00〜19:00</td>
-        </tr>
+            <tr>
+              <td>メール</td>
+              <td>
+                年中無休<br>
+                ※当日返信希望は20:30まで
+              </td>
+            </tr>
 
-        <tr>
-          <td>メール</td>
-          <td>
-            年中無休<br>
-            ※当日返信希望は20:30まで
-          </td>
-        </tr>
+          </table>
 
-      </table>
+        </div>
 
-    </div>
+        <div class="rule">
 
-    <div class="rule">
+          <h3>③ 電話番号</h3>
 
-      <h3>③ 電話番号</h3>
+          <p>
+            <strong>0120-36-0493</strong>
+          </p>
 
-      <p>
-        <strong>0120-36-0493</strong>
-      </p>
+        </div>
 
-    </div>
+        <div class="rule">
 
-    <div class="rule">
+          <h3>④ 音声ガイダンス</h3>
 
-      <h3>④ 音声ガイダンス</h3>
+          <p><strong>第1ガイダンス</strong></p>
+          <p>・SALON BOARD利用サロン → 1番</p>
+          <p>・営業担当 → 2番</p>
 
-      <p><strong>第1ガイダンス</strong></p>
-      <p>・SALON BOARD利用サロン → 1番</p>
-      <p>・営業担当 → 2番</p>
+          <br>
 
-      <br>
+          <p><strong>第2ガイダンス</strong></p>
+          <p>・予約情報修正 → 1番</p>
+          <p>・レシートプリンター → 2番</p>
+          <p>・操作 / 設定 → 3番</p>
+          <p>・その他 → 4番</p>
 
-      <p><strong>第2ガイダンス</strong></p>
-      <p>・予約情報修正 → 1番</p>
-      <p>・レシートプリンター → 2番</p>
-      <p>・操作 / 設定 → 3番</p>
-      <p>・その他 → 4番</p>
+        </div>
 
-    </div>
+        <div class="rule">
 
-    <div class="rule">
+          <h3>⑤ 画面共有サポート</h3>
 
-      <h3>⑤ 画面共有サポート</h3>
+          <p>
+            ・電話サポート時にSALON BOARD画面を共有しながら操作サポートを受けることが可能です
+          </p>
 
-      <p>
-        ・電話サポート時にSALON BOARD画面を共有しながら操作サポートを受けることが可能です
-      </p>
+          <div class="note">
+            ※PC利用時のみ対象
+          </div>
 
-      <div class="note">
-        ※PC利用時のみ対象
+        </div>
+
+        <div class="rule">
+
+          <h3>⑥ 混雑目安</h3>
+
+          <p>・10:00〜15:00 → 混雑しやすい</p>
+          <p>・15:00〜19:00 → 普通</p>
+          <p>・19:00〜21:00 → 比較的つながりやすい</p>
+
+        </div>
+
       </div>
 
     </div>
 
-    <div class="rule">
+    <script> function showTab(index) { const tabs = document.querySelectorAll(".tab"); const contents = document.querySelectorAll(".tab-content"); tabs.forEach((tab, i) => { tab.classList.toggle("active", i === index); }); contents.forEach((content, i) => { content.classList.toggle("active", i === index); }); } </script>
+</body>
 
-      <h3>⑥ 混雑目安</h3>
-
-      <p>・10:00〜15:00 → 混雑しやすい</p>
-      <p>・15:00〜19:00 → 普通</p>
-      <p>・19:00〜21:00 → 比較的つながりやすい</p>
-
-    </div>
-
-  </div>
-
-</div>
-
-function showTab(type){
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab=>{
-
-      tab.classList.remove("active");
-
-    });
-
-  document
-    .querySelectorAll(".content")
-    .forEach(content=>{
-
-      content.classList.remove("active");
-
-    });
-
-  document
-    .querySelector(
-      `.tab[onclick="showTab('${type}')"]`
-    )
-    .classList.add("active");
-
-  document
-    .getElementById(type)
-    .classList.add("active");
-
-}
+</html>
