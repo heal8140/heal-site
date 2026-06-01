@@ -382,7 +382,7 @@ async function searchManual(){
 
         html += `
           <div class="search-result">
-            <a href="${page}">
+            <a href="${page}?search=${encodeURIComponent(keyword)}">
               <h3>${title}</h3>
               <p>...${snippet}...</p>
             </a>
