@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:"Noto Sans JP",sans-serif;
   background:#f2f2f2;
   color:#333;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 header{
@@ -24,8 +30,14 @@ header{
   text-align:center;
 }
 
+header h1{
+  margin:0;
+  font-size:20px;
+  font-weight:600;
+}
+
 .container{
-  max-width:1000px;
+  max-width:900px;
   margin:20px auto;
   padding:0 15px;
 }
@@ -40,22 +52,25 @@ header{
 
 .tabs{
   display:flex;
-  gap:8px;
+  gap:10px;
   margin-bottom:20px;
   flex-wrap:wrap;
 }
 
 .tab{
-  padding:10px 18px;
+  flex:1;
+  padding:14px 10px;
+  text-align:center;
   background:#ddd;
-  border-radius:8px 8px 0 0;
+  border-radius:10px;
   cursor:pointer;
   font-size:14px;
+  font-weight:600;
   transition:0.2s;
 }
 
 .tab:hover{
-  background:#cfcfcf;
+  background:#d0d0d0;
 }
 
 .tab.active{
@@ -63,41 +78,55 @@ header{
   color:#fff;
 }
 
-.tab-content{
+.content{
   display:none;
 }
 
-.tab-content.active{
+.content.active{
   display:block;
 }
 
 .block{
   background:#fff;
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:20px;
+  padding:22px;
+  border-radius:12px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom:20px;
 }
 
 .block h2{
   margin-top:0;
+  margin-bottom:18px;
   font-size:20px;
   border-left:4px solid #3a3a3a;
   padding-left:10px;
 }
 
-.step{
-  margin-top:25px;
+.rule{
+  margin-bottom:22px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e5e5e5;
 }
 
-.step-title{
+.rule:last-child{
+  margin-bottom:0;
+  padding-bottom:0;
+  border-bottom:none;
+}
+
+.rule h3{
+  margin:0 0 10px;
+  font-size:16px;
   font-weight:600;
-  margin-bottom:10px;
-  font-size:15px;
+}
+
+.rule p{
+  margin:5px 0;
+  font-size:14px;
 }
 
 .image-box{
-  margin-top:10px;
+  margin-top:15px;
   text-align:center;
 }
 
@@ -110,28 +139,39 @@ header{
 
 .note{
   margin-top:10px;
-  padding:12px;
   background:#fff3cd;
   border-left:4px solid #ffcc00;
+  padding:12px;
   border-radius:6px;
-  font-size:14px;
+  font-size:13px;
 }
 
 .danger{
   margin-top:10px;
-  padding:12px;
   background:#ffe5e5;
   border-left:4px solid #ff4d4d;
+  padding:12px;
   border-radius:6px;
-  font-size:14px;
+  font-size:13px;
 }
 
-footer{
-  text-align:center;
-  font-size:12px;
-  color:#888;
-  margin:40px 0 20px;
+@media(max-width:768px){
+
+  .block{
+    padding:18px;
+  }
+
+  .tabs{
+    gap:8px;
+  }
+
+  .tab{
+    flex:1;
+    text-align:center;
+  }
+
 }
+
 </style>
 </head>
 
@@ -143,44 +183,58 @@ footer{
 
 <div class="container">
 
-  <a href="index.html" class="back">← 戻る</a>
+<a href="index.html" class="back">
+  ← 戻る
+</a>
 
-  <!-- タブ -->
-  <div class="tabs">
-    <div class="tab active" onclick="showTab(0)">売上集計</div>
-    <div class="tab" onclick="showTab(1)">チケット管理 (ポイントも含む)</div>
-    <div class="tab" onclick="showTab(2)">色々ツール</div>
-    <div class="tab" onclick="showTab(3)">お客様管理</div>
+<div class="tabs">
+
+  <div class="tab active" onclick="showTab('sales')">
+    売上集計
   </div>
 
-  <!-- タブ① -->
-  <div class="tab-content active">
+  <div class="tab" onclick="showTab('ticket')">
+    チケット管理
+  </div>
 
-    <div class="block">
-      <h2>売上集計</h2>
+  <div class="tab" onclick="showTab('tool')">
+    色々ツール
+  </div>
 
-      <div class="step">
-        <div class="step-title">
-          ① 該当月のシートを開く
-        </div>
+  <div class="tab" onclick="showTab('customer')">
+    お客様管理
+  </div>
 
-        <p>
-          お客様退店後、該当月の売上シートを開き<br>
-          ・日付け<br>
-          ・顧客番号<br>
-          ・施術内容(チケットには改定前(無印)と改定後があるので注意してください)<br>
-          ・物販（購入している場合）<br>
-          ・その他（項目が無い場合）<br>
-        </p>
+</div>
 
-        <div class="note">
-          黄色になっている列は自動入力です。<br>
-          氏名 / 売上金 / 教習所への請求金額
-        </div>
+<!-- 売上集計 -->
+<div id="sales" class="content active">
 
-        <div class="image-box">
-          <img src="img/uriage-total01.png" alt="売上集計1">
-        </div>
+  <div class="block">
+
+    <h2>売上集計</h2>
+
+    <div class="rule">
+
+      <h3>① 該当月のシートを開く</h3>
+
+      <p>
+        お客様退店後、該当月の売上シートを開きます。
+      </p>
+
+      <p>・日付</p>
+      <p>・顧客番号</p>
+      <p>・施術内容</p>
+      <p>・物販（購入時）</p>
+      <p>・その他（項目が無い場合）</p>
+
+      <div class="note">
+        黄色になっている列は自動入力です。<br>
+        氏名 / 売上金 / 教習所への請求金額
+      </div>
+
+      <div class="image-box">
+        <img src="img/uriage-total01.png" alt="売上集計1">
       </div>
 
       <div class="danger">
@@ -191,226 +245,132 @@ footer{
 
   </div>
 
-  <!-- タブ② -->
-  <div class="tab-content">
-
-    <div class="block">
-      <h2>チケット管理方法</h2>
-
-      <div class="block">
-      ここではお客様の保有している「チケット」「ポイント」を管理します
-    </div>
-
-      <div class="step">
-        <div class="step-title">
-          ① 該当顧客を検索
-        </div>
-
-        <p>
-          「Crrl」+「F」を押して名前または顧客番号で検索
-        </p>
-
-        <div class="note">
-          注意点として検索条件を下記に設定して下さい<br>
-          検索場所(H)：ブック<br>
-          検索方向(S)：行or列(どちらでも可)<br>
-          検索対象(L)：値
-        </div>
-
-        <div class="image-box">
-          <img src="img/ticket01.png" alt="チケット管理1">
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ② 使用回数を入力
-        </div>
-
-        <p>
-          使用日 / 入力者を入力後グレーアウト
-        </p>
-
-        <div class="image-box">
-          <img src="img/ticket02.png" alt="チケット管理2">
-        </div>
-
-        <p>
-          グレーアウトで使用する色
-        </p>
-
-        <div class="image-box">
-          <img src="img/ticket03.png" alt="チケット管理3">
-        </div>
-      </div>
-
-    </div>
-
-    <div class="block">
-      便利なショートカット<br>
-      「Crrl」+「C」= 選択範囲のコピー<br>
-      「Crrl」+「V」= コピーの貼り付け<br>
-      「Crrl」+「X」= 選択範囲の切り取り<br>
-      「Crrl」+「F」= 検索<br>
-      「Crrl」+「D」= 前上のセルをコピー<br>
-      「Crrl」+「+」= 今日の日付を自動入力
-    </div>
-
-    <div class="block">
-      <h2>ポイント管理方法</h2>
-
-      <div class="step">
-        <div class="step-title">
-          ① 該当顧客を検索
-        </div>
-
-        <p>
-          「Crrl」+「F」を押して名前または顧客番号で検索
-        </p>
-
-        <div class="note">
-          注意点として検索条件を下記に設定して下さい<br>
-          検索場所(H)：ブック<br>
-          検索方向(S)：行or列(どちらでも可)<br>
-          検索対象(L)：値
-        </div>
-
-        <div class="image-box">
-          <img src="img/ticket01.png" alt="ポイント管理1">
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ② 付与したい日付を入力
-        </div>
-
-        <p>
-          消費ポイントによって受けられる特典が異なります。<br>
-          10P：L30追加 / 20P：G30追加 / 30P：L&G60<br>
-          ポイント使用後は使用した分、削除し前に詰めてください。
-        </p>
-
-        <div class="image-box">
-          <img src="img/ticket04.png" alt="ポイント管理2">
-        </div>
-      </div>
-
-      <div class="danger">
-        特典使用後のポイント消し忘れに注意
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- タブ③ -->
-  <div class="tab-content">
-
-    <div class="block">
-      <h2>色々ツール</h2>
-      
- <div class="block">
-   ここでは主に「電極棒の使用回数管理」「現金売上 / 小口管理」「在庫管理」をします<br>
-   トイレ清掃チェックシートもここから印刷します。
-    </div>
-
-      <div class="step">
-        <div class="step-title">
-          ① 電極棒の管理方法
-        </div>
-
-        <p>
-          【仕様】<br>
-          ゴッドクリーナー30分につき1回<br>
-          60分施術の場合は2回<br>
-          【警告】<br>
-          <span style="color:#d4a000;">黄色</span>：残り9回～5回<br>
-          <span style="color:#ff4d4d;">赤色</span>：残り4回～
-        </p>
-
-        <p>
-          【施術時】<br>
-          施術の度に入力してください。<br>
-          締め作業時にその日の合計使用回数と一致しているか確認をお願いします。
-        </p>
-
-        <div class="image-box">
-          <img src="img/tool01.png" alt="色々ツール1">
-        </div>
-      </div>
-
-      <p> 【交換時】<br>
-        電極棒交換の際には、電極棒本体に前回の棒＋1の番号を表に書き裏に席番号を書きます<br>
-        Excelには交換後の番号とセルの色付けをお願いします
-        </p>
-      </div>
-
-    </div>
-
-  <!-- タブ④ -->
-  <div class="tab-content">
-
-    <div class="block">
-      <h2>お客様管理</h2>
-
-      <div class="block">
-        ここでは初回来店時のお客様情報を管理します
-
-        <div class="note">
-          このExcelを元に各Excelへ反映しているため、入力の間違いに注意してください
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ① 顧客情報の入力
-        </div>
-
-        <p>
-          カウンセリングシートを元に各項目の入力をお願いします
-        </p>
-
-        <div class="note">
-          苗字と氏名の間に全角スペースを入れてください。<br>
-          番号が無い場合は新たに番号を振り当ててください。
-        </div>
-
-        <div class="image-box">
-          <img src="img/customer01.png" alt="お客様管理1">
-        </div>
-      </div>
-
-      <div class="danger">
-        顧客情報の削除禁止
-      </div>
-
-    </div>
-
-  </div>
-  
 </div>
 
-<footer>
-  © heal Manual
-</footer>
+<!-- チケット管理 -->
+<div id="ticket" class="content">
 
-<script>
-function showTab(index){
+  <div class="block">
 
-  const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
+    <h2>チケット管理方法</h2>
 
-  tabs.forEach((tab, i)=>{
-    tab.classList.toggle("active", i === index);
-  });
+    <div class="info">
+      ここではお客様の保有している「チケット」「ポイント」を管理します。
+    </div>
 
-  contents.forEach((content, i)=>{
-    content.classList.toggle("active", i === index);
-  });
+    <div class="rule">
 
-}
-</script>
+      <h3>① 該当顧客を検索</h3>
 
-</body>
-</html>
+      <p>
+        「Ctrl」+「F」を押して名前または顧客番号で検索します。
+      </p>
+
+      <div class="note">
+        検索条件を下記に設定してください。<br>
+        ・検索場所(H)：ブック<br>
+        ・検索方向(S)：行 または 列<br>
+        ・検索対象(L)：値
+      </div>
+
+      <div class="image-box">
+        <img src="img/ticket01.png" alt="チケット管理1">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 使用回数を入力</h3>
+
+      <p>
+        使用日・入力者を入力後、使用済みセルをグレーアウトしてください。
+      </p>
+
+      <div class="image-box">
+        <img src="img/ticket02.png" alt="チケット管理2">
+      </div>
+
+      <p>
+        グレーアウトで使用する色
+      </p>
+
+      <div class="image-box">
+        <img src="img/ticket03.png" alt="チケット管理3">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="block">
+
+    <h2>便利なショートカット</h2>
+
+    <div class="rule">
+
+      <p>・Ctrl + C = コピー</p>
+      <p>・Ctrl + V = 貼り付け</p>
+      <p>・Ctrl + X = 切り取り</p>
+      <p>・Ctrl + F = 検索</p>
+      <p>・Ctrl + D = 上のセルをコピー</p>
+      <p>・Ctrl + + = 今日の日付を入力</p>
+
+    </div>
+
+  </div>
+
+  <div class="block">
+
+    <h2>ポイント管理方法</h2>
+
+    <div class="rule">
+
+      <h3>① 該当顧客を検索</h3>
+
+      <p>
+        「Ctrl」+「F」を押して名前または顧客番号で検索します。
+      </p>
+
+      <div class="note">
+        検索条件を下記に設定してください。<br>
+        ・検索場所(H)：ブック<br>
+        ・検索方向(S)：行 または 列<br>
+        ・検索対象(L)：値
+      </div>
+
+      <div class="image-box">
+        <img src="img/ticket01.png" alt="ポイント管理1">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 付与したい日付を入力</h3>
+
+      <p>
+        消費ポイントによって受けられる特典が異なります。
+      </p>
+
+      <p>・10P：L30追加</p>
+      <p>・20P：G30追加</p>
+      <p>・30P：L&G60</p>
+
+      <p>
+        ポイント使用後は使用した分を削除し、前へ詰めてください。
+      </p>
+
+      <div class="image-box">
+        <img src="img/ticket04.png" alt="ポイント管理2">
+      </div>
+
+      <div class="danger">
+        特典使用後のポイント消し忘れに注意してください。
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
