@@ -2,8 +2,8 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>サロンボード | heal</title>
 
@@ -118,6 +118,12 @@
       font-weight: 600;
     }
 
+    .rule h4 {
+      margin: 15px 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .rule p {
       margin: 5px 0;
       font-size: 14px;
@@ -132,6 +138,28 @@
       font-size: 13px;
     }
 
+    .danger {
+      margin-top: 10px;
+      background: #ffe5e5;
+      border-left: 4px solid #ff4d4d;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .info {
+      margin-top: 10px;
+      background: #f1f1f1;
+      border-left: 4px solid #9e9e9e;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .tight {
+      margin: 2px 0;
+    }
+
     .support-table {
       width: 100%;
       border-collapse: collapse;
@@ -141,12 +169,14 @@
     .support-table th,
     .support-table td {
       border: 1px solid #ddd;
-      padding: 10px;
+      padding: 12px;
       font-size: 14px;
+      text-align: left;
     }
 
     .support-table th {
-      background: #f5f5f5;
+      background: #f1f1f1;
+      font-weight: 600;
     }
 
     @media(max-width:768px) {
@@ -214,8 +244,8 @@
 
           <p>・HPB予約が入った場合は来店処理を行う</p>
 
-          <div class="note">
-            来店処理漏れは売上・来店データのズレに繋がる
+          <div class="danger">
+            来店処理漏れは売上・来店データのズレに繋がります
           </div>
 
         </div>
@@ -257,12 +287,8 @@
 
           <h3>① お問い合わせ前に</h3>
 
-          <p>
-            ・お問い合わせの多いご質問をFAQページにまとめています
-          </p>
-          <p>
-            ・お問い合わせ前に一度ご確認ください
-          </p>
+          <p>・お問い合わせの多いご質問をFAQページにまとめています</p>
+          <p>・お問い合わせ前に一度ご確認ください</p>
 
           <p>
             <a href="https://sbhd-kirei.salonboard.com/hc/ja" target="_blank">
@@ -319,13 +345,13 @@
 
           <h3>④ 音声ガイダンス</h3>
 
-          <p><strong>第1ガイダンス</strong></p>
+          <h4>◆ 第1ガイダンス</h4>
+
           <p>・SALON BOARD利用サロン → 1番</p>
           <p>・営業担当 → 2番</p>
 
-          <br>
+          <h4>◆ 第2ガイダンス</h4>
 
-          <p><strong>第2ガイダンス</strong></p>
           <p>・予約情報修正 → 1番</p>
           <p>・レシートプリンター → 2番</p>
           <p>・操作 / 設定 → 3番</p>
@@ -341,7 +367,7 @@
             ・電話サポート時にSALON BOARD画面を共有しながら操作サポートを受けることが可能です
           </p>
 
-          <div class="note">
+          <div class="info">
             ※PC利用時のみ対象
           </div>
 
@@ -355,45 +381,52 @@
           <p>・15:00〜19:00 → 普通</p>
           <p>・19:00〜21:00 → 比較的つながりやすい</p>
 
+          <div class="note">
+            お急ぎでない場合は19:00以降の問い合わせがおすすめです。
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
-    <script>
-
-function showTab(type){
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab => {
-
-      tab.classList.remove("active");
-
-    });
-
-  document
-    .querySelectorAll(".content")
-    .forEach(content => {
-
-      content.classList.remove("active");
-
-    });
-
-  document
-    .querySelector(
-      `.tab[onclick="showTab('${type}')"]`
-    )
-    .classList.add("active");
-
-  document
-    .getElementById(type)
-    .classList.add("active");
-
-}
-
-</script>
-
   </div>
+
+  <script>
+
+    function showTab(type) {
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+
+          tab.classList.remove("active");
+
+        });
+
+      document
+        .querySelectorAll(".content")
+        .forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+      document
+        .querySelector(
+          `.tab[onclick="showTab('${type}')"]`
+        )
+        .classList.add("active");
+
+      document
+        .getElementById(type)
+        .classList.add("active");
+
+    }
+
+  </script>
+
+</body>
+
 </html>
