@@ -374,3 +374,164 @@ header h1{
   </div>
 
 </div>
+
+<!-- 色々ツール -->
+<div id="tool" class="content">
+
+  <div class="block">
+
+    <h2>色々ツール</h2>
+
+    <div class="info">
+      ここでは主に「電極棒の使用回数管理」「現金売上・小口管理」「在庫管理」を行います。<br>
+      トイレ清掃チェックシートの印刷もこちらから行います。
+    </div>
+
+    <div class="rule">
+
+      <h3>① 電極棒の管理方法</h3>
+
+      <p>
+        【仕様】
+      </p>
+
+      <p>・ゴッドクリーナー30分につき1回</p>
+      <p>・60分施術の場合は2回</p>
+
+      <br>
+
+      <p>
+        【警告表示】
+      </p>
+
+      <p>
+        ・黄色：残り9回～5回
+      </p>
+
+      <p>
+        ・赤色：残り4回以下
+      </p>
+
+      <br>
+
+      <p>
+        【施術時】
+      </p>
+
+      <p>
+        施術の度に入力してください。
+      </p>
+
+      <p>
+        締め作業時に、その日の合計使用回数と一致しているか確認してください。
+      </p>
+
+      <div class="image-box">
+        <img src="img/tool01.png" alt="色々ツール1">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 電極棒交換時</h3>
+
+      <p>
+        電極棒交換時は、本体に前回の棒番号＋1の番号を記入してください。
+      </p>
+
+      <p>
+        裏面には席番号を記入してください。
+      </p>
+
+      <p>
+        Excelには交換後の番号を入力し、セルの色付けを行ってください。
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- お客様管理 -->
+<div id="customer" class="content">
+
+  <div class="block">
+
+    <h2>お客様管理</h2>
+
+    <div class="info">
+      ここでは初回来店時のお客様情報を管理します。
+    </div>
+
+    <div class="note">
+      このExcelを元に各Excelへ反映しているため、
+      入力ミスには十分注意してください。
+    </div>
+
+    <div class="rule">
+
+      <h3>① 顧客情報の入力</h3>
+
+      <p>
+        カウンセリングシートを元に各項目を入力してください。
+      </p>
+
+      <div class="note">
+        ・苗字と名前の間に全角スペースを入れてください。<br>
+        ・顧客番号が無い場合は新しく採番してください。
+      </div>
+
+      <div class="image-box">
+        <img src="img/customer01.png" alt="お客様管理1">
+      </div>
+
+    </div>
+
+    <div class="danger">
+      顧客情報の削除は禁止です。
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<script>
+
+function showTab(type){
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(tab => {
+
+      tab.classList.remove("active");
+
+    });
+
+  document
+    .querySelectorAll(".content")
+    .forEach(content => {
+
+      content.classList.remove("active");
+
+    });
+
+  document
+    .querySelector(
+      `.tab[onclick="showTab('${type}')"]`
+    )
+    .classList.add("active");
+
+  document
+    .getElementById(type)
+    .classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
