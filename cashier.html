@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>レジ締め | heal</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:"Noto Sans JP",sans-serif;
   background:#f2f2f2;
   color:#333;
-  line-height:1.7;
+  line-height:1.8;
 }
 
 header{
@@ -24,8 +19,14 @@ header{
   text-align:center;
 }
 
+header h1{
+  margin:0;
+  font-size:20px;
+  font-weight:600;
+}
+
 .container{
-  max-width:1000px;
+  max-width:900px;
   margin:20px auto;
   padding:0 15px;
 }
@@ -40,22 +41,24 @@ header{
 
 .tabs{
   display:flex;
-  gap:8px;
+  gap:10px;
   margin-bottom:20px;
-  flex-wrap:wrap;
 }
 
 .tab{
-  padding:10px 18px;
+  flex:1;
+  padding:14px 10px;
+  text-align:center;
   background:#ddd;
-  border-radius:8px 8px 0 0;
+  border-radius:10px;
   cursor:pointer;
   font-size:14px;
+  font-weight:600;
   transition:0.2s;
 }
 
 .tab:hover{
-  background:#cfcfcf;
+  background:#d0d0d0;
 }
 
 .tab.active{
@@ -63,41 +66,51 @@ header{
   color:#fff;
 }
 
-.tab-content{
+.content{
   display:none;
 }
 
-.tab-content.active{
+.content.active{
   display:block;
 }
 
 .block{
   background:#fff;
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:20px;
+  padding:22px;
+  border-radius:12px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom:20px;
 }
 
 .block h2{
   margin-top:0;
+  margin-bottom:18px;
   font-size:20px;
   border-left:4px solid #3a3a3a;
   padding-left:10px;
 }
 
-.step{
-  margin-top:35px;
+.rule{
+  margin-bottom:22px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e5e5e5;
 }
 
-.step:first-child{
-  margin-top:10px;
+.rule:last-child{
+  margin-bottom:0;
+  padding-bottom:0;
+  border-bottom:none;
 }
 
-.step-title{
+.rule h3{
+  margin:0 0 10px;
+  font-size:16px;
   font-weight:600;
-  margin-bottom:10px;
-  font-size:15px;
+}
+
+.rule p{
+  margin:5px 0;
+  font-size:14px;
 }
 
 .image-box{
@@ -113,21 +126,21 @@ header{
 }
 
 .note{
-  margin-top:12px;
-  padding:12px;
+  margin-top:10px;
   background:#fff3cd;
   border-left:4px solid #ffcc00;
+  padding:12px;
   border-radius:6px;
-  font-size:14px;
+  font-size:13px;
 }
 
 .danger{
-  margin-top:15px;
-  padding:12px;
+  margin-top:10px;
   background:#ffe5e5;
   border-left:4px solid #ff4d4d;
+  padding:12px;
   border-radius:6px;
-  font-size:14px;
+  font-size:13px;
 }
 
 footer{
@@ -136,181 +149,130 @@ footer{
   color:#888;
   margin:40px 0 20px;
 }
+
+@media(max-width:768px){
+
+  .block{
+    padding:18px;
+  }
+
+  .tabs{
+    gap:8px;
+  }
+
+  .tab{
+    flex:1;
+    text-align:center;
+  }
+
+}
+
 </style>
-</head>
 
-<body>
+<div class="tabs">
 
-<header>
-  <h1>レジ締めマニュアル</h1>
-</header>
-
-<div class="container">
-
-  <a href="index.html" class="back">← 戻る</a>
-
-  <!-- タブ -->
-  <div class="tabs">
-    <div class="tab active" onclick="showTab(0)">点検・清算</div>
-    <div class="tab" onclick="showTab(1)">売上報告</div>
-    <div class="tab" onclick="showTab(2)">現金入力</div>
+  <div class="tab active" onclick="showTab('tenken')">
+    点検・清算
   </div>
 
-  <!-- 点検・清算 -->
-  <div class="tab-content active">
+  <div class="tab" onclick="showTab('uriage')">
+    売上報告
+  </div>
 
-    <div class="block">
-      <h2>点検・清算レシートの出し方</h2>
+  <div class="tab" onclick="showTab('genkin')">
+    現金入力
+  </div>
 
-      <div class="step">
-        <div class="step-title">
-          ① ホーム画面の「点検・清算」を押す
-        </div>
+</div>
 
-        <div class="image-box">
-          <img src="img/tenken01.PNG" alt="点検清算1">
-        </div>
+<!-- 売上報告 -->
+<div id="uriage" class="content">
+
+  <div class="block">
+
+    <h2>売上報告レシートの出し方</h2>
+
+    <div class="rule">
+
+      <h3>① ホーム画面の「点検・清算」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/uriage01.PNG" alt="売上報告1">
       </div>
 
-      <div class="step">
-        <div class="step-title">
-          ② 「レジ点検・清算」を押す
-        </div>
+    </div>
 
-        <div class="image-box">
-          <img src="img/tenken02.PNG" alt="点検清算2">
-        </div>
+    <div class="rule">
+
+      <h3>② 最下部の「売上報告シート」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/uriage02.png" alt="売上報告2">
       </div>
 
-      <div class="step">
-        <div class="step-title">
-          ③ 青枠白字の「点検・清算」を押す
-        </div>
+    </div>
 
-        <div class="image-box">
-          <img src="img/tenken03.PNG" alt="点検清算3">
-        </div>
+    <div class="rule">
+
+      <h3>③ 右下の「発行」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/uriage03.PNG" alt="売上報告3">
       </div>
 
-      <div class="step">
-        <div class="step-title">
-          ④ 担当者を選択し、現金枚数を入力
-        </div>
+    </div>
 
-        <p>
-          ・上部の担当者選択で自分の名前を選択<br>
-          ・ドロアを開ける<br>
-          ・お金を数えて入力
-        </p>
+    <div class="rule">
 
-        <div class="image-box">
-          <img src="img/tenken04.PNG" alt="点検清算4">
-        </div>
+      <h3>④ レシートが発行される</h3>
+
+      <div class="image-box">
+        <img src="img/uriage04.PNG" alt="売上報告4">
       </div>
 
-      <div class="step">
-        <div class="step-title">
-          ⑤ 差異が無ければ「清算へ進む」を押す
-        </div>
+    </div>
 
-        <p>
-          本日の現金売上を抜き、右下の「清算へ進む」を押す
-        </p>
+    <div class="rule">
 
-        <div class="note">
-          現金は冷蔵庫内の茶色い箱のジップロックへ入れる
-        </div>
+      <h3>⑤ レシートをまとめる</h3>
 
-        <div class="image-box">
-          <img src="img/tenken05.PNG" alt="点検清算5">
-        </div>
+      <p>・売上報告レシートを上にする</p>
+      <p>・点検・清算レシートを下にする</p>
+
+      <div class="note">
+        現金欄にマーカーで線を引く
       </div>
 
-      <div class="danger">
-        レシートは後で使用する為、必ず保管してください
+      <div class="image-box">
+        <img
+          src="img/uriage05.png"
+          alt="売上報告5"
+          style="max-width:260px;"
+        >
       </div>
 
     </div>
 
   </div>
 
-  <!-- 売上報告 -->
-  <div class="tab-content">
+</div>
 
-    <div class="block">
-      <h2>売上報告レシートの出し方</h2>
+<!-- 現金入力 -->
+<div id="genkin" class="content">
 
-      <div class="step">
-        <div class="step-title">
-          ① ホーム画面の「点検・清算」を押す
-        </div>
+  <div class="block">
 
-        <div class="image-box">
-          <img src="img/uriage01.PNG" alt="売上報告1">
-        </div>
-      </div>
+    <h2>現金売上の入力</h2>
 
-      <div class="step">
-        <div class="step-title">
-          ② 最下部の「売上報告シート」を押す
-        </div>
+    <div class="rule">
 
-        <div class="image-box">
-          <img src="img/uriage02.png" alt="売上報告2">
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ③ 右下の「発行」を押す
-        </div>
-
-        <div class="image-box">
-          <img src="img/uriage03.PNG" alt="売上報告3">
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ④ レシートが発行される
-        </div>
-
-        <div class="image-box">
-          <img src="img/uriage04.PNG" alt="売上報告4">
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">
-          ⑤ レシートをまとめる
-        </div>
-
-        <p>
-          ・売上報告レシートを上にする<br>
-          ・点検・清算レシートを下にする
-        </p>
-
-        <div class="note">
-          現金欄にマーカーで線を引く
-        </div>
-
-        <div class="image-box">
-          <img src="img/uriage05.png" alt="売上報告5" style="max-width:260px;">
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- 現金入力 -->
-  <div class="tab-content">
-
-    <div class="block">
-      <h2>現金売上の入力</h2>
+      <h3>① Excelへ入力</h3>
 
       <p>
-        Excel「色々ツール」内の<br>
+        Excel「色々ツール」内の
+      </p>
+
+      <p>
         「現金・小口」の該当月を開いて入力する
       </p>
 
@@ -328,26 +290,36 @@ footer{
 
 </div>
 
-<footer>
-  © heal Manual
-</footer>
-
 <script>
-function showTab(index){
 
-  const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
+function showTab(type){
 
-  tabs.forEach((tab, i)=>{
-    tab.classList.toggle("active", i === index);
-  });
+  document
+    .querySelectorAll(".tab")
+    .forEach(tab => {
 
-  contents.forEach((content, i)=>{
-    content.classList.toggle("active", i === index);
-  });
+      tab.classList.remove("active");
+
+    });
+
+  document
+    .querySelectorAll(".content")
+    .forEach(content => {
+
+      content.classList.remove("active");
+
+    });
+
+  document
+    .querySelector(
+      `.tab[onclick="showTab('${type}')"]`
+    )
+    .classList.add("active");
+
+  document
+    .getElementById(type)
+    .classList.add("active");
 
 }
-</script>
 
-</body>
-</html>
+</script>
