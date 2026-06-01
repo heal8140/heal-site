@@ -191,6 +191,13 @@ header h1{
 
 }
 
+.search-highlight{
+  background:#fff176;
+  color:#000;
+  padding:2px 4px;
+  border-radius:4px;
+}
+
 </style>
 </head>
 
@@ -409,6 +416,98 @@ function showTab(type){
     .classList.add("active");
 
 }
+
+</script>
+
+</script>
+
+<script>
+
+window.addEventListener("load", () => {
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const keyword =
+    params.get("search");
+
+  if(!keyword) return;
+
+  const walker =
+    document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT
+    );
+
+  const nodes = [];
+
+  while(walker.nextNode()){
+    nodes.push(walker.currentNode);
+  }
+
+  let firstMatch = null;
+
+  nodes.forEach(node => {
+
+    if(
+      node.parentElement &&
+      ["SCRIPT","STYLE"]
+      .includes(node.parentElement.tagName)
+    ){
+      return;
+    }
+
+    const text = node.textContent;
+
+    if(text.includes(keyword)){
+
+      const span =
+        document.createElement("span");
+
+      span.innerHTML =
+        text.replaceAll(
+          keyword,
+          `<mark class="search-highlight">${keyword}</mark>`
+        );
+
+      node.parentNode.replaceChild(
+        span,
+        node
+      );
+
+      if(!firstMatch){
+        firstMatch =
+          span.querySelector("mark");
+      }
+
+    }
+
+  });
+
+  if(firstMatch){
+
+    const targetContent =
+      firstMatch.parentElement.closest(".content");
+
+    if(
+      targetContent &&
+      !targetContent.classList.contains("active")
+    ){
+
+      showTab(targetContent.id);
+
+    }
+
+    firstMatch.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
+
+});
 
 </script>
 
