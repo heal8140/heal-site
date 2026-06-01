@@ -130,6 +130,35 @@
   box-shadow:0 0 0 2px #6c8ef5;
 }
 
+
+#searchResults{
+  max-width:1000px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.search-result{
+  background:#fff;
+  padding:15px;
+  margin-bottom:10px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.search-result a{
+  text-decoration:none;
+  color:#333;
+}
+
+.search-result h3{
+  margin:0 0 8px;
+}
+
+.search-result p{
+  margin:0;
+  color:#666;
+  font-size:14px;
+}
   </style>
 </head>
 
@@ -148,6 +177,8 @@
     onkeyup="searchManual()"
   >
 </div>
+
+<div id="searchResults"></div>
 
 <div class="container">
 
@@ -259,31 +290,125 @@
 </footer>
 
 <script>
-function searchManual(){
+const pages = [
+  "reception.html",
+  "machine.html",
+  "trouble.html",
+  "service.html",
+  "lepton.html",
+  "godcleaner.html",
+  "radon.html",
+  "comingsoon.html",
+  "salonboard.html",
+  "cashier.html",
+  "order.html",
+  "excel.html",
+  "other.html",
+  "rules.html"
+];
 
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toLowerCase();
+async function searchManual(){
 
-  const cards = document.querySelectorAll(".card");
+  const keyword =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
 
-  cards.forEach(card => {
+  const resultsDiv =
+    document.getElementById("searchResults");
 
-    const title =
-      card.querySelector("h2")?.innerText.toLowerCase() || "";
+  if(keyword === ""){
 
-    const desc =
-      card.querySelector("p")?.innerText.toLowerCase() || "";
+    resultsDiv.innerHTML = "";
 
-    if(
-      title.includes(filter) ||
-      desc.includes(filter)
-    ){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
+    document.querySelector(".container")
+      .style.display = "block";
+
+    return;
+
+  }
+
+  document.querySelector(".container")
+    .style.display = "none";
+
+  let html = "";
+
+  for(const page of pages){
+
+    try{
+
+      const response =
+        await fetch(page);
+
+      const text =
+        await response.text();
+
+      const plainText =
+        text
+          .replace(/<script[\s\S]*?<\/script>/gi,"")
+          .replace(/<style[\s\S]*?<\/style>/gi,"")
+          .replace(/<[^>]+>/g," ")
+          .replace(/\s+/g," ");
+
+      if(
+        plainText
+          .toLowerCase()
+          .includes(keyword)
+      ){
+
+        const titleMatch =
+          text.match(
+            /<title>(.*?)<\/title>/i
+          );
+
+        const title =
+          titleMatch
+            ? titleMatch[1]
+                .replace(" | heal","")
+            : page;
+
+        const index =
+          plainText
+            .toLowerCase()
+            .indexOf(keyword);
+
+        const snippet =
+          plainText.substring(
+            Math.max(0,index-50),
+            index+100
+          );
+
+        html += `
+          <div class="search-result">
+            <a href="${page}">
+              <h3>${title}</h3>
+              <p>...${snippet}...</p>
+            </a>
+          </div>
+        `;
+
+      }
+
+    }catch(e){
+
+      console.error(page,e);
+
     }
 
-  });
+  }
+
+  if(html === ""){
+
+    html =
+      `<div class="search-result">
+        該当する内容は見つかりませんでした
+      </div>`;
+
+  }
+
+  resultsDiv.innerHTML = html;
 
 }
 </script>
