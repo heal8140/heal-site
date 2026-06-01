@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>レジ締め | heal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 
 *{
@@ -108,6 +119,12 @@ header h1{
   font-weight:600;
 }
 
+.rule h4{
+  margin:15px 0 8px;
+  font-size:14px;
+  font-weight:600;
+}
+
 .rule p{
   margin:5px 0;
   font-size:14px;
@@ -143,11 +160,17 @@ header h1{
   font-size:13px;
 }
 
-footer{
-  text-align:center;
-  font-size:12px;
-  color:#888;
-  margin:40px 0 20px;
+.info{
+  margin-top:10px;
+  background:#f1f1f1;
+  border-left:4px solid #9e9e9e;
+  padding:12px;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.tight{
+  margin:2px 0;
 }
 
 @media(max-width:768px){
@@ -168,6 +191,19 @@ footer{
 }
 
 </style>
+</head>
+
+<body>
+
+<header>
+  <h1>レジ締めマニュアル</h1>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+  ← 戻る
+</a>
 
 <div class="tabs">
 
@@ -181,6 +217,82 @@ footer{
 
   <div class="tab" onclick="showTab('genkin')">
     現金入力
+  </div>
+
+</div>
+
+<!-- 点検・清算 -->
+<div id="tenken" class="content active">
+
+  <div class="block">
+
+    <h2>点検・清算レシートの出し方</h2>
+
+    <div class="rule">
+
+      <h3>① ホーム画面の「点検・清算」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/tenken01.PNG" alt="点検清算1">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>② 「レジ点検・清算」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/tenken02.PNG" alt="点検清算2">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>③ 青枠白字の「点検・清算」を押す</h3>
+
+      <div class="image-box">
+        <img src="img/tenken03.PNG" alt="点検清算3">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>④ 担当者を選択し、現金枚数を入力</h3>
+
+      <p>・上部の担当者選択で自分の名前を選択</p>
+      <p>・ドロアを開ける</p>
+      <p>・お金を数えて入力</p>
+
+      <div class="image-box">
+        <img src="img/tenken04.PNG" alt="点検清算4">
+      </div>
+
+    </div>
+
+    <div class="rule">
+
+      <h3>⑤ 差異が無ければ「清算へ進む」を押す</h3>
+
+      <p>・本日の現金売上を抜く</p>
+      <p>・右下の「清算へ進む」を押す</p>
+
+      <div class="note">
+        現金は冷蔵庫内の茶色い箱のジップロックへ入れてください
+      </div>
+
+      <div class="image-box">
+        <img src="img/tenken05.PNG" alt="点検清算5">
+      </div>
+
+      <div class="danger">
+        レシートは後で使用するため、必ず保管してください
+      </div>
+
+    </div>
+
   </div>
 
 </div>
@@ -240,7 +352,7 @@ footer{
       <p>・点検・清算レシートを下にする</p>
 
       <div class="note">
-        現金欄にマーカーで線を引く
+        現金欄にマーカーで線を引いてください
       </div>
 
       <div class="image-box">
@@ -268,25 +380,23 @@ footer{
 
       <h3>① Excelへ入力</h3>
 
-      <p>
-        Excel「色々ツール」内の
-      </p>
-
-      <p>
-        「現金・小口」の該当月を開いて入力する
-      </p>
+      <p>・Excel「色々ツール」を開く</p>
+      <p>・「現金・小口」の該当月を開く</p>
+      <p>・現金売上を入力する</p>
 
       <div class="image-box">
         <img src="img/genkin01.png" alt="現金入力1">
       </div>
 
-      <div class="note">
-        入力漏れ注意
+      <div class="danger">
+        入力漏れに注意してください
       </div>
 
     </div>
 
   </div>
+
+</div>
 
 </div>
 
@@ -323,3 +433,6 @@ function showTab(type){
 }
 
 </script>
+
+</body>
+</html>
