@@ -190,13 +190,12 @@
 
     }
 
-    .search-highlight{
-  background:#fff176;
-  color:#000;
-  padding:2px 4px;
-  border-radius:4px;
-}
-
+    .search-highlight {
+      background: #fff176;
+      color: #000;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
@@ -264,7 +263,11 @@
             注意点として、「①」「㍉」「㈱」などの特殊文字を入れると保存できません。
           </p>
 
-          <img src="img/manual2.png" alt="説明画像" class="manual-image" style="max-width:700px;">
+          <div class="image-box">
+            <a href="img/manual2.png" target="_blank">
+              <img src="img/manual2.png" alt="説明画像" class="manual-image" style="max-width:700px;">
+            </a>
+          </div>
 
         </div>
 
@@ -296,7 +299,12 @@
           <p>
             ・メニュー選択 / キーワード検索で顧客紐付け
           </p>
-          <img src="img/manual3.png" alt="説明画像" class="manual-image" style="max-width:700px;">
+
+          <div class="image-box">
+            <a href="img/manual3.png" target="_blank">
+              <img src="img/manual3.png" alt="説明画像" class="manual-image" style="max-width:700px;">
+            </a>
+          </div>
         </div>
 
       </div>
@@ -345,13 +353,13 @@
 
           <h3>顧客特性の入力（重要）</h3>
           <p>以下の情報は固定です。</p>
-<p>お友達特典：有or無　無の場合は無記載でOK<br>
-10P特典：いつ使用したか(2026/1/29(木)使用済み)。何P貯まっているか(例：10P貯まっています)。<br>
-誕生日特典：いつ使用したか(2026/1/29(木)使用済み)。<br>
-プラン案内：11月24日からスタート、日割・12月分サロン支払・カード登録・同意書記入済み。<br>
-           忙しいので検討します。など<br>
-紹介特典：【287】〇〇様を紹介　未使用<br>
-         【445】〇〇様の紹介　使用済み<br> 
+          <p>お友達特典：有or無　無の場合は無記載でOK<br>
+            10P特典：いつ使用したか(2026/1/29(木)使用済み)。何P貯まっているか(例：10P貯まっています)。<br>
+            誕生日特典：いつ使用したか(2026/1/29(木)使用済み)。<br>
+            プラン案内：11月24日からスタート、日割・12月分サロン支払・カード登録・同意書記入済み。<br>
+            忙しいので検討します。など<br>
+            紹介特典：【287】〇〇様を紹介　未使用<br>
+            【445】〇〇様の紹介　使用済み<br>
           <p>
             ・その他NG事項や注意点を必ず記載
           </p>
@@ -474,100 +482,100 @@
 
   </script>
 
-<script>
+  <script>
 
-window.addEventListener("load", () => {
+    window.addEventListener("load", () => {
 
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  const keyword =
-    params.get("search");
-
-  if(!keyword) return;
-
-  const walker =
-    document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT
-    );
-
-  const nodes = [];
-
-  while(walker.nextNode()){
-    nodes.push(walker.currentNode);
-  }
-
-  let firstMatch = null;
-
-  nodes.forEach(node => {
-
-    if(
-      node.parentElement &&
-      ["SCRIPT","STYLE"]
-      .includes(node.parentElement.tagName)
-    ){
-      return;
-    }
-
-    const text = node.textContent;
-
-    if(text.includes(keyword)){
-
-      const span =
-        document.createElement("span");
-
-      span.innerHTML =
-        text.replaceAll(
-          keyword,
-          `<mark class="search-highlight">${keyword}</mark>`
+      const params =
+        new URLSearchParams(
+          window.location.search
         );
 
-      node.parentNode.replaceChild(
-        span,
-        node
-      );
+      const keyword =
+        params.get("search");
 
-      if(!firstMatch){
-        firstMatch =
-          span.querySelector("mark");
+      if (!keyword) return;
+
+      const walker =
+        document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
+
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
       }
 
-    }
+      let firstMatch = null;
 
-  });
+      nodes.forEach(node => {
 
-  if(firstMatch){
+        if (
+          node.parentElement &&
+          ["SCRIPT", "STYLE"]
+            .includes(node.parentElement.tagName)
+        ) {
+          return;
+        }
 
-    const targetContent =
-      firstMatch.closest(".content");
+        const text = node.textContent;
 
-    if(
-      targetContent &&
-      !targetContent.classList.contains("active")
-    ){
+        if (text.includes(keyword)) {
 
-      const targetId =
-        targetContent.id;
+          const span =
+            document.createElement("span");
 
-      if(typeof showTab === "function"){
-        showTab(targetId);
+          span.innerHTML =
+            text.replaceAll(
+              keyword,
+              `<mark class="search-highlight">${keyword}</mark>`
+            );
+
+          node.parentNode.replaceChild(
+            span,
+            node
+          );
+
+          if (!firstMatch) {
+            firstMatch =
+              span.querySelector("mark");
+          }
+
+        }
+
+      });
+
+      if (firstMatch) {
+
+        const targetContent =
+          firstMatch.closest(".content");
+
+        if (
+          targetContent &&
+          !targetContent.classList.contains("active")
+        ) {
+
+          const targetId =
+            targetContent.id;
+
+          if (typeof showTab === "function") {
+            showTab(targetId);
+          }
+
+        }
+
+        firstMatch.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
       }
 
-    }
-
-    firstMatch.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
     });
 
-  }
-
-});
-
-</script>
+  </script>
 
 </body>
 

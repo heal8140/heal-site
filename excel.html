@@ -2,637 +2,652 @@
 <html lang="ja">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Excel入力 | heal</title>
+  <title>Excel入力 | heal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.8;
+    }
 
-body{
-  margin:0;
-  font-family:"Noto Sans JP",sans-serif;
-  background:#f2f2f2;
-  color:#333;
-  line-height:1.8;
-}
+    header {
+      background: #3a3a3a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-header{
-  background:#3a3a3a;
-  color:#fff;
-  padding:20px;
-  text-align:center;
-}
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-header h1{
-  margin:0;
-  font-size:20px;
-  font-weight:600;
-}
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
 
-.container{
-  max-width:900px;
-  margin:20px auto;
-  padding:0 15px;
-}
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
 
-.back{
-  display:inline-block;
-  margin-bottom:15px;
-  text-decoration:none;
-  color:#555;
-  font-size:14px;
-}
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
 
-.tabs{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-  flex-wrap:wrap;
-}
+    .tab {
+      flex: 1;
+      padding: 14px 10px;
+      text-align: center;
+      background: #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
 
-.tab{
-  flex:1;
-  padding:14px 10px;
-  text-align:center;
-  background:#ddd;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:600;
-  transition:0.2s;
-}
+    .tab:hover {
+      background: #d0d0d0;
+    }
 
-.tab:hover{
-  background:#d0d0d0;
-}
+    .tab.active {
+      background: #3a3a3a;
+      color: #fff;
+    }
 
-.tab.active{
-  background:#3a3a3a;
-  color:#fff;
-}
+    .content {
+      display: none;
+    }
 
-.content{
-  display:none;
-}
+    .content.active {
+      display: block;
+    }
 
-.content.active{
-  display:block;
-}
+    .block {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
 
-.block{
-  background:#fff;
-  padding:22px;
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-  margin-bottom:20px;
-}
+    .block h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 20px;
+      border-left: 4px solid #3a3a3a;
+      padding-left: 10px;
+    }
 
-.block h2{
-  margin-top:0;
-  margin-bottom:18px;
-  font-size:20px;
-  border-left:4px solid #3a3a3a;
-  padding-left:10px;
-}
+    .rule {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e5e5;
+    }
 
-.rule{
-  margin-bottom:22px;
-  padding-bottom:18px;
-  border-bottom:1px solid #e5e5e5;
-}
+    .rule:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
 
-.rule:last-child{
-  margin-bottom:0;
-  padding-bottom:0;
-  border-bottom:none;
-}
+    .rule h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
 
-.rule h3{
-  margin:0 0 10px;
-  font-size:16px;
-  font-weight:600;
-}
+    .rule p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
 
-.rule p{
-  margin:5px 0;
-  font-size:14px;
-}
+    .image-box {
+      margin-top: 15px;
+      text-align: center;
+    }
 
-.image-box{
-  margin-top:15px;
-  text-align:center;
-}
+    .image-box img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
 
-.image-box img{
-  width:100%;
-  max-width:900px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+    .note {
+      margin-top: 10px;
+      background: #fff3cd;
+      border-left: 4px solid #ffcc00;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
 
-.note{
-  margin-top:10px;
-  background:#fff3cd;
-  border-left:4px solid #ffcc00;
-  padding:12px;
-  border-radius:6px;
-  font-size:13px;
-}
+    .danger {
+      margin-top: 10px;
+      background: #ffe5e5;
+      border-left: 4px solid #ff4d4d;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
 
-.danger{
-  margin-top:10px;
-  background:#ffe5e5;
-  border-left:4px solid #ff4d4d;
-  padding:12px;
-  border-radius:6px;
-  font-size:13px;
-}
+    @media(max-width:768px) {
 
-@media(max-width:768px){
+      .block {
+        padding: 18px;
+      }
 
-  .block{
-    padding:18px;
-  }
+      .tabs {
+        gap: 8px;
+      }
 
-  .tabs{
-    gap:8px;
-  }
+      .tab {
+        flex: 1;
+        text-align: center;
+      }
 
-  .tab{
-    flex:1;
-    text-align:center;
-  }
+    }
 
-}
-
-.search-highlight{
-  background:#fff176;
-  color:#000;
-  padding:2px 4px;
-  border-radius:4px;
-}
-
-</style>
+    .search-highlight {
+      background: #fff176;
+      color: #000;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Excel入力マニュアル</h1>
-</header>
+  <header>
+    <h1>Excel入力マニュアル</h1>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-<a href="index.html" class="back">
-  ← 戻る
-</a>
+    <a href="index.html" class="back">
+      ← 戻る
+    </a>
 
-<div class="tabs">
+    <div class="tabs">
 
-  <div class="tab active" onclick="showTab('sales')">
-    売上集計
-  </div>
-
-  <div class="tab" onclick="showTab('ticket')">
-    チケット管理
-  </div>
-
-  <div class="tab" onclick="showTab('tool')">
-    色々ツール
-  </div>
-
-  <div class="tab" onclick="showTab('customer')">
-    お客様管理
-  </div>
-
-</div>
-
-<!-- 売上集計 -->
-<div id="sales" class="content active">
-
-  <div class="block">
-
-    <h2>売上集計</h2>
-
-    <div class="rule">
-
-      <h3>① 該当月のシートを開く</h3>
-
-      <p>
-        お客様退店後、該当月の売上シートを開きます。
-      </p>
-
-      <p>・日付</p>
-      <p>・顧客番号</p>
-      <p>・施術内容</p>
-      <p>・物販（購入時）</p>
-      <p>・その他（項目が無い場合）</p>
-
-      <div class="note">
-        黄色になっている列は自動入力です。<br>
-        氏名 / 売上金 / 教習所への請求金額
+      <div class="tab active" onclick="showTab('sales')">
+        売上集計
       </div>
 
-      <div class="image-box">
-        <img src="img/uriage-total01.png" alt="売上集計1">
+      <div class="tab" onclick="showTab('ticket')">
+        チケット管理
       </div>
 
-      <div class="danger">
-        左上の自動保存がオンになっていることを確認してください。
+      <div class="tab" onclick="showTab('tool')">
+        色々ツール
+      </div>
+
+      <div class="tab" onclick="showTab('customer')">
+        お客様管理
+      </div>
+
+    </div>
+
+    <!-- 売上集計 -->
+    <div id="sales" class="content active">
+
+      <div class="block">
+
+        <h2>売上集計</h2>
+
+        <div class="rule">
+
+          <h3>① 該当月のシートを開く</h3>
+
+          <p>
+            お客様退店後、該当月の売上シートを開きます。
+          </p>
+
+          <p>・日付</p>
+          <p>・顧客番号</p>
+          <p>・施術内容</p>
+          <p>・物販（購入時）</p>
+          <p>・その他（項目が無い場合）</p>
+
+          <div class="note">
+            黄色になっている列は自動入力です。<br>
+            氏名 / 売上金 / 教習所への請求金額
+          </div>
+
+          <div class="image-box">
+            <a href="img/uriage-total01.png" target="_blank">
+              <img src="img/uriage-total01.png" alt="売上集計1">
+            </a>
+          </div>
+
+
+
+          <div class="danger">
+            左上の自動保存がオンになっていることを確認してください。
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- チケット管理 -->
+    <div id="ticket" class="content">
+
+      <div class="block">
+
+        <h2>チケット管理方法</h2>
+
+        <div class="info">
+          ここではお客様の保有している「チケット」「ポイント」を管理します。
+        </div>
+
+        <div class="rule">
+
+          <h3>① 該当顧客を検索</h3>
+
+          <p>
+            「Ctrl」+「F」を押して名前または顧客番号で検索します。
+          </p>
+
+          <div class="note">
+            検索条件を下記に設定してください。<br>
+            ・検索場所(H)：ブック<br>
+            ・検索方向(S)：行 または 列<br>
+            ・検索対象(L)：値
+          </div>
+
+          <div class="image-box">
+            <a href="img/ticket01.png" target="_blank">
+              <img src="img/ticket01.png" alt="チケット管理1">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>② 使用回数を入力</h3>
+
+          <p>
+            使用日・入力者を入力後、使用済みセルをグレーアウトしてください。
+          </p>
+
+          <div class="image-box">
+            <a href="img/ticket02.png" target="_blank">
+              <img src="img/ticket02.png" alt="チケット管理2">
+            </a>
+          </div>
+
+          <p>
+            グレーアウトで使用する色
+          </p>
+
+          <div class="image-box">
+            <a href="img/ticket03.png" target="_blank">
+              <img src="img/ticket03.png" alt="チケット管理3">
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="block">
+
+        <h2>便利なショートカット</h2>
+
+        <div class="rule">
+
+          <p>・Ctrl + C = コピー</p>
+          <p>・Ctrl + V = 貼り付け</p>
+          <p>・Ctrl + X = 切り取り</p>
+          <p>・Ctrl + F = 検索</p>
+          <p>・Ctrl + D = 上のセルをコピー</p>
+          <p>・Ctrl + + = 今日の日付を入力</p>
+
+        </div>
+
+      </div>
+
+      <div class="block">
+
+        <h2>ポイント管理方法</h2>
+
+        <div class="rule">
+
+          <h3>① 該当顧客を検索</h3>
+
+          <p>
+            「Ctrl」+「F」を押して名前または顧客番号で検索します。
+          </p>
+
+          <div class="note">
+            検索条件を下記に設定してください。<br>
+            ・検索場所(H)：ブック<br>
+            ・検索方向(S)：行 または 列<br>
+            ・検索対象(L)：値
+          </div>
+
+          <div class="image-box">
+            <a href="img/ticket01.png" target="_blank">
+              <img src="img/ticket01.png" alt="ポイント管理1">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>② 付与したい日付を入力</h3>
+
+          <p>
+            消費ポイントによって受けられる特典が異なります。
+          </p>
+
+          <p>・10P：L30追加</p>
+          <p>・20P：G30追加</p>
+          <p>・30P：L&G60</p>
+
+          <p>
+            ポイント使用後は使用した分を削除し、前へ詰めてください。
+          </p>
+
+          <div class="image-box">
+            <a href="img/ticket04.png" target="_blank">
+              <img src="img/ticket04.png" alt="ポイント管理2">
+            </a>
+          </div>
+
+          <div class="danger">
+            特典使用後のポイント消し忘れに注意してください。
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 色々ツール -->
+    <div id="tool" class="content">
+
+      <div class="block">
+
+        <h2>色々ツール</h2>
+
+        <div class="info">
+          ここでは主に「電極棒の使用回数管理」「現金売上・小口管理」「在庫管理」を行います。<br>
+          トイレ清掃チェックシートの印刷もこちらから行います。
+        </div>
+
+        <div class="rule">
+
+          <h3>① 電極棒の管理方法</h3>
+
+          <p>
+            【仕様】
+          </p>
+
+          <p>・ゴッドクリーナー30分につき1回</p>
+          <p>・60分施術の場合は2回</p>
+
+          <br>
+
+          <p>
+            【警告表示】
+          </p>
+
+          <p>
+            ・黄色：残り9回～5回
+          </p>
+
+          <p>
+            ・赤色：残り4回以下
+          </p>
+
+          <br>
+
+          <p>
+            【施術時】
+          </p>
+
+          <p>
+            施術の度に入力してください。
+          </p>
+
+          <p>
+            締め作業時に、その日の合計使用回数と一致しているか確認してください。
+          </p>
+
+          <div class="image-box">
+            <img src="img/tool01.png" alt="色々ツール1">
+          </div>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>② 電極棒交換時</h3>
+
+          <p>
+            電極棒交換時は、本体に前回の棒番号＋1の番号を記入してください。
+          </p>
+
+          <p>
+            裏面には席番号を記入してください。
+          </p>
+
+          <p>
+            Excelには交換後の番号を入力し、セルの色付けを行ってください。
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- お客様管理 -->
+    <div id="customer" class="content">
+
+      <div class="block">
+
+        <h2>お客様管理</h2>
+
+        <div class="info">
+          ここでは初回来店時のお客様情報を管理します。
+        </div>
+
+        <div class="note">
+          このExcelを元に各Excelへ反映しているため、
+          入力ミスには十分注意してください。
+        </div>
+
+        <div class="rule">
+
+          <h3>① 顧客情報の入力</h3>
+
+          <p>
+            カウンセリングシートを元に各項目を入力してください。
+          </p>
+
+          <div class="note">
+            ・苗字と名前の間に全角スペースを入れてください。<br>
+            ・顧客番号が無い場合は新しく採番してください。
+          </div>
+
+          <div class="image-box">
+            <a href="img/customer01.png" target="_blank">
+              <img src="img/customer01.png" alt="お客様管理1">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="danger">
+          顧客情報の削除は禁止です。
+        </div>
+
       </div>
 
     </div>
 
   </div>
 
-</div>
+  <script>
 
-<!-- チケット管理 -->
-<div id="ticket" class="content">
+    function showTab(type) {
 
-  <div class="block">
+      document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
 
-    <h2>チケット管理方法</h2>
+          tab.classList.remove("active");
 
-    <div class="info">
-      ここではお客様の保有している「チケット」「ポイント」を管理します。
-    </div>
+        });
 
-    <div class="rule">
+      document
+        .querySelectorAll(".content")
+        .forEach(content => {
 
-      <h3>① 該当顧客を検索</h3>
+          content.classList.remove("active");
 
-      <p>
-        「Ctrl」+「F」を押して名前または顧客番号で検索します。
-      </p>
+        });
 
-      <div class="note">
-        検索条件を下記に設定してください。<br>
-        ・検索場所(H)：ブック<br>
-        ・検索方向(S)：行 または 列<br>
-        ・検索対象(L)：値
-      </div>
+      document
+        .querySelector(
+          `.tab[onclick="showTab('${type}')"]`
+        )
+        .classList.add("active");
 
-      <div class="image-box">
-        <img src="img/ticket01.png" alt="チケット管理1">
-      </div>
+      document
+        .getElementById(type)
+        .classList.add("active");
 
-    </div>
-
-    <div class="rule">
-
-      <h3>② 使用回数を入力</h3>
-
-      <p>
-        使用日・入力者を入力後、使用済みセルをグレーアウトしてください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/ticket02.png" alt="チケット管理2">
-      </div>
-
-      <p>
-        グレーアウトで使用する色
-      </p>
-
-      <div class="image-box">
-        <img src="img/ticket03.png" alt="チケット管理3">
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="block">
-
-    <h2>便利なショートカット</h2>
-
-    <div class="rule">
-
-      <p>・Ctrl + C = コピー</p>
-      <p>・Ctrl + V = 貼り付け</p>
-      <p>・Ctrl + X = 切り取り</p>
-      <p>・Ctrl + F = 検索</p>
-      <p>・Ctrl + D = 上のセルをコピー</p>
-      <p>・Ctrl + + = 今日の日付を入力</p>
-
-    </div>
-
-  </div>
-
-  <div class="block">
-
-    <h2>ポイント管理方法</h2>
-
-    <div class="rule">
-
-      <h3>① 該当顧客を検索</h3>
-
-      <p>
-        「Ctrl」+「F」を押して名前または顧客番号で検索します。
-      </p>
-
-      <div class="note">
-        検索条件を下記に設定してください。<br>
-        ・検索場所(H)：ブック<br>
-        ・検索方向(S)：行 または 列<br>
-        ・検索対象(L)：値
-      </div>
-
-      <div class="image-box">
-        <img src="img/ticket01.png" alt="ポイント管理1">
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>② 付与したい日付を入力</h3>
-
-      <p>
-        消費ポイントによって受けられる特典が異なります。
-      </p>
-
-      <p>・10P：L30追加</p>
-      <p>・20P：G30追加</p>
-      <p>・30P：L&G60</p>
-
-      <p>
-        ポイント使用後は使用した分を削除し、前へ詰めてください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/ticket04.png" alt="ポイント管理2">
-      </div>
-
-      <div class="danger">
-        特典使用後のポイント消し忘れに注意してください。
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- 色々ツール -->
-<div id="tool" class="content">
-
-  <div class="block">
-
-    <h2>色々ツール</h2>
-
-    <div class="info">
-      ここでは主に「電極棒の使用回数管理」「現金売上・小口管理」「在庫管理」を行います。<br>
-      トイレ清掃チェックシートの印刷もこちらから行います。
-    </div>
-
-    <div class="rule">
-
-      <h3>① 電極棒の管理方法</h3>
-
-      <p>
-        【仕様】
-      </p>
-
-      <p>・ゴッドクリーナー30分につき1回</p>
-      <p>・60分施術の場合は2回</p>
-
-      <br>
-
-      <p>
-        【警告表示】
-      </p>
-
-      <p>
-        ・黄色：残り9回～5回
-      </p>
-
-      <p>
-        ・赤色：残り4回以下
-      </p>
-
-      <br>
-
-      <p>
-        【施術時】
-      </p>
-
-      <p>
-        施術の度に入力してください。
-      </p>
-
-      <p>
-        締め作業時に、その日の合計使用回数と一致しているか確認してください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/tool01.png" alt="色々ツール1">
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>② 電極棒交換時</h3>
-
-      <p>
-        電極棒交換時は、本体に前回の棒番号＋1の番号を記入してください。
-      </p>
-
-      <p>
-        裏面には席番号を記入してください。
-      </p>
-
-      <p>
-        Excelには交換後の番号を入力し、セルの色付けを行ってください。
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- お客様管理 -->
-<div id="customer" class="content">
-
-  <div class="block">
-
-    <h2>お客様管理</h2>
-
-    <div class="info">
-      ここでは初回来店時のお客様情報を管理します。
-    </div>
-
-    <div class="note">
-      このExcelを元に各Excelへ反映しているため、
-      入力ミスには十分注意してください。
-    </div>
-
-    <div class="rule">
-
-      <h3>① 顧客情報の入力</h3>
-
-      <p>
-        カウンセリングシートを元に各項目を入力してください。
-      </p>
-
-      <div class="note">
-        ・苗字と名前の間に全角スペースを入れてください。<br>
-        ・顧客番号が無い場合は新しく採番してください。
-      </div>
-
-      <div class="image-box">
-        <img src="img/customer01.png" alt="お客様管理1">
-      </div>
-
-    </div>
-
-    <div class="danger">
-      顧客情報の削除は禁止です。
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-<script>
-
-function showTab(type){
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab => {
-
-      tab.classList.remove("active");
-
-    });
-
-  document
-    .querySelectorAll(".content")
-    .forEach(content => {
-
-      content.classList.remove("active");
-
-    });
-
-  document
-    .querySelector(
-      `.tab[onclick="showTab('${type}')"]`
-    )
-    .classList.add("active");
-
-  document
-    .getElementById(type)
-    .classList.add("active");
-
-}
-
-</script>
-
-<script>
-
-window.addEventListener("load", () => {
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  const keyword =
-    params.get("search");
-
-  if(!keyword) return;
-
-  const walker =
-    document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT
-    );
-
-  const nodes = [];
-
-  while(walker.nextNode()){
-    nodes.push(walker.currentNode);
-  }
-
-  let firstMatch = null;
-
-  nodes.forEach(node => {
-
-    if(
-      node.parentElement &&
-      ["SCRIPT","STYLE"]
-      .includes(node.parentElement.tagName)
-    ){
-      return;
     }
 
-    const text = node.textContent;
+  </script>
 
-    if(text.includes(keyword)){
+  <script>
 
-      const span =
-        document.createElement("span");
+    window.addEventListener("load", () => {
 
-      span.innerHTML =
-        text.replaceAll(
-          keyword,
-          `<mark class="search-highlight">${keyword}</mark>`
+      const params =
+        new URLSearchParams(
+          window.location.search
         );
 
-      node.parentNode.replaceChild(
-        span,
-        node
-      );
+      const keyword =
+        params.get("search");
 
-      if(!firstMatch){
-        firstMatch =
-          span.querySelector("mark");
+      if (!keyword) return;
+
+      const walker =
+        document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
+
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
       }
 
-    }
+      let firstMatch = null;
 
-  });
+      nodes.forEach(node => {
 
-  if(firstMatch){
+        if (
+          node.parentElement &&
+          ["SCRIPT", "STYLE"]
+            .includes(node.parentElement.tagName)
+        ) {
+          return;
+        }
 
-    const targetContent =
-  firstMatch.parentElement.closest(".content");
+        const text = node.textContent;
 
-    if(
-      targetContent &&
-      !targetContent.classList.contains("active")
-    ){
+        if (text.includes(keyword)) {
 
-      const targetId =
-        targetContent.id;
+          const span =
+            document.createElement("span");
 
-      if(typeof showTab === "function"){
-        showTab(targetId);
+          span.innerHTML =
+            text.replaceAll(
+              keyword,
+              `<mark class="search-highlight">${keyword}</mark>`
+            );
+
+          node.parentNode.replaceChild(
+            span,
+            node
+          );
+
+          if (!firstMatch) {
+            firstMatch =
+              span.querySelector("mark");
+          }
+
+        }
+
+      });
+
+      if (firstMatch) {
+
+        const targetContent =
+          firstMatch.parentElement.closest(".content");
+
+        if (
+          targetContent &&
+          !targetContent.classList.contains("active")
+        ) {
+
+          const targetId =
+            targetContent.id;
+
+          if (typeof showTab === "function") {
+            showTab(targetId);
+          }
+
+        }
+
+        firstMatch.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
       }
 
-    }
-
-    firstMatch.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
     });
 
-  }
-
-});
-
-</script>
+  </script>
 </body>
+
 </html>
