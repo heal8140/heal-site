@@ -2,535 +2,552 @@
 <html lang="ja">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>発注方法 | heal</title>
+  <title>発注方法 | heal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  font-family:"Noto Sans JP",sans-serif;
-  background:#f2f2f2;
-  color:#333;
-  line-height:1.8;
-}
-
-header{
-  background:#3a3a3a;
-  color:#fff;
-  padding:20px;
-  text-align:center;
-}
-
-header h1{
-  margin:0;
-  font-size:20px;
-  font-weight:600;
-}
-
-.container{
-  max-width:900px;
-  margin:20px auto;
-  padding:0 15px;
-}
-
-.back{
-  display:inline-block;
-  margin-bottom:15px;
-  text-decoration:none;
-  color:#555;
-  font-size:14px;
-}
-
-.tabs{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.tab{
-  flex:1;
-  padding:14px 10px;
-  text-align:center;
-  background:#ddd;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:600;
-  transition:0.2s;
-}
-
-.tab:hover{
-  background:#d0d0d0;
-}
-
-.tab.active{
-  background:#3a3a3a;
-  color:#fff;
-}
-
-.content{
-  display:none;
-}
-
-.content.active{
-  display:block;
-}
-
-.block{
-  background:#fff;
-  padding:22px;
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-  margin-bottom:20px;
-}
-
-.block h2{
-  margin-top:0;
-  margin-bottom:18px;
-  font-size:20px;
-  border-left:4px solid #3a3a3a;
-  padding-left:10px;
-}
-
-.rule{
-  margin-bottom:22px;
-  padding-bottom:18px;
-  border-bottom:1px solid #e5e5e5;
-}
-
-.rule:last-child{
-  margin-bottom:0;
-  padding-bottom:0;
-  border-bottom:none;
-}
-
-.rule h3{
-  margin:0 0 10px;
-  font-size:16px;
-  font-weight:600;
-}
-
-.rule h4{
-  margin:15px 0 8px;
-  font-size:14px;
-  font-weight:600;
-}
-
-.rule p{
-  margin:5px 0;
-  font-size:14px;
-}
-
-.image-box{
-  margin-top:15px;
-  text-align:center;
-}
-
-.image-box img{
-  width:100%;
-  max-width:900px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-.note{
-  margin-top:10px;
-  background:#fff3cd;
-  border-left:4px solid #ffcc00;
-  padding:12px;
-  border-radius:6px;
-  font-size:13px;
-}
-
-.danger{
-  margin-top:10px;
-  background:#ffe5e5;
-  border-left:4px solid #ff4d4d;
-  padding:12px;
-  border-radius:6px;
-  font-size:13px;
-}
-
-.info{
-  margin-top:10px;
-  background:#f1f1f1;
-  border-left:4px solid #9e9e9e;
-  padding:12px;
-  border-radius:6px;
-  font-size:13px;
-}
-
-.tight{
-  margin:2px 0;
-}
-
-@media(max-width:768px){
-
-  .block{
-    padding:18px;
-  }
-
-  .tabs{
-    gap:8px;
-  }
-
-  .tab{
-    flex:1;
-    text-align:center;
-    font-size:13px;
-  }
-
-}
-
-.search-highlight{
-  background:#fff176;
-  color:#000;
-  padding:2px 4px;
-  border-radius:4px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>発注方法マニュアル</h1>
-</header>
-
-<div class="container">
-
-<a href="index.html" class="back">
-  ← 戻る
-</a>
-
-<div class="tabs">
-
-  <div class="tab active" onclick="showTab('check')">
-    発注前確認
-  </div>
-
-  <div class="tab" onclick="showTab('order')">
-    発注方法
-  </div>
-
-  <div class="tab" onclick="showTab('delivery')">
-    納品確認
-  </div>
-
-  <div class="tab" onclick="showTab('stock')">
-    在庫管理
-  </div>
-
-</div>
-
-<!-- 発注前確認 -->
-<div id="check" class="content active">
-
-  <div class="block">
-
-    <h2>発注前確認</h2>
-
-    <div class="rule">
-
-      <h3>① 在庫数を確認</h3>
-
-      <p>
-        在庫状況を確認し、必要数を把握してください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/order01.png" alt="発注前確認1">
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>② 発注基準を確認</h3>
-
-      <p>
-        発注タイミング・最低在庫数を確認してください。
-      </p>
-
-      <div class="note">
-        商品によって発注基準が異なるため注意してください。
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- 発注方法 -->
-<div id="order" class="content">
-
-  <div class="block">
-
-    <h2>発注方法</h2>
-
-    <div class="rule">
-
-      <h3>① 発注サイトを開く</h3>
-
-      <p>
-        指定の発注サイトへログインしてください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/order02.png" alt="発注方法1">
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>② 商品・数量を入力</h3>
-
-      <p>
-        必要商品と数量を確認し入力してください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/order03.png" alt="発注方法2">
-      </div>
-
-      <div class="danger">
-        発注確定前に数量間違いが無いか必ず確認してください。
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- 納品確認 -->
-<div id="delivery" class="content">
-
-  <div class="block">
-
-    <h2>納品確認</h2>
-
-    <div class="rule">
-
-      <h3>① 納品内容を確認</h3>
-
-      <p>
-        納品書と商品数が一致しているか確認してください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/order04.png" alt="納品確認1">
-      </div>
-
-    </div>
-
-    <div class="rule">
-
-      <h3>② 所定位置へ格納</h3>
-
-      <p>
-        商品ごとに指定場所へ保管してください。
-      </p>
-
-      <div class="note">
-        使用期限・ロット番号の確認も忘れずに行ってください。
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- 在庫管理 -->
-<div id="stock" class="content">
-
-  <div class="block">
-
-    <h2>在庫管理</h2>
-
-    <div class="rule">
-
-      <h3>① Excelへ入力</h3>
-
-      <p>
-        発注・納品後は在庫管理表へ入力してください。
-      </p>
-
-      <div class="image-box">
-        <img src="img/order05.png" alt="在庫管理1">
-      </div>
-
-      <div class="danger">
-        入力漏れに注意してください。
-      </div>
-
-    </div>
-
-     <div class="rule">
-
-      <h3>② 賞味・消費期限の迫っている商品について</h3>
-
-      <p>
-        ・期限の2か月前になったら10％引きで販売してください。<br>
-        ・期限の1か月前になったら30％引きで販売してください。
-      </p>
-
-      <div class="image-box">
-        <a href="img/order06.jpg" target="_blank">
-          <img src="img/order06.jpg" alt="在庫管理2">
-        </a>
-      </div>
-
-      <div class="danger">
-        期限管理は慎重に行ってください。期限切れ商品は店内でスタッフが飲用しても構いません。
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-<script>
-
-function showTab(type){
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(tab => {
-
-      tab.classList.remove("active");
-
-    });
-
-  document
-    .querySelectorAll(".content")
-    .forEach(content => {
-
-      content.classList.remove("active");
-
-    });
-
-  document
-    .querySelector(
-      `.tab[onclick="showTab('${type}')"]`
-    )
-    .classList.add("active");
-
-  document
-    .getElementById(type)
-    .classList.add("active");
-
-}
-
-</script>
-
-</script>
-
-<script>
-
-window.addEventListener("load", () => {
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  const keyword =
-    params.get("search");
-
-  if(!keyword) return;
-
-  const walker =
-    document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT
-    );
-
-  const nodes = [];
-
-  while(walker.nextNode()){
-    nodes.push(walker.currentNode);
-  }
-
-  let firstMatch = null;
-
-  nodes.forEach(node => {
-
-    if(
-      node.parentElement &&
-      ["SCRIPT","STYLE"]
-      .includes(node.parentElement.tagName)
-    ){
-      return;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    const text = node.textContent;
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.8;
+    }
 
-    if(text.includes(keyword)){
+    header {
+      background: #3a3a3a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-      const span =
-        document.createElement("span");
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-      span.innerHTML =
-        text.replaceAll(
-          keyword,
-          `<mark class="search-highlight">${keyword}</mark>`
-        );
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
 
-      node.parentNode.replaceChild(
-        span,
-        node
-      );
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
 
-      if(!firstMatch){
-        firstMatch =
-          span.querySelector("mark");
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 14px 10px;
+      text-align: center;
+      background: #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .tab:hover {
+      background: #d0d0d0;
+    }
+
+    .tab.active {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .block {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .block h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 20px;
+      border-left: 4px solid #3a3a3a;
+      padding-left: 10px;
+    }
+
+    .rule {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .rule:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .rule h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .rule h4 {
+      margin: 15px 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .rule p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .image-box {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .note {
+      margin-top: 10px;
+      background: #fff3cd;
+      border-left: 4px solid #ffcc00;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .danger {
+      margin-top: 10px;
+      background: #ffe5e5;
+      border-left: 4px solid #ff4d4d;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .info {
+      margin-top: 10px;
+      background: #f1f1f1;
+      border-left: 4px solid #9e9e9e;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .tight {
+      margin: 2px 0;
+    }
+
+    @media(max-width:768px) {
+
+      .block {
+        padding: 18px;
+      }
+
+      .tabs {
+        gap: 8px;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        font-size: 13px;
       }
 
     }
 
-  });
+    .search-highlight {
+      background: #fff176;
+      color: #000;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
 
-  if(firstMatch){
+<body>
 
-    const targetContent =
-      firstMatch.parentElement.closest(".content");
+  <header>
+    <h1>発注方法マニュアル</h1>
+  </header>
 
-    if(
-      targetContent &&
-      !targetContent.classList.contains("active")
-    ){
+  <div class="container">
 
-      showTab(targetContent.id);
+    <a href="index.html" class="back">
+      ← 戻る
+    </a>
+
+    <div class="tabs">
+
+      <div class="tab active" onclick="showTab('check')">
+        発注前確認
+      </div>
+
+      <div class="tab" onclick="showTab('order')">
+        発注方法
+      </div>
+
+      <div class="tab" onclick="showTab('delivery')">
+        納品確認
+      </div>
+
+      <div class="tab" onclick="showTab('stock')">
+        在庫管理
+      </div>
+
+    </div>
+
+    <!-- 発注前確認 -->
+    <div id="check" class="content active">
+
+      <div class="block">
+
+        <h2>発注前確認</h2>
+
+        <div class="rule">
+
+          <h3>① 在庫数を確認</h3>
+
+          <p>
+            在庫状況を確認し、必要数を把握してください。
+          </p>
+
+          <div class="image-box">
+          <a href="img/order01.png" target="_blank">
+            <img src="img/order01.png" alt="発注前確認1">
+          </a>
+        </div>
+
+        </div>
+
+        <div class="rule">
+
+          <h3>② 発注基準を確認</h3>
+
+          <p>
+            発注タイミング・最低在庫数を確認してください。
+          </p>
+
+          <div class="note">
+            商品によって発注基準が異なるため注意してください。
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 発注方法 -->
+    <div id="order" class="content">
+
+      <div class="block">
+
+        <h2>発注方法</h2>
+
+        <div class="rule">
+
+          <h3>① 発注数の確認 / ログイン</h3>
+
+          <p>
+            ・在庫によって発注先が異なります。<br>
+            ・指定の発注サイトへログインしてください。(主にAmazon)
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="block">
+
+        <div class="rule">
+
+          <h3>① レプトン水の発注例</h3>
+
+          <h4>発注書の作成</h4>
+
+          <p>・注文書フォルダを開きます<br>
+            ・レプトン発注を開きます<br>
+            ・「レプトン水　注文書　ひな形.docx」または「注文書」を開きます<br>
+            ・日付、担当者名、数量を変更してください<br>
+            ・ファイル → エクスポート → 「PDF/XPSの作成」を選択<br>
+            ・ファイル名を変更して保存してください<br>
+            ・保存したPDFをメールに添付して送信してください<br>
+            ・送信内容は前回の送信履歴からコピーして使用してください<br>
+            ※送信内容の担当者名の変更を忘れないでください<br>
+            以下見本です。
+          </p>
+
+          <div class="image-box">
+          <a href="img/order02.png" target="_blank">
+            <img src="img/order02.png" alt="発注方法1">
+          </a>
+        </div>
+
+          <div class="danger">
+            発注確定前に数量間違いが無いか必ず確認してください。
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 納品確認 -->
+  <div id="delivery" class="content">
+
+    <div class="block">
+
+      <h2>納品確認</h2>
+
+      <div class="rule">
+
+        <h3>① 納品内容を確認</h3>
+
+        <p>
+          納品書と商品数が一致しているか確認してください。
+        </p>
+
+        <div class="image-box">
+          <img src="img/order04.png" alt="納品確認1">
+        </div>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>② 所定位置へ格納</h3>
+
+        <p>
+          商品ごとに指定場所へ保管してください。
+        </p>
+
+        <div class="note">
+          使用期限・ロット番号の確認も忘れずに行ってください。
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 在庫管理 -->
+  <div id="stock" class="content">
+
+    <div class="block">
+
+      <h2>在庫管理</h2>
+
+      <div class="rule">
+
+        <h3>① Excelへ入力</h3>
+
+        <p>
+          発注・納品後は在庫管理表へ入力してください。
+        </p>
+
+        <div class="image-box">
+          <a href="img/order05.png" target="_blank">
+            <img src="img/order05.png" alt="在庫管理1">
+          </a>
+        </div>
+
+        <div class="danger">
+          入力漏れに注意してください。
+        </div>
+
+      </div>
+
+      <div class="rule">
+
+        <h3>② 賞味・消費期限の迫っている商品について</h3>
+
+        <p>
+          ・期限の2か月前になったら10％引きで販売してください。<br>
+          ・期限の1か月前になったら30％引きで販売してください。
+        </p>
+
+        <div class="image-box">
+          <a href="img/order06.jpg" target="_blank">
+            <img src="img/order06.jpg" alt="在庫管理2">
+          </a>
+        </div>
+
+        <div class="danger">
+          期限管理は慎重に行ってください。期限切れ商品は店内でスタッフが飲用しても構いません。
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+
+  <script>
+
+    function showTab(type) {
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+
+          tab.classList.remove("active");
+
+        });
+
+      document
+        .querySelectorAll(".content")
+        .forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+      document
+        .querySelector(
+          `.tab[onclick="showTab('${type}')"]`
+        )
+        .classList.add("active");
+
+      document
+        .getElementById(type)
+        .classList.add("active");
 
     }
 
-    firstMatch.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
+  </script>
+
+  </script>
+
+  <script>
+
+    window.addEventListener("load", () => {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
+
+      const keyword =
+        params.get("search");
+
+      if (!keyword) return;
+
+      const walker =
+        document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
+
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+
+      let firstMatch = null;
+
+      nodes.forEach(node => {
+
+        if (
+          node.parentElement &&
+          ["SCRIPT", "STYLE"]
+            .includes(node.parentElement.tagName)
+        ) {
+          return;
+        }
+
+        const text = node.textContent;
+
+        if (text.includes(keyword)) {
+
+          const span =
+            document.createElement("span");
+
+          span.innerHTML =
+            text.replaceAll(
+              keyword,
+              `<mark class="search-highlight">${keyword}</mark>`
+            );
+
+          node.parentNode.replaceChild(
+            span,
+            node
+          );
+
+          if (!firstMatch) {
+            firstMatch =
+              span.querySelector("mark");
+          }
+
+        }
+
+      });
+
+      if (firstMatch) {
+
+        const targetContent =
+          firstMatch.parentElement.closest(".content");
+
+        if (
+          targetContent &&
+          !targetContent.classList.contains("active")
+        ) {
+
+          showTab(targetContent.id);
+
+        }
+
+        firstMatch.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      }
+
     });
 
-  }
-
-});
-
-</script>
+  </script>
 
 </body>
+
 </html>
