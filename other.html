@@ -186,10 +186,11 @@
 
   </div>
 
-  <div id="rule" class="content active">
+  <div id="rule" class="content">
+
     <div class="block">
 
-      <h2>店舗共有事項</h2>
+      <h2>運用ルール</h2>
 
       <div class="rule">
 
@@ -197,21 +198,9 @@
 
         <p class="tight">【お友達特典】</p>
         <p>・いつでも初回料金(L&G6,500円)</p>
-        <P>・ラドンマット、ゴーグル無料</P>
+        <p>・ラドンマット、ゴーグル無料</p>
         <p>・空き状況によりダブル可能</p>
         <p>・来店時空き状況により無料L30追加可能(ただし、事前確保は不可)</p>
-        <br>
-        <p class="tight">【誕生月特典】</p>
-        <p>・お誕生月であれば一度だけL30を無料追加可能</p>
-        <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
-        <br>
-        <p class="tight">【紹介特典】</p>
-        <p>・紹介者が一度でも来店したことがあるのが条件です。</p>
-        <P>・紹介した人、された人どちらにもL30を無料追加可能</P>
-        <P>・使用後は顧客特性に使用済みの有無の記載をおねがいします。</P>
-        <br>
-        <p class="tight">【Lチケットについて】</p>
-        <p>・初回L3,60チケットやL30×6,10,24チケットでラドンガス吸引はできません。</p>
 
         <div class="note">
           例外として、オーナーが許可した場合はそのお客様に限り使用可能となります。
@@ -219,38 +208,75 @@
 
       </div>
 
+    </div>
+
+  </div>
+
+  <div id="other" class="content active">
+
+    <div class="block">
+
+      <h2>その他情報</h2>
+
       <div class="rule">
 
-        <h3>② 小泉さんのチケットについて</h3>
+        <h3>① 小泉さんのチケットについて</h3>
 
-        <p>・ここに内容を記載現在所持しているL30×10回のチケットについては、ポイントの付与は無しでお願いします。</p>
+        <p>
+          現在所持しているL30×10回のチケットについては、
+          ポイントの付与は無しでお願いします。
+        </p>
 
       </div>
 
       <div class="rule">
 
-        <h3>③ レプトン水入れ替え作業日程</h3>
+        <h3>② レプトン水入れ替え作業日程</h3>
 
         <p>・毎月15日と月の最終日の計2回</p>
-        <p>例：5月15日、5月31日の朝に入れ替え作業を行うため、前日の夜に準備をおねがいします。</p>
+        <p>・前日の夜に準備をお願いします。</p>
 
       </div>
 
       <div class="rule">
 
-        <h3>④ New Scan(ニュースキャン)について</h3>
+        <h3>③ News Scan(ニュースキャン)について</h3>
 
         <p>・初回料金は6,500円</p>
         <p>・連月の場合は500円引き</p>
-        <p>・こちらからニュースキャンを勧めた場合のみ初回は無料となります。</p>
+        <p>・こちらからニュースキャンを勧めた場合のみ初回無料</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="scan" class="content">
+
+    <div class="block">
+
+      <h2>今後追加予定</h2>
+
+      <div class="rule">
+
+        <h3>① 足のむくみが気になる方について</h3>
+
+        <p>・まずは2～3日に1回を5セットくらい</p>
+        <p>・その後は週1くらい</p>
+
+        <div class="note">
+          ミトコンドリアが活性化することで、
+          デトックスが促進されるので、
+          水素吸引＋ゴッドクリーナーの組み合わせが効果的です。
+        </div>
 
       </div>
 
       <div class="rule">
 
-        <h3>④ 一時的な運用ルール</h3>
+        <h3>② 一時的な運用ルール</h3>
 
-        <p>・ここに内容を記載</p>
         <p>・ここに内容を記載</p>
 
         <div class="danger">
@@ -258,7 +284,9 @@
         </div>
 
       </div>
+
     </div>
+
   </div>
 
   <div id="other" class="content active">
@@ -286,134 +314,134 @@
       <div class="rule">
 
         <h3>① 足のむくみが気になる方について</h3>
+      </div>
+      <script>
 
-        <script>
+        window.addEventListener("load", () => {
 
-          window.addEventListener("load", () => {
+          const params =
+            new URLSearchParams(
+              window.location.search
+            );
 
-            const params =
-              new URLSearchParams(
-                window.location.search
-              );
+          const keyword =
+            params.get("search");
 
-            const keyword =
-              params.get("search");
+          if (!keyword) return;
 
-            if (!keyword) return;
+          const walker =
+            document.createTreeWalker(
+              document.body,
+              NodeFilter.SHOW_TEXT
+            );
 
-            const walker =
-              document.createTreeWalker(
-                document.body,
-                NodeFilter.SHOW_TEXT
-              );
+          const nodes = [];
 
-            const nodes = [];
+          while (walker.nextNode()) {
+            nodes.push(walker.currentNode);
+          }
 
-            while (walker.nextNode()) {
-              nodes.push(walker.currentNode);
+          let firstMatch = null;
+
+          nodes.forEach(node => {
+
+            if (
+              node.parentElement &&
+              ["SCRIPT", "STYLE"]
+                .includes(node.parentElement.tagName)
+            ) {
+              return;
             }
 
-            let firstMatch = null;
+            const text = node.textContent;
 
-            nodes.forEach(node => {
+            if (text.includes(keyword)) {
 
-              if (
-                node.parentElement &&
-                ["SCRIPT", "STYLE"]
-                  .includes(node.parentElement.tagName)
-              ) {
-                return;
-              }
+              const span =
+                document.createElement("span");
 
-              const text = node.textContent;
-
-              if (text.includes(keyword)) {
-
-                const span =
-                  document.createElement("span");
-
-                span.innerHTML =
-                  text.replaceAll(
-                    keyword,
-                    `<mark class="search-highlight">${keyword}</mark>`
-                  );
-
-                node.parentNode.replaceChild(
-                  span,
-                  node
+              span.innerHTML =
+                text.replaceAll(
+                  keyword,
+                  `<mark class="search-highlight">${keyword}</mark>`
                 );
 
-                if (!firstMatch) {
-                  firstMatch =
-                    span.querySelector("mark");
-                }
+              node.parentNode.replaceChild(
+                span,
+                node
+              );
 
+              if (!firstMatch) {
+                firstMatch =
+                  span.querySelector("mark");
               }
-
-            });
-
-            if (firstMatch) {
-
-              const targetContent =
-                firstMatch.closest(".content");
-
-              if (
-                targetContent &&
-                !targetContent.classList.contains("active")
-              ) {
-
-                const targetId =
-                  targetContent.id;
-
-                if (typeof showTab === "function") {
-                  showTab(targetId);
-                }
-
-              }
-
-              firstMatch.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-              });
 
             }
 
           });
 
-        </script>
-        <script>
+          if (firstMatch) {
 
-          function showTab(type) {
+            const targetContent =
+              firstMatch.closest(".content");
 
-            document
-              .querySelectorAll(".tab")
-              .forEach(tab => {
+            if (
+              targetContent &&
+              !targetContent.classList.contains("active")
+            ) {
 
-                tab.classList.remove("active");
+              const targetId =
+                targetContent.id;
 
-              });
+              if (typeof showTab === "function") {
+                showTab(targetId);
+              }
 
-            document
-              .querySelectorAll(".content")
-              .forEach(content => {
+            }
 
-                content.classList.remove("active");
-
-              });
-
-            document
-              .querySelector(
-                `.tab[onclick="showTab('${type}')"]`
-              )
-              .classList.add("active");
-
-            document
-              .getElementById(type)
-              .classList.add("active");
+            firstMatch.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
 
           }
 
-        </script>
+        });
+
+      </script>
+      <script>
+
+        function showTab(type) {
+
+          document
+            .querySelectorAll(".tab")
+            .forEach(tab => {
+
+              tab.classList.remove("active");
+
+            });
+
+          document
+            .querySelectorAll(".content")
+            .forEach(content => {
+
+              content.classList.remove("active");
+
+            });
+
+          document
+            .querySelector(
+              `.tab[onclick="showTab('${type}')"]`
+            )
+            .classList.add("active");
+
+          document
+            .getElementById(type)
+            .classList.add("active");
+
+        }
+
+      </script>
 
 </body>
 
