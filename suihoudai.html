@@ -226,7 +226,6 @@
 
                     <h3>各種吸い放題に大きな違いはありません</h3>
 
-                    <br>
                     <p>① 1日の最大吸引可能時間が決められている<br>
                         ② 月額制(割引適用者と通常の人がいる)<br>
                         ③ 再加入の際は一律通常料金でのご案内<br>
@@ -234,71 +233,91 @@
                         ⑤ 予約は最大2枠まで</p>
 
                 </div>
-                <div class="block">
+            </div>
 
-                    <h2>吸い放題</h2>
+            <div class="block">
 
-                    <div class="rule">
-                        <h3>吸い放題(60分)</h3>
-                        <p>① 1日最大60分の吸引が可能<br>
-                            ② ドリンクは1度の施術で2杯まで無料。3杯目からは200円～<br>
-                            ③ 月額制<br>
-                        <div class="note">
-                            月額1万円の方と2万円の方がいます。<br>
-                            1万円＝吸い放題、2万円＝吸い放題(通常)　とわけています。<br>
-                        </div>
-                        <!--
+                <h2>吸い放題</h2>
+
+                <div class="rule">
+                    <h3>吸い放題(60分)</h3>
+                    <p>① 1日最大60分の吸引が可能<br>
+                        ② ドリンクは1度の施術で2杯まで無料。3杯目からは200円～<br>
+                        ※無料ドリンクは3杯目から200円<br>
+                        ③ 月額制<br>
+                    <div class="note">
+                        月額1万円の方と2万円の方がいます。<br>
+                        1万円＝吸い放題、2万円＝吸い放題(通常)　とわけています。<br>
+                    </div>
+                    <!--
                     ④ <br>
                     ⑤ <br>                 
                     -->
-                        </p>
-                    </div>
+                    </p>
                 </div>
-
-
-
             </div>
 
-            <!-- レプトンガス -->
-            <div id="lepton" class="content">
+            <div class="block">
 
-                <div class="block">
+                <h2>吸い放題プラス</h2>
 
-                    <h2>レプトンガス</h2>
-
-                    <div class="rule">
-
-                        <h3>① 設定項目</h3>
-
-                        <p>内容を記載</p>
-
-                        <div class="note">
-                            補足事項
-                        </div>
-
+                <div class="rule">
+                    <h3>吸い放題プラス(90分)</h3>
+                    <p>① 1日最大90分の吸引が可能<br>
+                        ② ドリンクは1度の施術で2杯まで無料。3杯目からは200円～<br>
+                        ※無料ドリンクは4杯目から200円<br>
+                        ③ 月額制<br>
+                    <div class="note">
+                        月額1.5万円の方と3万円の方がいます。<br>
+                        1.5万円＝吸い放題プラス、3万円＝吸い放題プラス(通常)　とわけています。<br>
                     </div>
-
+                    <!--
+                    ④ <br>
+                    ⑤ <br>                 
+                    -->
+                    </p>
                 </div>
-
             </div>
 
-            <!-- 機械のスペック -->
-            <div id="spec" class="content">
+            <div class="block">
 
-                <div class="block">
+                <h2>吸い放題シークレット</h2>
 
-                    <h2>機械のスペック</h2>
+                <div class="rule">
+                    <h3>吸い放題プレミア(120分)</h3>
+                    <p>① 1日最大120分の吸引が可能<br>
+                        ② ドリンクは1度の施術で2杯まで無料。3杯目からは200円～<br>
+                        ※無料ドリンクは5杯目から200円<br>
+                        ③ 月額制<br>
+                    <div class="note">
+                        月額2万円の方と4万円の方がいます。<br>
+                        2万円＝吸い放題プレミア、4万円＝吸い放題プレミア(通常)　とわけています。<br>
+                    </div>
+                    <!--
+                    ④ <br>
+                    ⑤ <br>                 
+                    -->
+                    </p>
+                </div>
+            </div>
 
-                    <div class="rule">
+        </div>
 
-                        <h3>① エラー発生時</h3>
+        <!-- レプトンガス -->
+        <div id="lepton" class="content">
 
-                        <p>対応内容を記載</p>
+            <div class="block">
 
-                        <div class="danger">
-                            必ず確認する事項
-                        </div>
+                <h2>レプトンガス</h2>
 
+                <div class="rule">
+
+                    <h3>① 設定項目</h3>
+
+                    <p>内容を記載</p>
+
+                    <div class="note">
+                        補足事項
                     </div>
 
                 </div>
@@ -307,27 +326,52 @@
 
         </div>
 
-        <script>
+        <!-- 機械のスペック -->
+        <div id="spec" class="content">
 
-            function showTab(type) {
+            <div class="block">
 
-                document.querySelectorAll(".tab")
-                    .forEach(tab => tab.classList.remove("active"));
+                <h2>機械のスペック</h2>
 
-                document.querySelectorAll(".content")
-                    .forEach(content => content.classList.remove("active"));
+                <div class="rule">
 
-                document
-                    .querySelector(`.tab[onclick="showTab('${type}')"]`)
-                    .classList.add("active");
+                    <h3>① エラー発生時</h3>
 
-                document
-                    .getElementById(type)
-                    .classList.add("active");
+                    <p>対応内容を記載</p>
 
-            }
+                    <div class="danger">
+                        必ず確認する事項
+                    </div>
 
-        </script>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function showTab(type) {
+
+            document.querySelectorAll(".tab")
+                .forEach(tab => tab.classList.remove("active"));
+
+            document.querySelectorAll(".content")
+                .forEach(content => content.classList.remove("active"));
+
+            document
+                .querySelector(`.tab[onclick="showTab('${type}')"]`)
+                .classList.add("active");
+
+            document
+                .getElementById(type)
+                .classList.add("active");
+
+        }
+
+    </script>
 
 </body>
 
