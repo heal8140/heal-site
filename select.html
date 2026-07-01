@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>セレクトプラン | heal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            background: #f2f2f2;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background: #3a3a3a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 14px 10px;
+            text-align: center;
+            background: #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        .tab:hover {
+            background: #d0d0d0;
+        }
+
+        .tab.active {
+            background: #3a3a3a;
+            color: #fff;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .block {
+            background: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .05);
+            margin-bottom: 20px;
+        }
+
+        .block h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 20px;
+            border-left: 4px solid #3a3a3a;
+            padding-left: 10px;
+        }
+
+        .rule {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .rule:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .rule h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .rule h4 {
+            margin: 15px 0 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .rule p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .image-box {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        }
+
+        .note {
+            margin-top: 10px;
+            background: #fff3cd;
+            border-left: 4px solid #ffcc00;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .danger {
+            margin-top: 10px;
+            background: #ffe5e5;
+            border-left: 4px solid #ff4d4d;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .info {
+            margin-top: 10px;
+            background: #f1f1f1;
+            border-left: 4px solid #9e9e9e;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        @media(max-width:768px) {
+
+            .block {
+                padding: 18px;
+            }
+
+            .tabs {
+                gap: 8px;
+            }
+
+            .tab {
+                flex: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>セレクトプラン</h1>
+    </header>
+
+    <div class="container">
+
+        <a href="index.html" class="back">
+            ← 戻る
+        </a>
+
+        <div class="tabs">
+
+            <div class="tab active" onclick="showTab('basic')">
+                各種セレクトプラン
+            </div>
+
+            <div class="tab" onclick="showTab('lepton')">
+                注意事項
+            </div>
+
+            <div class="tab" onclick="showTab('spec')">
+                Q&A
+            </div>
+
+        </div>
+
+        <!-- 各種セレクトプラン -->
+        <div id="basic" class="content active">
+
+            <div class="block">
+
+                <h2>共通の内容</h2>
+
+                <div class="rule">
+
+                    <p>① 1回分は30分単位での使用<br>
+                        ② 月額制<br>
+                        ③ チケット消費後は契約プランの1回あたりの料金でL追加施術を受けられる<br>
+                        ④ Gの追加施術が通常価格より安い価格で受けられる<br>
+                        ⑤ 予約枠の制限は無し<br>
+                        ⑥ドリンクは30分の施術で1杯まで無料。2杯目からは200円～<br>
+                        ただし、30分延長毎に1杯無料<br>
+                    </p>
+
+
+                </div>
+            </div>
+
+            <div class="block">
+
+                <h2>料金比較</h2>
+
+                <div class="rule">
+                    <h3>セレクト4</h3>
+                    <p>① 30分 × 4回分<br>
+                        ② 月額制(8,800円)(単価2,200円)<br>
+                    </p>
+
+                    <h3>セレクト8</h3>
+                    <p>① 30分 × 8回分<br>
+                        ② 月額制(14,400円)(単価1,800円)<br>
+                    </p>
+
+                    <h3>セレクト16</h3>
+                    <p>① 30分 × 16回分<br>
+                        ② 月額制(21,600円)(単価1,350円)<br>
+                    </p>
+
+                    <h3>セレクト30</h3>
+                    <p>① 30分 × 30回分<br>
+                        ② 月額制(30,000円)(単価1,000円)<br>
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="block">
+
+                <h2>案内資料</h2>
+
+                <div class="rule">
+                    <h3>セレクトプラン料金表</h3>
+                    <div class="image-box">
+                        <a href="img/selecti01.jpg" target="_blank">
+                            <img src="img/selecti01.jpg" alt="セレクトプラン1">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 注意事項 -->
+        <div id="lepton" class="content">
+
+            <div class="block">
+
+                <h2>注意事項</h2>
+
+                <div class="rule">
+
+                    <h3>① お客様のプランの間違いに注意</h3>
+
+                    <p>過去にプランの間違いにより、お客様にご迷惑をおかけしたことがあります。</p>
+                    <p>ご案内前に必ずお客様のプランを確認してください。<br>
+                        レプトンの時間設定にも注意してください。<br>
+                    <div class="note">
+                        過去に吸い放題プレミアの方に、吸い放題プラス(90分)の時間設定をしてしまったことがありクレームになったことがあります。<br>
+                    </div>
+                    <div class="danger">
+                        特にお客様がプラン変更された月には十分注意して下さい。<br>
+                    </div>
+
+                    </p>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 機械のスペック -->
+        <div id="spec" class="content">
+
+            <div class="block">
+
+                <h2>機械のスペック</h2>
+
+                <div class="rule">
+
+                    <h3>① エラー発生時</h3>
+
+                    <p>対応内容を記載</p>
+
+                    <div class="danger">
+                        必ず確認する事項
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function showTab(type) {
+
+            document.querySelectorAll(".tab")
+                .forEach(tab => tab.classList.remove("active"));
+
+            document.querySelectorAll(".content")
+                .forEach(content => content.classList.remove("active"));
+
+            document
+                .querySelector(`.tab[onclick="showTab('${type}')"]`)
+                .classList.add("active");
+
+            document
+                .getElementById(type)
+                .classList.add("active");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
