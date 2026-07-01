@@ -279,133 +279,134 @@
         <h3>① 足のむくみが気になる方について</h3>
       </div>
     </div>
-    <script>
+  </div>
+  <script>
 
-      window.addEventListener("load", () => {
+    window.addEventListener("load", () => {
 
-        const params =
-          new URLSearchParams(
-            window.location.search
-          );
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
 
-        const keyword =
-          params.get("search");
+      const keyword =
+        params.get("search");
 
-        if (!keyword) return;
+      if (!keyword) return;
 
-        const walker =
-          document.createTreeWalker(
-            document.body,
-            NodeFilter.SHOW_TEXT
-          );
+      const walker =
+        document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
 
-        const nodes = [];
+      const nodes = [];
 
-        while (walker.nextNode()) {
-          nodes.push(walker.currentNode);
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+
+      let firstMatch = null;
+
+      nodes.forEach(node => {
+
+        if (
+          node.parentElement &&
+          ["SCRIPT", "STYLE"]
+            .includes(node.parentElement.tagName)
+        ) {
+          return;
         }
 
-        let firstMatch = null;
+        const text = node.textContent;
 
-        nodes.forEach(node => {
+        if (text.includes(keyword)) {
 
-          if (
-            node.parentElement &&
-            ["SCRIPT", "STYLE"]
-              .includes(node.parentElement.tagName)
-          ) {
-            return;
-          }
+          const span =
+            document.createElement("span");
 
-          const text = node.textContent;
-
-          if (text.includes(keyword)) {
-
-            const span =
-              document.createElement("span");
-
-            span.innerHTML =
-              text.replaceAll(
-                keyword,
-                `<mark class="search-highlight">${keyword}</mark>`
-              );
-
-            node.parentNode.replaceChild(
-              span,
-              node
+          span.innerHTML =
+            text.replaceAll(
+              keyword,
+              `<mark class="search-highlight">${keyword}</mark>`
             );
 
-            if (!firstMatch) {
-              firstMatch =
-                span.querySelector("mark");
-            }
+          node.parentNode.replaceChild(
+            span,
+            node
+          );
 
+          if (!firstMatch) {
+            firstMatch =
+              span.querySelector("mark");
           }
-
-        });
-
-        if (firstMatch) {
-
-          const targetContent =
-            firstMatch.closest(".content");
-
-          if (
-            targetContent &&
-            !targetContent.classList.contains("active")
-          ) {
-
-            const targetId =
-              targetContent.id;
-
-            if (typeof showTab === "function") {
-              showTab(targetId);
-            }
-
-          }
-
-          firstMatch.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
 
         }
 
       });
 
-    </script>
-    <script>
+      if (firstMatch) {
 
-      function showTab(type) {
+        const targetContent =
+          firstMatch.closest(".content");
 
-        document
-          .querySelectorAll(".tab")
-          .forEach(tab => {
+        if (
+          targetContent &&
+          !targetContent.classList.contains("active")
+        ) {
 
-            tab.classList.remove("active");
+          const targetId =
+            targetContent.id;
 
-          });
+          if (typeof showTab === "function") {
+            showTab(targetId);
+          }
 
-        document
-          .querySelectorAll(".content")
-          .forEach(content => {
+        }
 
-            content.classList.remove("active");
-
-          });
-
-        document
-          .querySelector(
-            `.tab[onclick="showTab('${type}')"]`
-          )
-          .classList.add("active");
-
-        document
-          .getElementById(type)
-          .classList.add("active");
+        firstMatch.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
       }
 
-    </script>
+    });
+
+  </script>
+  <script>
+
+    function showTab(type) {
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+
+          tab.classList.remove("active");
+
+        });
+
+      document
+        .querySelectorAll(".content")
+        .forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+      document
+        .querySelector(
+          `.tab[onclick="showTab('${type}')"]`
+        )
+        .classList.add("active");
+
+      document
+        .getElementById(type)
+        .classList.add("active");
+
+    }
+
+  </script>
 
 </body>
 
