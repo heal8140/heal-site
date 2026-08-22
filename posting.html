@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ポスティング | heal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            background: #f2f2f2;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background: #3a3a3a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 14px 10px;
+            text-align: center;
+            background: #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .tab:hover {
+            background: #d0d0d0;
+        }
+
+        .tab.active {
+            background: #3a3a3a;
+            color: #fff;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .block {
+            background: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .block h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 20px;
+            border-left: 4px solid #3a3a3a;
+            padding-left: 10px;
+        }
+
+        .rule {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .rule:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .rule h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .rule h4 {
+            margin: 15px 0 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .rule p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .note {
+            margin-top: 10px;
+            background: #fff3cd;
+            border-left: 4px solid #ffcc00;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .danger {
+            margin-top: 10px;
+            background: #ffe5e5;
+            border-left: 4px solid #ff4d4d;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .info {
+            margin-top: 10px;
+            background: #f1f1f1;
+            border-left: 4px solid #9e9e9e;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        /* 間隔調整 */
+
+        .tight {
+            margin: 2px 0;
+        }
+
+        @media(max-width:768px) {
+
+            .block {
+                padding: 18px;
+            }
+
+            .tabs {
+                gap: 8px;
+            }
+
+            .tab {
+                flex: 1;
+                text-align: center;
+            }
+
+        }
+
+        .search-highlight {
+            background: #fff176;
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ポスティング</h1>
+    </header>
+
+    <div class="container">
+
+        <a href="index.html" class="back">
+            ← 戻る
+        </a>
+
+        <div class="tabs">
+
+            <div class="tab active" onclick="showTab('new')">
+                投函ルール・注意点
+            </div>
+
+            <div class="tab" onclick="showTab('repeat')">
+                NG物件
+            </div>
+
+            <div class="tab" onclick="showTab('booking')">
+                クレーム内容
+            </div>
+
+        </div>
+
+        <!-- 投函ルール・注意点 -->
+        <div id="new" class="content active">
+
+            <div class="block">
+
+                <h2>投函ルール・注意点</h2>
+
+                <div class="rule">
+
+                    <h3>決められたエリアに投函</h3>
+
+                    <p>・未投函物件に投函します。</p>
+                    <div class="note">
+                        投函物件は地図で確認してください。<br>
+                        ※投函物件の重複にご注意ください。</div>
+                    <P>・投函後は投函した物件の名前が分かる箇所を写真で撮影してください。</P>
+                    <p>・投函終了後はその写真をLINEグループのノートへ投稿してください。</p>
+                </div>
+
+            </div>
+
+            <div class="rule">
+
+                <h3>注意点</h3>
+
+                <p>以下の様なステッカーが貼ってあるポストには投函しないでください。</p>
+
+                <div class="image-box">
+                    <a href="img/uriage-posting01.png" target="_blank">
+                        <img src="img/uriage-posting01.png" alt="ポスティング1">
+                    </a>
+                </div>
+
+                <div class="image-box">
+                    <a href="img/uriage-posting02.png" target="_blank">
+                        <img src="img/uriage-posting02.png" alt="ポスティング2">
+                    </a>
+                </div>
+
+                <div class="danger">
+                    組合・管理人室への投函には要注意してください。<br>
+                    誤って投函してしまった場合は、取り出してください。
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- NG物件 -->
+        <div id="repeat" class="content">
+
+            <div class="block">
+
+                <h2>NG物件</h2>
+
+                <div class="rule">
+
+                    <h3>今後追加予定</h3>
+
+                    <p></p>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <p></p>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <p></p>
+                    <p></p>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <p></p>
+                    <p></p>
+                    <p></p>
+
+                    <div class="note">
+                        
+                    </div>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- クレーム内容 -->
+        <div id="booking" class="content">
+
+            <div class="block">
+
+                <h2>クレーム内容</h2>
+
+                <div class="rule">
+
+                    <h3>今後追加予定</h3>
+
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+
+                </div>
+
+            </div>
+
+            <div class="block">
+
+                <h2></h2>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <br>
+
+                    <p><br>
+                    <p></p>
+
+                    <p></p>
+                    <p></p>
+
+                    <p></p>
+                    <p></p>
+
+                    <p><br>
+                        </p>
+                    <p></p>
+
+                </div>
+
+                <div class="rule">
+
+                    <h3></h3>
+
+                    <br>
+
+                    <p></p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function showTab(type) {
+
+            document
+                .querySelectorAll(".tab")
+                .forEach(tab => {
+
+                    tab.classList.remove("active");
+
+                });
+
+            document
+                .querySelectorAll(".content")
+                .forEach(content => {
+
+                    content.classList.remove("active");
+
+                });
+
+            document
+                .querySelector(
+                    `.tab[onclick="showTab('${type}')"]`
+                )
+                .classList.add("active");
+
+            document
+                .getElementById(type)
+                .classList.add("active");
+
+        }
+
+    </script>
+
+    <script>
+
+        window.addEventListener("load", () => {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            const keyword =
+                params.get("search");
+
+            if (!keyword) return;
+
+            const walker =
+                document.createTreeWalker(
+                    document.body,
+                    NodeFilter.SHOW_TEXT
+                );
+
+            const nodes = [];
+
+            while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+            }
+
+            let firstMatch = null;
+
+            nodes.forEach(node => {
+
+                if (
+                    node.parentElement &&
+                    ["SCRIPT", "STYLE"]
+                        .includes(node.parentElement.tagName)
+                ) {
+                    return;
+                }
+
+                const text = node.textContent;
+
+                if (text.includes(keyword)) {
+
+                    const span =
+                        document.createElement("span");
+
+                    span.innerHTML =
+                        text.replaceAll(
+                            keyword,
+                            `<mark class="search-highlight">${keyword}</mark>`
+                        );
+
+                    node.parentNode.replaceChild(
+                        span,
+                        node
+                    );
+
+                    if (!firstMatch) {
+                        firstMatch =
+                            span.querySelector("mark");
+                    }
+
+                }
+
+            });
+
+            if (firstMatch) {
+
+                const targetContent =
+                    firstMatch.parentElement.closest(".content");
+
+                if (
+                    targetContent &&
+                    !targetContent.classList.contains("active")
+                ) {
+
+                    const targetId =
+                        targetContent.id;
+
+                    if (typeof showTab === "function") {
+                        showTab(targetId);
+                    }
+
+                }
+
+                firstMatch.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
