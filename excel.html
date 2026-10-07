@@ -253,6 +253,37 @@
         </div>
 
       </div>
+
+      <div class="block">
+
+        <h2>売上集計の売上金に金額が反映されない場合</h2>
+
+        <div class="rule">
+
+          <h3>以下を確認をしてください。</h3>
+
+          <p>※準備としてまず、A列～AE列を選択し右クリックして「再表示」を選択して下さい</p>
+          
+          <p>
+           「非表示列」に正しい関数が入っているか。
+          </p>
+
+          <p>B列 → =IF(A4="","",MONTH(A4))</p>
+          <p>C列 → =IF(A4="","",DAY(A4))</p>
+          <p>H列 → =IFERROR(IF(F4<>"",VLOOKUP(F4,メニュー!B:C,2,FALSE),"")*G4,"")</p>
+          <p>K列 → =IFERROR(IF(I4<>"",VLOOKUP(I4,メニュー!E:F,2,FALSE),"")*J4,"")</p>
+          <p>N列 → =IFERROR(IF(L4<>"",VLOOKUP(L4,メニュー!H:I,2,FALSE),"")*M4,"")</p>
+          <p>Q列 → =IFERROR(IF(O4<>"",VLOOKUP(O4,メニュー!$K:$L,2,FALSE),"")*P4,"")</p>
+          <p>T列 → =IFERROR(IF(R4<>"",VLOOKUP(R4,メニュー!$K:$L,2,FALSE),"")*S4,"")</p>
+          <p>W列 → =IFERROR(IF(U4<>"",VLOOKUP(U4,メニュー!$K:$L,2,FALSE),"")*V4,"")</p>
+          <br>
+          <p>上記の内容で正しく、入力されているのに直らない場合は「メニュー」のシートを確認してください。</p>
+          
+          <p>修正後の列全てにコピーしてください</p>
+        </div>
+
+      </div>
+      
       <div class="block">
         <div class="rule">
 
