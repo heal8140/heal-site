@@ -1,1 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Web関係 | heal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background: #3a3a3a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 140px;
+      padding: 12px 16px;
+      background: #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .tab.active {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .block {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .block h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 20px;
+      border-left: 4px solid #3a3a3a;
+      padding-left: 10px;
+    }
+
+    .rule {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .rule:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .rule h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .rule h4 {
+      margin: 15px 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .rule p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 10px;
+      background: #fff3cd;
+      border-left: 4px solid #ffcc00;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .danger {
+      margin-top: 10px;
+      background: #ffe5e5;
+      border-left: 4px solid #ff4d4d;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .support-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #3a3a3a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .support-link:hover {
+      opacity: 0.9;
+    }
+
+    .manual-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    @media(max-width:768px) {
+
+      .block {
+        padding: 18px;
+      }
+
+      .tabs {
+        gap: 8px;
+      }
+
+      .tab {
+        flex: 1;
+        min-width: unset;
+      }
+
+    }
+
+    .search-highlight {
+      background: #fff176;
+      color: #000;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>web関係</h1>
+  </header>
+
+  <div class="container">
+
+    <a href="index.html" class="back">
+      ← 戻る
+    </a>
+
+    <div class="tabs">
+
+      <div class="tab active" onclick="showTab('manual')">
+        マニュアル
+      </div>
+
+      <div class="tab" onclick="showTab('support')">
+        公式サポート
+      </div>
+
+    </div>
+
+    <!-- マニュアル -->
+    <div id="manual" class="tab-content active">
+
+      <!-- 基本操作 -->
+      <div class="block">
+
+        <h2>オンラインショップの画像追加方法</h2>
+
+        <div class="rule">
+
+          <h3>新しく商品画像を入れる場合はPCのフォルダに画像追加していけばいい？</h3>
+
+          <p>はい！ただし、PCのフォルダに画像を追加するだけでは、公開サイトには反映されないので、そこだけ注意してください。<br>
+            今後は以下の流れで管理するのがおすすめです！</p>
+
+          <h3>① パソコンに商品画像を保存</h3>
+          <p>PCの heal-shop-main フォルダ内にある images に新しい画像を追加します。</p>
+          <p>例えば、8番目の商品を追加する場合は、</p>
+
+          <p>heal-shop-main/<br>
+          ├── images/<br>
+          │   ├── product1.jpeg<br>
+          │   ├── product2.jpeg<br>
+          │   ├── product7.jpg<br>
+          │   ├── product8.jpg      ← 新しい画像<br>
+          │   └── product8-1.jpg    ← 追加画像<br>
+          ├── index.html<br>
+          ├── products.json<br>
+          ├── shop.js<br>
+          └── style.css</p>
+          <br>
+          <h3>① パソコンに商品画像を保存</h3>
+          <p>現在は、このファイルで商品を一元管理しています。<br>
+            新しい商品について、商品名・価格・説明・画像パス・Stripe決済リンクなどを登録します。<br>
+            例えば画像の指定は、</p>
+          <p>"image": "images/product8.jpg"</p>
+          <br>
+          <p>となります。<br>
+            ※実際に追加するときは、既存の商品データと同じ項目・形式に合わせます。</p>
+          <h3>③ GitHubに反映させる</h3>
+          <p>PCに保存した新しい画像をGitHubの images フォルダへアップロードします。<br>
+            さらに、編集した products.json もGitHubに反映します。<br>
+            変更をコミットすると、通常は数分で公開サイトに反映されます。</p>
+
+        </div>
+
+      </div>
+
+      <!-- 来店時の対応 -->
+      <div class="block">
+
+        <h2>来店時の対応 / 予約の取り方</h2>
+
+        <div class="rule">
+
+          <h3>① 来店時の対応</h3>
+
+          <p>・来店したお客様の予約を開く</p>
+
+          <p>・メニュー / 時間をお客様と最終確認</p>
+
+          <p>・割り当てられた席の確認</p>
+
+          <div class="note">
+            途中で席移動は基本NG（例外はあるが、必ずスタッフ間で共有すること）
+          </div>
+
+          <h3>② 予約の取り方</h3>
+
+          <p>・受付日時で左クリック</p>
+
+          <p>
+            ・メニュー選択 / キーワード検索で顧客紐付け
+          </p>
+
+          <div class="image-box">
+            <a href="img/manual3.png" target="_blank">
+              <img src="img/manual3.png" alt="説明画像" class="manual-image" style="max-width:700px;">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 席管理 -->
+      <div class="block">
+
+        <h2>席管理</h2>
+
+        <div class="rule">
+
+          <h3>① 席の紐ずけ方法</h3>
+
+          <p>
+            ・カミングスーン上の席番号に従って案内
+          </p>
+
+          <p>
+            ・スタッフ間の会話も要注意
+          </p>
+
+          <div class="danger">
+            お客様の名前、席番号での呼び合いは禁止（クレーム防止）
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 接客メモ -->
+      <div class="block">
+
+        <h2>接客メモ / 顧客特性</h2>
+
+        <div class="rule">
+
+          <h3>① 接客メモ</h3>
+
+          <p>
+            ・必要事項の入力（フォーマットは前回のコピペでOK）
+          </p>
+
+          <p>
+            ・引継ぎ事項の記入をする
+          </p>
+
+          <h3>顧客特性の入力（重要）</h3>
+          <p>以下の情報は固定です。</p>
+          <p>お友達特典：有or無　無の場合は無記載でOK<br>
+            10P特典：いつ使用したか(2026/1/29(木)使用済み)。何P貯まっているか(例：10P貯まっています)。<br>
+            誕生日特典：いつ使用したか(2026/1/29(木)使用済み)。<br>
+            プラン案内：11月24日からスタート、日割・12月分サロン支払・カード登録・同意書記入済み。<br>
+            忙しいので検討します。など<br>
+            紹介特典：【287】〇〇様を紹介　未使用<br>
+            【445】〇〇様の紹介　使用済み<br>
+          <p>
+            ・その他NG事項や注意点を必ず記載
+          </p>
+
+          <p>
+            ・例：男性足洗いスタッフNG<br>
+            ・例：糖尿病の為ヒーターOFF<br>
+          </p>
+
+          <div class="danger">
+            未入力はトラブルの原因になる
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- よくあるミス -->
+      <div class="block">
+
+        <h2>よくあるミス</h2>
+
+        <div class="rule">
+
+          <h3>① 注意事項</h3>
+
+          <p>・引継ぎ事項の未入力</p>
+
+          <p>・顧客特性の未入力</p>
+
+          <p>・チケット枚数の未入力、前回のまま</p>
+
+        </div>
+
+      </div>
+
+      <!-- 運用ルール -->
+      <div class="block">
+
+        <h2>運用ルール</h2>
+
+        <div class="rule">
+
+          <h3>① 運用ルール（重要）</h3>
+
+          <p>・席番号ベースで全スタッフ共有</p>
+
+          <p>・お客様の情報は必ず事前確認</p>
+
+          <p>・変更があれば即更新</p>
+
+          <div class="note">
+            ・見れば分かる状態」を常に保つ
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 公式サポート -->
+    <div id="support" class="tab-content">
+
+      <div class="block">
+
+        <h2>公式サポート</h2>
+
+        <div class="rule">
+
+          <h3>サポートサイト</h3>
+
+          <p>
+            ・下記より確認してください
+          </p>
+
+          <a href="https://1cs.jp/support/gcsfaq/" target="_blank" class="support-link">
+            サポートサイトを開く
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function showTab(type) {
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+
+          tab.classList.remove("active");
+
+        });
+
+      document
+        .querySelectorAll(".tab-content")
+        .forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+      document
+        .querySelector(
+          `.tab[onclick="showTab('${type}')"]`
+        )
+        .classList.add("active");
+
+      document
+        .getElementById(type)
+        .classList.add("active");
+
+    }
+
+  </script>
+
+  <script>
+
+    window.addEventListener("load", () => {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
+
+      const keyword =
+        params.get("search");
+
+      if (!keyword) return;
+
+      const walker =
+        document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
+
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+
+      let firstMatch = null;
+
+      nodes.forEach(node => {
+
+        if (
+          node.parentElement &&
+          ["SCRIPT", "STYLE"]
+            .includes(node.parentElement.tagName)
+        ) {
+          return;
+        }
+
+        const text = node.textContent;
+
+        if (text.includes(keyword)) {
+
+          const span =
+            document.createElement("span");
+
+          span.innerHTML =
+            text.replaceAll(
+              keyword,
+              `<mark class="search-highlight">${keyword}</mark>`
+            );
+
+          node.parentNode.replaceChild(
+            span,
+            node
+          );
+
+          if (!firstMatch) {
+            firstMatch =
+              span.querySelector("mark");
+          }
+
+        }
+
+      });
+
+      if (firstMatch) {
+
+        const targetContent =
+          firstMatch.closest(".content");
+
+        if (
+          targetContent &&
+          !targetContent.classList.contains("active")
+        ) {
+
+          const targetId =
+            targetContent.id;
+
+          if (typeof showTab === "function") {
+            showTab(targetId);
+          }
+
+        }
+
+        firstMatch.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
